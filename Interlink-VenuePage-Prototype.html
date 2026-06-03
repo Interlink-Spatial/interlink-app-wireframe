@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Whitmore Estate — Interlink</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Baskervville:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F4F1EC;
+    --stage-bg:#EDE9E2;
+    --rail:#FFFFFF;
+    --rail-tint:#FCFBF9;
+    --ink:#2A2724;
+    --ink-soft:#6E665C;
+    --ink-faint:#9A9189;
+    --line:rgba(42,39,36,0.09);
+    --line-strong:rgba(42,39,36,0.16);
+    --gold:#9A7B4F;
+    --gold-deep:#7E6240;
+    --gold-soft:rgba(154,123,79,0.12);
+    --cta:#2A2724;
+    --white-glass:rgba(255,255,255,0.72);
+    --shadow-sm:0 1px 2px rgba(42,39,36,0.05);
+    --shadow-md:0 6px 24px rgba(42,39,36,0.08);
+    --shadow-lg:0 18px 50px rgba(42,39,36,0.16);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    font-family:'Inter',system-ui,sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+    overflow:hidden;
+  }
+  .serif{font-family:'Cormorant Garamond',serif}
+  .editorial{font-family:'Baskervville',serif}
+
+  /* ============ APP SHELL ============ */
+  .app{display:flex;height:100vh;width:100vw}
+
+  /* ============ LEFT RAIL ============ */
+  .rail{
+    width:344px;flex:0 0 344px;height:100%;
+    background:var(--rail);
+    border-right:1px solid var(--line);
+    display:flex;flex-direction:column;
+    box-shadow:var(--shadow-md);z-index:20;position:relative;
+  }
+  .brand{
+    padding:26px 26px 20px;border-bottom:1px solid var(--line);
+    text-align:center;
+  }
+  .brand-mark{
+    font-family:'Cormorant Garamond',serif;font-weight:500;
+    font-size:25px;letter-spacing:.14em;color:var(--ink);
+    line-height:1.1;text-transform:uppercase;
+  }
+  .brand-sub{
+    font-family:'Cormorant Garamond',serif;font-style:italic;
+    font-size:14px;color:var(--gold);letter-spacing:.06em;margin-top:4px;
+  }
+  .brand-rule{
+    width:34px;height:1px;background:var(--line-strong);margin:12px auto 0;
+  }
+  .powered{
+    margin-top:11px;font-size:9.5px;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--ink-faint);
+  }
+  .powered b{color:var(--gold);font-weight:600}
+
+  /* nav */
+  .nav{flex:1;overflow-y:auto;padding:10px 14px 6px}
+  .nav::-webkit-scrollbar{width:6px}
+  .nav::-webkit-scrollbar-thumb{background:rgba(42,39,36,0.14);border-radius:3px}
+
+  .space{border-radius:12px;margin-bottom:2px}
+  .space-head{
+    display:flex;align-items:center;gap:10px;
+    padding:12px 12px;cursor:pointer;border-radius:12px;
+    transition:background .18s ease;user-select:none;
+  }
+  .space-head:hover{background:var(--rail-tint)}
+  .space.is-open .space-head{background:var(--gold-soft)}
+  .space-dot{
+    width:7px;height:7px;border-radius:50%;flex:0 0 7px;
+    background:var(--line-strong);transition:background .18s,transform .18s;
+  }
+  .space.is-open .space-dot{background:var(--gold);transform:scale(1.25)}
+  .space-titles{flex:1;min-width:0}
+  .space-name{
+    font-size:14.5px;font-weight:500;color:var(--ink);letter-spacing:.01em;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  }
+  .space.is-open .space-name{color:var(--gold-deep)}
+  .space-meta{
+    font-size:11px;color:var(--ink-faint);margin-top:1px;letter-spacing:.02em;
+  }
+  .chev{
+    width:14px;height:14px;flex:0 0 14px;color:var(--ink-faint);
+    transition:transform .22s ease;
+  }
+  .space.is-open .chev{transform:rotate(180deg);color:var(--gold)}
+
+  .subnav{
+    max-height:0;overflow:hidden;transition:max-height .28s ease;
+  }
+  .space.is-open .subnav{max-height:160px}
+  .subnav-inner{padding:2px 0 10px 28px}
+  .subitem{
+    display:flex;align-items:center;gap:10px;
+    padding:8px 12px;border-radius:9px;cursor:pointer;
+    font-size:12.5px;color:var(--ink-soft);transition:background .15s,color .15s;
+  }
+  .subitem:hover{background:var(--rail-tint);color:var(--ink)}
+  .subitem.is-active{background:var(--cta);color:#fff}
+  .subitem.is-active .subicon{color:#fff}
+  .subicon{width:15px;height:15px;color:var(--ink-faint);flex:0 0 15px}
+  .subitem.is-active .subicon{color:#fff}
+
+  /* contact card */
+  .contact{
+    border-top:1px solid var(--line);padding:18px 22px 20px;
+    background:var(--rail-tint);
+  }
+  .contact-row{display:flex;align-items:center;gap:13px;margin-bottom:15px}
+  .headshot{
+    width:50px;height:50px;border-radius:50%;flex:0 0 50px;
+    object-fit:cover;background:linear-gradient(135deg,#cdbfa8,#9a8a6f);
+    border:2px solid #fff;box-shadow:var(--shadow-sm);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Cormorant Garamond',serif;font-size:18px;color:#fff;font-weight:500;
+  }
+  .contact-name{font-size:14px;font-weight:600;color:var(--ink);letter-spacing:.01em}
+  .contact-role{font-size:11.5px;color:var(--ink-soft);margin-top:2px}
+  .contact-yrs{font-size:10.5px;color:var(--gold);margin-top:3px;letter-spacing:.02em}
+  .cta{
+    width:100%;border:none;cursor:pointer;
+    background:var(--cta);color:#fff;border-radius:11px;
+    padding:14px 16px;font-family:'Inter',sans-serif;
+    font-size:13px;font-weight:500;letter-spacing:.04em;
+    display:flex;align-items:center;justify-content:center;gap:9px;
+    transition:transform .15s ease,box-shadow .2s ease,background .2s;
+    box-shadow:var(--shadow-sm);
+  }
+  .cta:hover{transform:translateY(-1px);box-shadow:0 8px 22px rgba(42,39,36,0.22);background:#000}
+  .cta svg{width:16px;height:16px}
+  .cta-sub{
+    text-align:center;font-size:10.5px;color:var(--ink-faint);
+    margin-top:9px;letter-spacing:.03em;
+  }
+
+  /* ============ STAGE ============ */
+  .stage{
+    flex:1;position:relative;height:100%;
+    background:var(--stage-bg);overflow:hidden;
+  }
+  .stage-top{
+    position:absolute;top:20px;left:24px;right:24px;z-index:12;
+    display:flex;align-items:center;justify-content:space-between;
+    pointer-events:none;
+  }
+  .crumb{
+    pointer-events:auto;
+    background:var(--white-glass);
+    -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+    border:1px solid rgba(255,255,255,0.6);
+    border-radius:13px;padding:11px 18px;box-shadow:var(--shadow-md);
+  }
+  .crumb-name{font-family:'Cormorant Garamond',serif;font-size:21px;color:var(--ink);line-height:1;font-weight:500}
+  .crumb-tag{font-size:10.5px;color:var(--gold);letter-spacing:.16em;text-transform:uppercase;margin-top:4px}
+  .chips{display:flex;gap:8px;pointer-events:auto}
+  .chip{
+    background:var(--white-glass);
+    -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+    border:1px solid rgba(255,255,255,0.6);
+    border-radius:11px;padding:9px 14px;box-shadow:var(--shadow-sm);
+    font-size:11.5px;color:var(--ink-soft);display:flex;align-items:center;gap:7px;
+  }
+  .chip svg{width:13px;height:13px;color:var(--gold)}
+  .chip b{color:var(--ink);font-weight:600}
+
+  /* views */
+  .view{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .4s ease}
+  .view.is-active{opacity:1;visibility:visible}
+
+  /* 3D view */
+  .splat-frame{position:absolute;inset:0;width:100%;height:100%;border:none;display:block}
+  .splat-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .splat-photo-wrap{position:absolute;inset:0;background:linear-gradient(135deg,#d8cfc0,#b3a489)}
+  .splat-3dbadge{
+    position:absolute;top:78px;left:24px;z-index:8;
+    background:rgba(42,39,36,0.72);color:#fff;
+    -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+    border-radius:9px;padding:7px 13px;font-size:10.5px;letter-spacing:.08em;
+    display:flex;align-items:center;gap:7px;text-transform:uppercase;
+  }
+  .splat-3dbadge svg{width:13px;height:13px;color:var(--gold)}
+  .hint{
+    position:absolute;left:50%;bottom:96px;transform:translateX(-50%);z-index:8;
+    background:var(--white-glass);
+    -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+    border:1px solid rgba(255,255,255,0.6);border-radius:30px;
+    padding:9px 20px;font-size:12px;color:var(--ink-soft);letter-spacing:.04em;
+    box-shadow:var(--shadow-sm);animation:breathe 3.4s ease-in-out infinite;
+  }
+  @keyframes breathe{0%,100%{opacity:.78}50%{opacity:1}}
+
+  /* staging pills */
+  .staging{
+    position:absolute;left:50%;bottom:26px;transform:translateX(-50%);z-index:10;
+    display:flex;align-items:center;gap:6px;
+    background:var(--white-glass);
+    -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+    border:1px solid rgba(255,255,255,0.6);border-radius:40px;
+    padding:6px;box-shadow:var(--shadow-md);
+  }
+  .staging-label{
+    font-size:10px;color:var(--ink-faint);letter-spacing:.16em;
+    text-transform:uppercase;padding:0 12px 0 14px;
+  }
+  .pill{
+    border:none;background:transparent;cursor:pointer;
+    font-family:'Inter',sans-serif;font-size:12.5px;color:var(--ink-soft);
+    padding:9px 18px;border-radius:30px;transition:all .18s ease;letter-spacing:.02em;
+  }
+  .pill:hover{color:var(--ink)}
+  .pill.is-active{background:var(--cta);color:#fff;box-shadow:var(--shadow-sm)}
+
+  /* GALLERY view */
+  .gallery{position:absolute;inset:0;overflow-y:auto;padding:92px 40px 48px;background:var(--bg)}
+  .gallery::-webkit-scrollbar{width:8px}
+  .gallery::-webkit-scrollbar-thumb{background:rgba(42,39,36,0.14);border-radius:4px}
+  .gallery-grid{
+    column-count:3;column-gap:16px;max-width:1080px;margin:0 auto;
+  }
+  .photo{
+    break-inside:avoid;margin-bottom:16px;border-radius:14px;overflow:hidden;
+    background:linear-gradient(135deg,#ddd4c5,#bcae93);box-shadow:var(--shadow-sm);
+    position:relative;
+  }
+  .photo img{width:100%;display:block}
+  .photo-cap{
+    position:absolute;left:0;right:0;bottom:0;
+    background:linear-gradient(transparent,rgba(42,39,36,0.6));
+    color:#fff;font-size:11.5px;padding:24px 14px 12px;letter-spacing:.03em;
+  }
+
+  /* DETAILS view */
+  .details{position:absolute;inset:0;overflow-y:auto;padding:92px 40px 56px;background:var(--bg)}
+  .details::-webkit-scrollbar{width:8px}
+  .details::-webkit-scrollbar-thumb{background:rgba(42,39,36,0.14);border-radius:4px}
+  .details-inner{max-width:680px;margin:0 auto}
+  .details-kicker{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);text-align:center}
+  .details-title{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:500;text-align:center;margin:8px 0 6px;color:var(--ink)}
+  .details-body{
+    font-family:'Baskervville',serif;font-size:18px;line-height:1.72;
+    color:var(--ink-soft);text-align:center;margin:18px auto 0;max-width:600px;
+  }
+  .specs{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+    background:var(--line);border:1px solid var(--line);border-radius:14px;
+    overflow:hidden;margin:38px auto 0;max-width:600px;
+  }
+  .spec{background:var(--bg);padding:22px 16px;text-align:center}
+  .spec-val{font-family:'Cormorant Garamond',serif;font-size:27px;color:var(--ink);font-weight:500;line-height:1}
+  .spec-key{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);margin-top:8px}
+  .feature-list{
+    list-style:none;max-width:560px;margin:34px auto 0;
+  }
+  .feature-list li{
+    font-family:'Baskervville',serif;font-size:16px;color:var(--ink-soft);
+    padding:13px 0 13px 26px;border-bottom:1px solid var(--line);position:relative;
+  }
+  .feature-list li:before{
+    content:"";position:absolute;left:4px;top:21px;width:6px;height:6px;
+    border-radius:50%;background:var(--gold);
+  }
+
+  /* ============ SCHEDULING MODAL ============ */
+  .overlay{
+    position:fixed;inset:0;z-index:100;background:rgba(30,27,24,0.42);
+    -webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);
+    display:flex;align-items:center;justify-content:center;padding:24px;
+    opacity:0;visibility:hidden;transition:opacity .25s ease;
+  }
+  .overlay.is-open{opacity:1;visibility:visible}
+  .modal{
+    background:var(--bg);border-radius:20px;width:760px;max-width:100%;
+    max-height:90vh;overflow:hidden;box-shadow:var(--shadow-lg);
+    display:flex;transform:translateY(12px) scale(.99);transition:transform .28s ease;
+  }
+  .overlay.is-open .modal{transform:none}
+  .modal-aside{
+    width:266px;flex:0 0 266px;background:var(--cta);color:#fff;
+    padding:34px 28px;display:flex;flex-direction:column;
+  }
+  .modal-aside .ms-mark{font-family:'Cormorant Garamond',serif;font-size:20px;letter-spacing:.1em;text-transform:uppercase}
+  .modal-aside .ms-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;color:rgba(255,255,255,0.65);margin-top:3px}
+  .ms-head-shot{
+    width:62px;height:62px;border-radius:50%;object-fit:cover;margin:30px 0 14px;
+    background:linear-gradient(135deg,#cdbfa8,#9a8a6f);border:2px solid rgba(255,255,255,0.3);
+    display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:22px;
+  }
+  .ms-name{font-size:15px;font-weight:600}
+  .ms-role{font-size:11.5px;color:rgba(255,255,255,0.6);margin-top:3px}
+  .ms-note{
+    font-family:'Baskervville',serif;font-size:14px;line-height:1.6;
+    color:rgba(255,255,255,0.72);margin-top:auto;font-style:italic;
+  }
+  .modal-main{flex:1;padding:30px 32px;overflow-y:auto;position:relative}
+  .modal-close{
+    position:absolute;top:18px;right:20px;border:none;background:transparent;
+    cursor:pointer;color:var(--ink-faint);width:30px;height:30px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;transition:background .15s
+  }
+  .modal-close:hover{background:var(--line)}
+  .modal-h{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:500;color:var(--ink)}
+  .modal-hsub{font-size:12px;color:var(--ink-soft);margin-top:4px;letter-spacing:.02em}
+  .sec-label{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin:24px 0 12px}
+  .dates{display:flex;gap:8px;flex-wrap:wrap}
+  .date{
+    border:1px solid var(--line-strong);background:#fff;border-radius:11px;
+    padding:10px 6px;text-align:center;cursor:pointer;width:62px;transition:all .15s;
+  }
+  .date:hover{border-color:var(--gold)}
+  .date.is-active{background:var(--cta);border-color:var(--cta);color:#fff}
+  .date-dow{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint)}
+  .date.is-active .date-dow{color:rgba(255,255,255,0.6)}
+  .date-num{font-family:'Cormorant Garamond',serif;font-size:21px;margin-top:2px;font-weight:500}
+  .slots{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+  .slot{
+    border:1px solid var(--line-strong);background:#fff;border-radius:10px;
+    padding:11px 6px;text-align:center;cursor:pointer;font-size:12.5px;color:var(--ink);transition:all .15s
+  }
+  .slot:hover{border-color:var(--gold)}
+  .slot.is-active{background:var(--gold-soft);border-color:var(--gold);color:var(--gold-deep);font-weight:500}
+  .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:6px}
+  .field{display:flex;flex-direction:column}
+  .field.full{grid-column:1/3}
+  .field label{font-size:11px;color:var(--ink-soft);margin-bottom:5px;letter-spacing:.02em}
+  .field input{
+    border:1px solid var(--line-strong);border-radius:9px;padding:10px 12px;
+    font-family:'Inter',sans-serif;font-size:13px;color:var(--ink);background:#fff;outline:none;transition:border .15s
+  }
+  .field input:focus{border-color:var(--gold)}
+  .modal-cta{
+    width:100%;margin-top:22px;border:none;cursor:pointer;background:var(--cta);color:#fff;
+    border-radius:11px;padding:14px;font-family:'Inter';font-size:13.5px;font-weight:500;letter-spacing:.04em;
+    transition:background .2s,transform .15s
+  }
+  .modal-cta:hover{background:#000;transform:translateY(-1px)}
+
+  /* confirmation */
+  .confirm{text-align:center;padding:30px 10px 6px;display:none}
+  .confirm.show{display:block}
+  .confirm-ring{
+    width:64px;height:64px;border-radius:50%;background:var(--gold-soft);
+    display:flex;align-items:center;justify-content:center;margin:0 auto 18px;
+  }
+  .confirm-ring svg{width:30px;height:30px;color:var(--gold-deep)}
+  .confirm h3{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:500;color:var(--ink)}
+  .confirm p{font-family:'Baskervville',serif;font-size:16px;color:var(--ink-soft);line-height:1.6;margin-top:10px;max-width:380px;margin-left:auto;margin-right:auto}
+  .confirm .det{margin-top:22px;background:#fff;border:1px solid var(--line);border-radius:13px;padding:18px;text-align:left;font-size:13px}
+  .confirm .det div{display:flex;justify-content:space-between;padding:6px 0}
+  .confirm .det span:first-child{color:var(--ink-faint)}
+  .confirm .det span:last-child{color:var(--ink);font-weight:500}
+
+  /* annotation badge */
+  .annot{
+    position:absolute;left:24px;bottom:26px;z-index:9;
+    font-size:10px;color:var(--ink-faint);letter-spacing:.04em;
+    background:var(--white-glass);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+    border:1px solid rgba(255,255,255,0.5);border-radius:8px;padding:6px 11px;
+  }
+</style>
+</head>
+<body>
+<div class="app">
+
+  <!-- ============ LEFT RAIL ============ -->
+  <aside class="rail">
+    <div class="brand">
+      <div class="brand-mark">The Whitmore</div>
+      <div class="brand-sub">Estate · Beverly Hills</div>
+      <div class="brand-rule"></div>
+      <div class="powered">Powered by <b>Interlink</b></div>
+    </div>
+
+    <nav class="nav" id="nav"><!-- populated by JS --></nav>
+
+    <div class="contact">
+      <div class="contact-row">
+        <img class="headshot" id="railHead" alt="Alexandra Chen"
+             src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=160&h=160&fit=crop&crop=faces&q=80"
+             onerror="this.removeAttribute('src');this.textContent='AC'">
+        <div>
+          <div class="contact-name">Alexandra Chen</div>
+          <div class="contact-role">Director of Events</div>
+          <div class="contact-yrs">12 years · luxury hospitality</div>
+        </div>
+      </div>
+      <button class="cta" onclick="openModal()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4.5" width="18" height="16" rx="2"/><path d="M3 9h18M8 2.5v4M16 2.5v4"/><circle cx="12" cy="14.5" r="2.1" fill="currentColor" stroke="none"/></svg>
+        Schedule a Virtual Tour
+      </button>
+      <div class="cta-sub">Live, guided · 45 min · with Alexandra</div>
+    </div>
+  </aside>
+
+  <!-- ============ STAGE ============ -->
+  <main class="stage">
+    <div class="stage-top">
+      <div class="crumb">
+        <div class="crumb-name" id="crumbName">Overview</div>
+        <div class="crumb-tag" id="crumbTag">The Whitmore Estate</div>
+      </div>
+      <div class="chips" id="chips"></div>
+    </div>
+
+    <!-- 3D VIEW -->
+    <section class="view is-active" id="view-3d">
+      <div id="splatHost"></div>
+    </section>
+
+    <!-- GALLERY VIEW -->
+    <section class="view" id="view-gallery">
+      <div class="gallery"><div class="gallery-grid" id="galleryGrid"></div></div>
+    </section>
+
+    <!-- DETAILS VIEW -->
+    <section class="view" id="view-details">
+      <div class="details"><div class="details-inner" id="detailsInner"></div></div>
+    </section>
+  </main>
+</div>
+
+<!-- ============ SCHEDULING MODAL ============ -->
+<div class="overlay" id="overlay">
+  <div class="modal">
+    <div class="modal-aside">
+      <div class="ms-mark">The Whitmore</div>
+      <div class="ms-sub">Estate · Beverly Hills</div>
+      <div class="ms-head-shot" id="msHead">AC</div>
+      <div class="ms-name">Alexandra Chen</div>
+      <div class="ms-role">Director of Events</div>
+      <div class="ms-note">"I'll walk you through every space live — and tailor the tour to what you've already explored."</div>
+    </div>
+    <div class="modal-main">
+      <button class="modal-close" onclick="closeModal()" aria-label="Close">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+
+      <div id="modalForm">
+        <div class="modal-h">Schedule a Virtual Tour</div>
+        <div class="modal-hsub">Tuesday–Sunday · 10am–6pm · 45-minute guided sessions</div>
+
+        <div class="sec-label">Select a date — June 2026</div>
+        <div class="dates" id="dates"></div>
+
+        <div class="sec-label">Select a time</div>
+        <div class="slots" id="slots"></div>
+
+        <div class="sec-label">Your details</div>
+        <div class="form-grid">
+          <div class="field"><label>Partner 1</label><input type="text" placeholder="First name"></div>
+          <div class="field"><label>Partner 2</label><input type="text" placeholder="First name"></div>
+          <div class="field full"><label>Email</label><input type="email" placeholder="you@email.com"></div>
+          <div class="field"><label>Wedding date (est.)</label><input type="text" placeholder="Spring 2027"></div>
+          <div class="field"><label>Guest count (est.)</label><input type="text" placeholder="150"></div>
+        </div>
+
+        <button class="modal-cta" onclick="confirmBooking()">Confirm Virtual Tour</button>
+      </div>
+
+      <div class="confirm" id="confirmState">
+        <div class="confirm-ring">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12.5l5 5L20 6.5"/></svg>
+        </div>
+        <h3>You're all set</h3>
+        <p>A confirmation and a join link are on their way to your inbox. Alexandra will guide you through The Whitmore Estate live.</p>
+        <div class="det">
+          <div><span>Guide</span><span>Alexandra Chen</span></div>
+          <div><span>When</span><span id="cWhen">—</span></div>
+          <div><span>Format</span><span>Live guided tour · 45 min</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ============ DATA ============ */
+var SPLAT = "https://superspl.at/s?id=d95730eb";
+var PH = "https://images.unsplash.com/";
+var SPACES = [
+  {
+    id:"overview", name:"Overview", meta:"Sixteen acres",
+    tag:"The Whitmore Estate", live:true,
+    chips:[["acres","16 acres"],["est","Est. 1928"]],
+    kicker:"The Estate", title:"Sixteen acres of gardens, stone, and light.",
+    body:"Set in the hills above Beverly Hills, The Whitmore Estate has hosted the city's most significant private celebrations for nearly a century. Five distinct event spaces — from manicured formal gardens to a chandeliered ballroom — flow together across sixteen acres of grounds.",
+    specs:[["16","Acres"],["5","Event spaces"],["450","Max guests"]],
+    features:["Five distinct ceremony & reception spaces","Manicured English gardens & stone terraces","Full-estate buyout available for weddings","On-site events team led by Alexandra Chen"],
+    gallery:[
+      ["photo-1519225421980-715cb0215aed?w=600&q=80","The grounds at golden hour"],
+      ["photo-1464366400600-7168b8af9bc3?w=600&q=80","Formal garden axis"],
+      ["photo-1505373877841-8d25f7d46678?w=600&q=80","Terrace views"],
+      ["photo-1519167758481-83f550bb49b3?w=600&q=80","Ballroom interior"],
+      ["photo-1478146896981-b80fe463b330?w=600&q=80","Reception detail"],
+      ["photo-1525258946800-98c2cc0b1f78?w=600&q=80","Stone courtyard"]
+    ],
+    staging:null, photo:null
+  },
+  {
+    id:"garden", name:"The Formal Garden", meta:"Outdoor · 250 seated",
+    tag:"Ceremony", live:false,
+    photo:"photo-1464366400600-7168b8af9bc3?w=1400&q=80",
+    chips:[["cap","250 seated"],["loc","Outdoor"]],
+    kicker:"Ceremony Space", title:"The Formal Garden",
+    body:"A manicured lawn framed by boxwood hedges and white roses, anchored by an Italian Renaissance fountain. A natural processional axis draws the eye — and the aisle — toward the water and the hills beyond.",
+    specs:[["250","Seated","Ceremony"],["Outdoor","Setting"],["Spring–Fall","Season"]],
+    features:["Italian Renaissance fountain centerpiece","Boxwood hedges & heritage white roses","Natural processional axis for ceremonies","Adjacent staging lawn for cocktail transition"],
+    gallery:[
+      ["photo-1464366400600-7168b8af9bc3?w=600&q=80","The garden axis"],
+      ["photo-1519225421980-715cb0215aed?w=600&q=80","Ceremony setup"],
+      ["photo-1490750967868-88aa4486c946?w=600&q=80","Heritage roses"],
+      ["photo-1606800052052-a08af7148866?w=600&q=80","Aisle & fountain"],
+      ["photo-1511795409834-ef04bbd61622?w=600&q=80","Reception under the stars"]
+    ],
+    staging:["Empty","Ceremony","Reception"]
+  },
+  {
+    id:"ballroom", name:"The Grand Ballroom", meta:"Indoor · 300 seated",
+    tag:"Reception", live:false,
+    photo:"photo-1519167758481-83f550bb49b3?w=1400&q=80",
+    chips:[["cap","300 seated · 450 standing"],["loc","Indoor"]],
+    kicker:"Signature Reception", title:"The Grand Ballroom",
+    body:"Vaulted ceilings and crystal chandeliers crown the estate's signature reception space. French doors open onto the terrace, dissolving the line between the celebration inside and the gardens beyond.",
+    specs:[["300","Seated","Reception"],["450","Standing"],["Indoor","Setting"]],
+    features:["Vaulted ceilings with crystal chandeliers","French doors opening to the terrace","Dedicated band & dance-floor footprint","Climate controlled · year-round"],
+    gallery:[
+      ["photo-1519167758481-83f550bb49b3?w=600&q=80","Ballroom at dusk"],
+      ["photo-1478146896981-b80fe463b330?w=600&q=80","Tablescape"],
+      ["photo-1464366400600-7168b8af9bc3?w=600&q=80","Doors to terrace"],
+      ["photo-1535254973040-607b474cb50d?w=600&q=80","Chandelier detail"],
+      ["photo-1470229722913-7c0e2dbbafd3?w=600&q=80","Dance floor"]
+    ],
+    staging:["Empty","Reception","Dinner"]
+  },
+  {
+    id:"courtyard", name:"The Inner Courtyard", meta:"Sheltered · 150 standing",
+    tag:"Cocktail", live:false,
+    photo:"photo-1525258946800-98c2cc0b1f78?w=1400&q=80",
+    chips:[["cap","150 standing"],["loc","Sheltered"]],
+    kicker:"Cocktail Hour", title:"The Inner Courtyard",
+    body:"Stone-paved and sheltered by the mansion's wings on three sides, the courtyard is an intimate, wind-protected setting — ideal for the cocktail hour that bridges ceremony and reception.",
+    specs:[["150","Standing","Cocktail"],["Sheltered","Setting"],["All-season","Use"]],
+    features:["Sheltered on three sides by the mansion","Original stone paving & central feature","Ideal cocktail-hour transition space","String-lighting & ambient sound ready"],
+    gallery:[
+      ["photo-1525258946800-98c2cc0b1f78?w=600&q=80","The courtyard"],
+      ["photo-1519225421980-715cb0215aed?w=600&q=80","Cocktail setup"],
+      ["photo-1530103862676-de8c9debad1d?w=600&q=80","Evening ambiance"],
+      ["photo-1464366400600-7168b8af9bc3?w=600&q=80","Stone detail"]
+    ],
+    staging:["Empty","Cocktail","Lounge"]
+  },
+  {
+    id:"terrace", name:"The Terrace", meta:"Outdoor · 180 seated",
+    tag:"Ceremony / Reception", live:false,
+    photo:"photo-1505373877841-8d25f7d46678?w=1400&q=80",
+    chips:[["cap","180 seated"],["loc","Outdoor"]],
+    kicker:"Ceremony / Reception", title:"The Terrace",
+    body:"Sweeping views across the grounds and toward the city define the Terrace, where golden-hour light turns every ceremony cinematic. Equally suited to an intimate dinner beneath the open sky.",
+    specs:[["180","Seated"],["Outdoor","Setting"],["Sunset","Best light"]],
+    features:["Panoramic views toward the city skyline","Exceptional golden-hour light","Flexible ceremony or al-fresco dining","Direct flow from the Grand Ballroom"],
+    gallery:[
+      ["photo-1505373877841-8d25f7d46678?w=600&q=80","City views"],
+      ["photo-1519225421980-715cb0215aed?w=600&q=80","Sunset ceremony"],
+      ["photo-1511795409834-ef04bbd61622?w=600&q=80","Al-fresco dinner"],
+      ["photo-1470229722913-7c0e2dbbafd3?w=600&q=80","Evening reception"]
+    ],
+    staging:["Empty","Ceremony","Dinner"]
+  },
+  {
+    id:"library", name:"The Library", meta:"Indoor · 40 seated",
+    tag:"Intimate", live:false,
+    photo:"photo-1507842217343-583bb7270b66?w=1400&q=80",
+    chips:[["cap","40 seated"],["loc","Indoor"]],
+    kicker:"Intimate Gatherings", title:"The Library",
+    body:"Wood-paneled and firelit, the Library is the estate's most intimate room — reserved for rehearsal dinners, welcome toasts, and small gatherings that call for warmth over grandeur.",
+    specs:[["40","Seated","Intimate"],["Indoor","Setting"],["Firelit","Ambiance"]],
+    features:["Original wood paneling & working fireplace","Ideal for rehearsal dinners","Private, salon-style seating","Quiet retreat from the main celebration"],
+    gallery:[
+      ["photo-1507842217343-583bb7270b66?w=600&q=80","The library"],
+      ["photo-1481277542470-605612bd2d61?w=600&q=80","Wood paneling"],
+      ["photo-1478146896981-b80fe463b330?w=600&q=80","Intimate dinner"],
+      ["photo-1530103862676-de8c9debad1d?w=600&q=80","Fireside toast"]
+    ],
+    staging:["Empty","Dinner","Reception"]
+  }
+];
+
+/* ============ STATE ============ */
+var current = SPACES[0];
+var mode = "3d"; // 3d | gallery | details
+
+/* ============ ICONS ============ */
+var IC = {
+  cube:'<svg class="subicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2.5l8 4.5v9l-8 4.5-8-4.5v-9z"/><path d="M12 11.5l8-4.5M12 11.5v9M12 11.5L4 7"/></svg>',
+  photo:'<svg class="subicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4.5" width="18" height="15" rx="2"/><circle cx="8.5" cy="10" r="1.8"/><path d="M21 16l-5-5-9 8.5"/></svg>',
+  doc:'<svg class="subicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2.5h8l4 4v15H6z"/><path d="M14 2.5v4h4M9 12h6M9 16h6"/></svg>'
+};
+var chipIcon = {
+  acres:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 20h18M5 20V9l7-5 7 5v11"/></svg>',
+  est:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>',
+  cap:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M16 5a3 3 0 010 6M21 20c0-2.5-1.5-4.6-3.6-5.5"/></svg>',
+  loc:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s7-6.3 7-11a7 7 0 10-14 0c0 4.7 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>'
+};
+
+/* ============ RENDER NAV ============ */
+function renderNav(){
+  var nav = document.getElementById("nav");
+  nav.innerHTML = "";
+  SPACES.forEach(function(s){
+    var el = document.createElement("div");
+    el.className = "space" + (s.id===current.id ? " is-open":"");
+    el.innerHTML =
+      '<div class="space-head" onclick="toggleSpace(\''+s.id+'\')">'+
+        '<span class="space-dot"></span>'+
+        '<div class="space-titles"><div class="space-name">'+s.name+'</div>'+
+        '<div class="space-meta">'+s.meta+'</div></div>'+
+        '<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 9l6 6 6-6"/></svg>'+
+      '</div>'+
+      '<div class="subnav"><div class="subnav-inner">'+
+        sub(s,"3d","Explore 3D",IC.cube)+
+        sub(s,"gallery","Gallery",IC.photo)+
+        sub(s,"details","Details",IC.doc)+
+      '</div></div>';
+    nav.appendChild(el);
+  });
+}
+function sub(s,m,label,icon){
+  var active = (s.id===current.id && m===mode) ? " is-active":"";
+  return '<div class="subitem'+active+'" onclick="selectView(\''+s.id+'\',\''+m+'\',event)">'+icon+'<span>'+label+'</span></div>';
+}
+
+/* ============ NAV ACTIONS ============ */
+function toggleSpace(id){
+  if(id===current.id){ // collapse/expand toggle when re-click
+    var node = [].slice.call(document.querySelectorAll(".space"))[idx(id)];
+    node.classList.toggle("is-open");
+    return;
+  }
+  selectView(id,"3d");
+}
+function selectView(id,m,ev){
+  if(ev) ev.stopPropagation();
+  current = SPACES[idx(id)];
+  mode = m;
+  renderNav();
+  renderStage();
+}
+function idx(id){ for(var i=0;i<SPACES.length;i++){ if(SPACES[i].id===id) return i; } return 0; }
+
+/* ============ RENDER STAGE ============ */
+function renderStage(){
+  // crumb
+  document.getElementById("crumbName").textContent = current.name;
+  document.getElementById("crumbTag").textContent = current.tag;
+  // chips
+  var chips = document.getElementById("chips");
+  chips.innerHTML = current.chips.map(function(c){
+    return '<div class="chip">'+(chipIcon[c[0]]||"")+'<span><b>'+c[1].split(" ")[0]+'</b> '+c[1].split(" ").slice(1).join(" ")+'</span></div>';
+  }).join("");
+
+  // views visibility
+  setView(mode);
+
+  if(mode==="3d") render3D();
+  if(mode==="gallery") renderGallery();
+  if(mode==="details") renderDetails();
+}
+function setView(m){
+  document.getElementById("view-3d").classList.toggle("is-active",m==="3d");
+  document.getElementById("view-gallery").classList.toggle("is-active",m==="gallery");
+  document.getElementById("view-details").classList.toggle("is-active",m==="details");
+}
+
+function render3D(){
+  var host = document.getElementById("splatHost");
+  var hintTxt = "Drag to look around";
+  if(current.live){
+    host.innerHTML =
+      '<iframe class="splat-frame" src="'+SPLAT+'" allow="fullscreen" title="3D tour"></iframe>'+
+      '<div class="splat-3dbadge">'+IC.cube.replace("subicon","")+' Interactive 3D · drag to explore</div>';
+  } else {
+    host.innerHTML =
+      '<div class="splat-photo-wrap"><img class="splat-photo" src="'+PH+current.photo+'" onerror="this.style.display=\'none\'" alt=""></div>'+
+      '<div class="splat-3dbadge">'+IC.cube.replace("subicon","")+' Interactive 3D capture</div>'+
+      '<div class="hint">'+hintTxt+'</div>'+
+      stagingHTML()+
+      '<div class="annot">Gaussian splat · simplified controls: orbit + zoom</div>';
+  }
+}
+function stagingHTML(){
+  if(!current.staging) return "";
+  var pills = current.staging.map(function(opt,i){
+    return '<button class="pill'+(i===1?" is-active":"")+'" onclick="setStage(this)">'+opt+'</button>';
+  }).join("");
+  return '<div class="staging"><span class="staging-label">Staging</span>'+pills+'</div>';
+}
+function setStage(btn){
+  var sib = btn.parentNode.querySelectorAll(".pill");
+  for(var i=0;i<sib.length;i++) sib[i].classList.remove("is-active");
+  btn.classList.add("is-active");
+}
+
+function renderGallery(){
+  var g = document.getElementById("galleryGrid");
+  g.innerHTML = current.gallery.map(function(p){
+    return '<div class="photo"><img src="'+PH+p[0]+'" loading="lazy" onerror="this.style.display=\'none\'" alt="">'+
+      '<div class="photo-cap">'+p[1]+'</div></div>';
+  }).join("");
+}
+
+function renderDetails(){
+  var d = document.getElementById("detailsInner");
+  var specs = current.specs.map(function(s){
+    return '<div class="spec"><div class="spec-val">'+s[0]+'</div><div class="spec-key">'+(s[2]?s[1]+" · "+s[2]:s[1])+'</div></div>';
+  }).join("");
+  var feats = current.features.map(function(f){ return '<li>'+f+'</li>'; }).join("");
+  d.innerHTML =
+    '<div class="details-kicker">'+current.kicker+'</div>'+
+    '<div class="details-title">'+current.title+'</div>'+
+    '<div class="details-body">'+current.body+'</div>'+
+    '<div class="specs">'+specs+'</div>'+
+    '<ul class="feature-list">'+feats+'</ul>';
+}
+
+/* ============ MODAL ============ */
+var DOWS=["TUE","WED","THU","FRI","SAT","SUN"];
+var DNUMS=[9,10,11,12,13,14];
+var TIMES=["10:00 AM","11:00 AM","1:00 PM","2:00 PM","3:00 PM","4:00 PM","5:00 PM","6:00 PM"];
+var pickDate=null, pickTime=null;
+function buildModal(){
+  document.getElementById("dates").innerHTML = DOWS.map(function(dw,i){
+    return '<div class="date'+(i===2?" is-active":"")+'" onclick="pickD(this,\''+dw+" "+DNUMS[i]+'\')">'+
+      '<div class="date-dow">'+dw+'</div><div class="date-num">'+DNUMS[i]+'</div></div>';
+  }).join("");
+  pickDate="THU 11";
+  document.getElementById("slots").innerHTML = TIMES.map(function(t,i){
+    return '<div class="slot'+(i===3?" is-active":"")+'" onclick="pickT(this,\''+t+'\')">'+t+'</div>';
+  }).join("");
+  pickTime="2:00 PM";
+}
+function pickD(el,v){ act(el,"date"); pickDate=v; }
+function pickT(el,v){ act(el,"slot"); pickTime=v; }
+function act(el,cls){
+  var sibs=el.parentNode.querySelectorAll("."+cls);
+  for(var i=0;i<sibs.length;i++) sibs[i].classList.remove("is-active");
+  el.classList.add("is-active");
+}
+function openModal(){ document.getElementById("overlay").classList.add("is-open"); }
+function closeModal(){
+  document.getElementById("overlay").classList.remove("is-open");
+  setTimeout(function(){
+    document.getElementById("modalForm").style.display="block";
+    document.getElementById("confirmState").classList.remove("show");
+  },250);
+}
+function confirmBooking(){
+  document.getElementById("cWhen").textContent = "Thu, June "+(pickDate?pickDate.split(" ")[1]:"11")+" · "+(pickTime||"2:00 PM");
+  document.getElementById("modalForm").style.display="none";
+  document.getElementById("confirmState").classList.add("show");
+}
+document.getElementById("overlay").addEventListener("click",function(e){ if(e.target===this) closeModal(); });
+
+/* ============ INIT ============ */
+renderNav();
+renderStage();
+buildModal();
+</script>
+</body>
+</html>
