@@ -112,7 +112,9 @@ The whole page is **data-driven** from one array, `SPACES`. Each entry is the sc
 | Scheduling | Static date/time picker + fake confirm | Cal.com / Calendly / Acuity embed or API (spec §5.1.3) |
 | Photography | Unsplash placeholders | Venue's curated professional + real-event photos |
 | Director headshot | Unsplash placeholder | Real headshot |
-| Content | The Whitmore Estate (fictional brief data) | Real venue data, CMS-driven (spec §5.3.1) |
+| Content | The Doheny Estate (real spaces, descriptions & photos ported from the production tour) | CMS-driven per-venue content (spec §5.3.1) |
+| Per-space splats | Overview, Formal Garden & Inner Courtyard are live SuperSplat embeds (ported from the existing tour); Cypress Lane & Front Terrace show real estate photos labelled "3D capture · coming soon" (they were placeholders in the production tour) | One captured splat per space |
+| Beverly Hills crest | Stylized SVG stand-in (the official trademarked mark was not available as a file to embed) | Replace with the official asset, base64-embedded |
 
 ---
 

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Whitmore Estate — Interlink</title>
+<title>The Doheny Estate — Interlink</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Baskervville:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -51,17 +51,23 @@
     box-shadow:var(--shadow-md);z-index:20;position:relative;
   }
   .brand{
-    padding:26px 26px 20px;border-bottom:1px solid var(--line);
+    padding:24px 26px 18px;border-bottom:1px solid var(--line);
     text-align:center;
   }
+  .brand-lockup{
+    display:flex;align-items:center;justify-content:center;gap:13px;
+  }
+  .bh-crest{height:54px;width:auto;flex:0 0 auto;display:block}
+  .brand-text{text-align:left}
   .brand-mark{
     font-family:'Cormorant Garamond',serif;font-weight:500;
-    font-size:25px;letter-spacing:.14em;color:var(--ink);
-    line-height:1.1;text-transform:uppercase;
+    font-size:23px;letter-spacing:.12em;color:var(--ink);
+    line-height:1.02;text-transform:uppercase;
   }
+  .brand-mark--2{color:var(--gold-deep)}
   .brand-sub{
     font-family:'Cormorant Garamond',serif;font-style:italic;
-    font-size:14px;color:var(--gold);letter-spacing:.06em;margin-top:4px;
+    font-size:13.5px;color:var(--gold);letter-spacing:.06em;margin-top:10px;
   }
   .brand-rule{
     width:34px;height:1px;background:var(--line-strong);margin:12px auto 0;
@@ -289,85 +295,150 @@
   }
   .overlay.is-open{opacity:1;visibility:visible}
   .modal{
-    background:var(--bg);border-radius:20px;width:760px;max-width:100%;
-    max-height:90vh;overflow:hidden;box-shadow:var(--shadow-lg);
+    background:var(--bg);border-radius:20px;width:840px;max-width:100%;
+    max-height:92vh;overflow:hidden;box-shadow:var(--shadow-lg);
     display:flex;transform:translateY(12px) scale(.99);transition:transform .28s ease;
   }
   .overlay.is-open .modal{transform:none}
+
+  /* director trust aside */
   .modal-aside{
-    width:266px;flex:0 0 266px;background:var(--cta);color:#fff;
-    padding:34px 28px;display:flex;flex-direction:column;
+    width:280px;flex:0 0 280px;background:var(--cta);color:#fff;
+    padding:32px 28px;display:flex;flex-direction:column;
   }
   .modal-aside .ms-mark{font-family:'Cormorant Garamond',serif;font-size:20px;letter-spacing:.1em;text-transform:uppercase}
-  .modal-aside .ms-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;color:rgba(255,255,255,0.65);margin-top:3px}
+  .modal-aside .ms-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;color:rgba(255,255,255,0.6);margin-top:3px}
   .ms-head-shot{
-    width:62px;height:62px;border-radius:50%;object-fit:cover;margin:30px 0 14px;
-    background:linear-gradient(135deg,#cdbfa8,#9a8a6f);border:2px solid rgba(255,255,255,0.3);
+    width:60px;height:60px;border-radius:50%;object-fit:cover;margin:28px 0 14px;
+    background:linear-gradient(135deg,#cdbfa8,#9a8a6f);border:2px solid rgba(255,255,255,0.25);
     display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:22px;
   }
   .ms-name{font-size:15px;font-weight:600}
   .ms-role{font-size:11.5px;color:rgba(255,255,255,0.6);margin-top:3px}
   .ms-note{
     font-family:'Baskervville',serif;font-size:14px;line-height:1.6;
-    color:rgba(255,255,255,0.72);margin-top:auto;font-style:italic;
+    color:rgba(255,255,255,0.72);margin-top:20px;font-style:italic;
+    border-top:1px solid rgba(255,255,255,0.14);padding-top:18px;
   }
-  .modal-main{flex:1;padding:30px 32px;overflow-y:auto;position:relative}
+  .ms-explored{margin-top:auto;padding-top:18px}
+  .ms-explored-lbl{font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:8px}
+  .ms-chip{display:inline-block;font-size:11px;color:rgba(255,255,255,0.85);background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.14);border-radius:20px;padding:4px 11px;margin:0 5px 5px 0}
+
+  /* main column */
+  .modal-main{flex:1;padding:26px 30px 28px;overflow-y:auto;position:relative;min-width:0}
+  .modal-main::-webkit-scrollbar{width:7px}
+  .modal-main::-webkit-scrollbar-thumb{background:rgba(42,39,36,.14);border-radius:4px}
   .modal-close{
-    position:absolute;top:18px;right:20px;border:none;background:transparent;
+    position:absolute;top:16px;right:18px;border:none;background:transparent;
     cursor:pointer;color:var(--ink-faint);width:30px;height:30px;border-radius:50%;
-    display:flex;align-items:center;justify-content:center;transition:background .15s
+    display:flex;align-items:center;justify-content:center;transition:background .15s;z-index:3
   }
   .modal-close:hover{background:var(--line)}
-  .modal-h{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:500;color:var(--ink)}
-  .modal-hsub{font-size:12px;color:var(--ink-soft);margin-top:4px;letter-spacing:.02em}
-  .sec-label{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin:24px 0 12px}
-  .dates{display:flex;gap:8px;flex-wrap:wrap}
-  .date{
-    border:1px solid var(--line-strong);background:#fff;border-radius:11px;
-    padding:10px 6px;text-align:center;cursor:pointer;width:62px;transition:all .15s;
-  }
-  .date:hover{border-color:var(--gold)}
-  .date.is-active{background:var(--cta);border-color:var(--cta);color:#fff}
-  .date-dow{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint)}
-  .date.is-active .date-dow{color:rgba(255,255,255,0.6)}
-  .date-num{font-family:'Cormorant Garamond',serif;font-size:21px;margin-top:2px;font-weight:500}
+
+  /* progress steps */
+  .steps{display:flex;align-items:center;gap:8px;margin-bottom:22px}
+  .step{display:flex;align-items:center;gap:8px;font-size:11px;letter-spacing:.04em;color:var(--ink-faint)}
+  .step-num{width:22px;height:22px;border-radius:50%;border:1.5px solid var(--line-strong);display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--ink-faint);transition:all .2s}
+  .step.is-active .step-num{background:var(--cta);border-color:var(--cta);color:#fff}
+  .step.is-active{color:var(--ink);font-weight:500}
+  .step.is-done .step-num{background:var(--gold);border-color:var(--gold);color:#fff}
+  .step.is-done{color:var(--gold-deep)}
+  .step-bar{flex:1;height:1px;background:var(--line)}
+
+  .modal-h{font-family:'Cormorant Garamond',serif;font-size:27px;font-weight:500;color:var(--ink);line-height:1.1}
+  .modal-hsub{font-size:12px;color:var(--ink-soft);margin-top:5px;letter-spacing:.02em}
+
+  .panel{display:none}
+  .panel.is-active{display:block;animation:fadeUp .35s ease}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+  /* timezone */
+  .tzrow{display:flex;align-items:center;justify-content:space-between;margin:18px 0 10px}
+  .sec-label{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+  .tz{font-size:11.5px;color:var(--ink-soft);border:1px solid var(--line-strong);border-radius:8px;padding:6px 10px;background:#fff;cursor:pointer;font-family:'Inter',sans-serif}
+
+  /* calendar */
+  .cal{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px}
+  .cal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+  .cal-title{font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--ink)}
+  .cal-nav{display:flex;gap:6px}
+  .cal-nav button{width:28px;height:28px;border:1px solid var(--line-strong);background:#fff;border-radius:8px;cursor:pointer;color:var(--ink-soft);display:flex;align-items:center;justify-content:center}
+  .cal-nav button:hover{border-color:var(--gold);color:var(--gold-deep)}
+  .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+  .cal-dow{font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);text-align:center;padding-bottom:6px}
+  .cal-day{aspect-ratio:1;border:none;background:transparent;border-radius:9px;cursor:pointer;font-family:'Inter',sans-serif;font-size:13px;color:var(--ink);display:flex;align-items:center;justify-content:center;position:relative;transition:all .15s}
+  .cal-day:hover:not(.is-off){background:var(--gold-soft);color:var(--gold-deep)}
+  .cal-day.is-off{color:var(--ink-faint);opacity:.32;cursor:default}
+  .cal-day.is-active{background:var(--cta);color:#fff}
+  .cal-day .dot{position:absolute;bottom:6px;width:3px;height:3px;border-radius:50%;background:var(--gold)}
+  .cal-day.is-active .dot{background:#fff}
+  .cal-empty{aspect-ratio:1}
+
+  /* slots */
+  .slots-wrap{margin-top:16px}
   .slots{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
-  .slot{
-    border:1px solid var(--line-strong);background:#fff;border-radius:10px;
-    padding:11px 6px;text-align:center;cursor:pointer;font-size:12.5px;color:var(--ink);transition:all .15s
-  }
-  .slot:hover{border-color:var(--gold)}
+  .slot{border:1px solid var(--line-strong);background:#fff;border-radius:10px;padding:11px 6px;text-align:center;cursor:pointer;font-size:12.5px;color:var(--ink);transition:all .15s}
+  .slot:hover:not(.is-taken){border-color:var(--gold)}
   .slot.is-active{background:var(--gold-soft);border-color:var(--gold);color:var(--gold-deep);font-weight:500}
-  .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:6px}
+  .slot.is-taken{opacity:.34;text-decoration:line-through;cursor:default}
+  .slots-empty{font-family:'Baskervville',serif;font-style:italic;color:var(--ink-faint);font-size:14px;padding:18px 0;text-align:center}
+
+  /* selected summary */
+  .summary{display:flex;align-items:center;gap:12px;background:var(--gold-soft);border:1px solid rgba(154,123,79,.25);border-radius:12px;padding:13px 16px;margin-bottom:18px}
+  .summary svg{width:18px;height:18px;color:var(--gold-deep);flex:0 0 18px}
+  .summary-txt{flex:1;font-size:13px;color:var(--ink)}
+  .summary-txt b{font-weight:600}
+  .summary .change{font-size:11.5px;color:var(--gold-deep);cursor:pointer;text-decoration:underline;background:none;border:none;font-family:'Inter',sans-serif}
+
+  /* form */
+  .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
   .field{display:flex;flex-direction:column}
   .field.full{grid-column:1/3}
   .field label{font-size:11px;color:var(--ink-soft);margin-bottom:5px;letter-spacing:.02em}
-  .field input{
-    border:1px solid var(--line-strong);border-radius:9px;padding:10px 12px;
-    font-family:'Inter',sans-serif;font-size:13px;color:var(--ink);background:#fff;outline:none;transition:border .15s
-  }
+  .field input{border:1px solid var(--line-strong);border-radius:9px;padding:10px 12px;font-family:'Inter',sans-serif;font-size:13px;color:var(--ink);background:#fff;outline:none;transition:border .15s}
   .field input:focus{border-color:var(--gold)}
-  .modal-cta{
-    width:100%;margin-top:22px;border:none;cursor:pointer;background:var(--cta);color:#fff;
-    border-radius:11px;padding:14px;font-family:'Inter';font-size:13.5px;font-weight:500;letter-spacing:.04em;
-    transition:background .2s,transform .15s
-  }
-  .modal-cta:hover{background:#000;transform:translateY(-1px)}
+  .consent{font-size:10.5px;color:var(--ink-faint);margin-top:14px;line-height:1.5}
+
+  /* buttons */
+  .btn-row{display:flex;gap:10px;margin-top:22px}
+  .btn{border:none;cursor:pointer;border-radius:11px;padding:13px 20px;font-family:'Inter',sans-serif;font-size:13px;font-weight:500;letter-spacing:.03em;transition:all .18s}
+  .btn-primary{background:var(--cta);color:#fff;flex:1}
+  .btn-primary:hover{background:#000;transform:translateY(-1px)}
+  .btn-primary:disabled{opacity:.4;cursor:default;transform:none;background:var(--cta)}
+  .btn-ghost{background:transparent;color:var(--ink-soft);border:1px solid var(--line-strong)}
+  .btn-ghost:hover{border-color:var(--ink-soft);color:var(--ink)}
 
   /* confirmation */
-  .confirm{text-align:center;padding:30px 10px 6px;display:none}
-  .confirm.show{display:block}
-  .confirm-ring{
-    width:64px;height:64px;border-radius:50%;background:var(--gold-soft);
-    display:flex;align-items:center;justify-content:center;margin:0 auto 18px;
-  }
+  .confirm-ring{width:64px;height:64px;border-radius:50%;background:var(--gold-soft);display:flex;align-items:center;justify-content:center;margin:6px auto 18px}
   .confirm-ring svg{width:30px;height:30px;color:var(--gold-deep)}
-  .confirm h3{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:500;color:var(--ink)}
-  .confirm p{font-family:'Baskervville',serif;font-size:16px;color:var(--ink-soft);line-height:1.6;margin-top:10px;max-width:380px;margin-left:auto;margin-right:auto}
-  .confirm .det{margin-top:22px;background:#fff;border:1px solid var(--line);border-radius:13px;padding:18px;text-align:left;font-size:13px}
-  .confirm .det div{display:flex;justify-content:space-between;padding:6px 0}
-  .confirm .det span:first-child{color:var(--ink-faint)}
-  .confirm .det span:last-child{color:var(--ink);font-weight:500}
+  .confirm-h{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:500;color:var(--ink);text-align:center}
+  .confirm-p{font-family:'Baskervville',serif;font-size:15.5px;color:var(--ink-soft);line-height:1.6;margin:10px auto 0;max-width:400px;text-align:center}
+  .det{margin-top:22px;background:#fff;border:1px solid var(--line);border-radius:13px;padding:8px 18px}
+  .det div{display:flex;justify-content:space-between;padding:10px 0;font-size:13px;border-bottom:1px solid var(--line)}
+  .det div:last-child{border-bottom:none}
+  .det span:first-child{color:var(--ink-faint)}
+  .det span:last-child{color:var(--ink);font-weight:500;text-align:right}
+  .addcal{display:flex;gap:8px;margin-top:16px}
+  .addcal a{flex:1;text-decoration:none;border:1px solid var(--line-strong);border-radius:10px;padding:11px;text-align:center;font-size:12px;color:var(--ink);background:#fff;display:flex;align-items:center;justify-content:center;gap:7px;transition:all .15s;cursor:pointer}
+  .addcal a:hover{border-color:var(--gold)}
+  .addcal svg{width:14px;height:14px;color:var(--gold-deep)}
+  .expect{margin-top:18px}
+  .expect-lbl{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+  .expect ul{list-style:none}
+  .expect li{font-family:'Baskervville',serif;font-size:14px;color:var(--ink-soft);padding:7px 0 7px 24px;position:relative}
+  .expect li:before{content:"";position:absolute;left:6px;top:15px;width:5px;height:5px;border-radius:50%;background:var(--gold)}
+  .confirm-foot{display:flex;justify-content:center;gap:18px;margin-top:20px}
+  .confirm-foot button{background:none;border:none;color:var(--ink-soft);font-size:12px;cursor:pointer;font-family:'Inter',sans-serif;text-decoration:underline}
+  .confirm-foot button:hover{color:var(--ink)}
+
+  @media (max-width:720px){
+    .modal{flex-direction:column;max-height:94vh}
+    .modal-aside{width:100%;flex:0 0 auto;padding:20px 22px;flex-direction:row;flex-wrap:wrap;align-items:center;gap:10px}
+    .ms-head-shot{margin:0 10px 0 0;width:42px;height:42px;font-size:16px}
+    .ms-note,.ms-explored{display:none}
+    .form-grid{grid-template-columns:1fr}.field.full{grid-column:1}
+    .slots{grid-template-columns:repeat(3,1fr)}
+  }
 
   /* annotation badge */
   .annot{
@@ -384,8 +455,14 @@
   <!-- ============ LEFT RAIL ============ -->
   <aside class="rail">
     <div class="brand">
-      <div class="brand-mark">The Whitmore</div>
-      <div class="brand-sub">Estate · Beverly Hills</div>
+      <div class="brand-lockup">
+        <img class="bh-crest" alt="Beverly Hills" src="data:image/png;base64,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">
+        <div class="brand-text">
+          <div class="brand-mark">The Doheny</div>
+          <div class="brand-mark brand-mark--2">Estate</div>
+        </div>
+      </div>
+      <div class="brand-sub">Beverly Hills · Est. 1928</div>
       <div class="brand-rule"></div>
       <div class="powered">Powered by <b>Interlink</b></div>
     </div>
@@ -394,20 +471,20 @@
 
     <div class="contact">
       <div class="contact-row">
-        <img class="headshot" id="railHead" alt="Alexandra Chen"
+        <img class="headshot" id="railHead" alt="Shirleen Finney"
              src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=160&h=160&fit=crop&crop=faces&q=80"
-             onerror="this.removeAttribute('src');this.textContent='AC'">
+             onerror="this.removeAttribute('src');this.textContent='SF'">
         <div>
-          <div class="contact-name">Alexandra Chen</div>
-          <div class="contact-role">Director of Events</div>
-          <div class="contact-yrs">12 years · luxury hospitality</div>
+          <div class="contact-name">Shirleen Finney</div>
+          <div class="contact-role">Director of Sales</div>
+          <div class="contact-yrs">Greystone Mansion &amp; Gardens</div>
         </div>
       </div>
       <button class="cta" onclick="openModal()">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4.5" width="18" height="16" rx="2"/><path d="M3 9h18M8 2.5v4M16 2.5v4"/><circle cx="12" cy="14.5" r="2.1" fill="currentColor" stroke="none"/></svg>
         Schedule a Virtual Tour
       </button>
-      <div class="cta-sub">Live, guided · 45 min · with Alexandra</div>
+      <div class="cta-sub">Live, guided · 45 min · with Shirleen</div>
     </div>
   </aside>
 
@@ -416,7 +493,7 @@
     <div class="stage-top">
       <div class="crumb">
         <div class="crumb-name" id="crumbName">Overview</div>
-        <div class="crumb-tag" id="crumbTag">The Whitmore Estate</div>
+        <div class="crumb-tag" id="crumbTag">The Doheny Estate</div>
       </div>
       <div class="chips" id="chips"></div>
     </div>
@@ -441,30 +518,61 @@
 <!-- ============ SCHEDULING MODAL ============ -->
 <div class="overlay" id="overlay">
   <div class="modal">
-    <div class="modal-aside">
-      <div class="ms-mark">The Whitmore</div>
-      <div class="ms-sub">Estate · Beverly Hills</div>
-      <div class="ms-head-shot" id="msHead">AC</div>
-      <div class="ms-name">Alexandra Chen</div>
-      <div class="ms-role">Director of Events</div>
+    <aside class="modal-aside">
+      <div class="ms-mark">The Doheny Estate</div>
+      <div class="ms-sub">Beverly Hills · Est. 1928</div>
+      <div class="ms-head-shot" id="msHead">SF</div>
+      <div class="ms-name">Shirleen Finney</div>
+      <div class="ms-role">Director of Sales</div>
       <div class="ms-note">"I'll walk you through every space live — and tailor the tour to what you've already explored."</div>
-    </div>
+      <div class="ms-explored" id="msExplored"></div>
+    </aside>
+
     <div class="modal-main">
       <button class="modal-close" onclick="closeModal()" aria-label="Close">
         <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 6l12 12M18 6L6 18"/></svg>
       </button>
 
-      <div id="modalForm">
+      <!-- progress -->
+      <div class="steps" id="steps">
+        <div class="step" data-s="1"><span class="step-num">1</span><span>Date &amp; Time</span></div>
+        <div class="step-bar"></div>
+        <div class="step" data-s="2"><span class="step-num">2</span><span>Your Details</span></div>
+        <div class="step-bar"></div>
+        <div class="step" data-s="3"><span class="step-num">3</span><span>Confirmed</span></div>
+      </div>
+
+      <!-- STEP 1 — date & time -->
+      <section class="panel" id="panel-1">
         <div class="modal-h">Schedule a Virtual Tour</div>
-        <div class="modal-hsub">Tuesday–Sunday · 10am–6pm · 45-minute guided sessions</div>
+        <div class="modal-hsub">A live, guided 45-minute walkthrough with Shirleen.</div>
+        <div class="tzrow">
+          <span class="sec-label">Select a date</span>
+          <button class="tz" onclick="cycleTz()">🌐 <span id="tzLabel">Pacific Time (PT)</span></button>
+        </div>
+        <div class="cal">
+          <div class="cal-head">
+            <div class="cal-title" id="calTitle">June 2026</div>
+            <div class="cal-nav"><button onclick="moveMonth(-1)" aria-label="Previous month">‹</button><button onclick="moveMonth(1)" aria-label="Next month">›</button></div>
+          </div>
+          <div class="cal-grid" id="calGrid"></div>
+        </div>
+        <div class="slots-wrap">
+          <div class="sec-label" style="margin-bottom:10px">Available times</div>
+          <div id="slotsHost"><div class="slots-empty">Select a date to see available times.</div></div>
+        </div>
+        <div class="btn-row"><button class="btn btn-primary" id="toStep2" onclick="goStep(2)" disabled>Continue</button></div>
+      </section>
 
-        <div class="sec-label">Select a date — June 2026</div>
-        <div class="dates" id="dates"></div>
-
-        <div class="sec-label">Select a time</div>
-        <div class="slots" id="slots"></div>
-
-        <div class="sec-label">Your details</div>
+      <!-- STEP 2 — details -->
+      <section class="panel" id="panel-2">
+        <div class="modal-h">Your details</div>
+        <div class="modal-hsub">So we can send your confirmation and join link.</div>
+        <div class="summary" style="margin-top:18px">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4.5" width="18" height="16" rx="2"/><path d="M3 9h18M8 2.5v4M16 2.5v4"/></svg>
+          <div class="summary-txt" id="sumTxt">—</div>
+          <button class="change" onclick="goStep(1)">Change</button>
+        </div>
         <div class="form-grid">
           <div class="field"><label>Partner 1</label><input type="text" placeholder="First name"></div>
           <div class="field"><label>Partner 2</label><input type="text" placeholder="First name"></div>
@@ -472,141 +580,123 @@
           <div class="field"><label>Wedding date (est.)</label><input type="text" placeholder="Spring 2027"></div>
           <div class="field"><label>Guest count (est.)</label><input type="text" placeholder="150"></div>
         </div>
-
-        <button class="modal-cta" onclick="confirmBooking()">Confirm Virtual Tour</button>
-      </div>
-
-      <div class="confirm" id="confirmState">
-        <div class="confirm-ring">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12.5l5 5L20 6.5"/></svg>
+        <div class="consent">By confirming, you agree to receive tour details from The Doheny Estate. No account needed.</div>
+        <div class="btn-row">
+          <button class="btn btn-ghost" onclick="goStep(1)">Back</button>
+          <button class="btn btn-primary" onclick="confirmBooking()">Confirm Virtual Tour</button>
         </div>
-        <h3>You're all set</h3>
-        <p>A confirmation and a join link are on their way to your inbox. Alexandra will guide you through The Whitmore Estate live.</p>
+      </section>
+
+      <!-- STEP 3 — confirmation -->
+      <section class="panel" id="panel-3">
+        <div class="confirm-ring"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12.5l5 5L20 6.5"/></svg></div>
+        <div class="confirm-h">You're all set</div>
+        <div class="confirm-p">A confirmation and join link are on their way to your inbox. Shirleen will guide you through The Doheny Estate live.</div>
         <div class="det">
-          <div><span>Guide</span><span>Alexandra Chen</span></div>
+          <div><span>Guide</span><span>Shirleen Finney · Director of Sales</span></div>
           <div><span>When</span><span id="cWhen">—</span></div>
           <div><span>Format</span><span>Live guided tour · 45 min</span></div>
+          <div><span>Where</span><span>Join link (emailed) · opens in browser</span></div>
         </div>
-      </div>
+        <div class="addcal">
+          <a id="gcal" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4.5" width="18" height="16" rx="2"/><path d="M3 9h18M8 2.5v4M16 2.5v4"/></svg> Google Calendar</a>
+          <a id="ical" onclick="downloadICS()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg> Apple / Outlook</a>
+        </div>
+        <div class="expect">
+          <div class="expect-lbl">What to expect</div>
+          <ul>
+            <li>Shirleen joins by video and guides you through each space live.</li>
+            <li>She'll tailor the tour to the spaces you've already explored.</li>
+            <li>Bring questions — and anyone else, via the same link.</li>
+          </ul>
+        </div>
+        <div class="confirm-foot"><button onclick="resetFlow()">Reschedule</button><button onclick="closeModal()">Done</button></div>
+      </section>
     </div>
   </div>
 </div>
 
 <script>
-/* ============ DATA ============ */
-var SPLAT = "https://superspl.at/s?id=d95730eb";
-var PH = "https://images.unsplash.com/";
+/* ============ DATA — The Doheny Estate (ported from production tour) ============ */
+var SPLAT_BASE = "https://superspl.at/s?id=";
+var SKY = "https://raw.githubusercontent.com/ryanpeng-Interlink/InterlinkSquarespacePublicAssets/main/Greystone.skybox/Background.webp";
+var VOX = "https://raw.githubusercontent.com/ryanpeng-Interlink/InterlinkSquarespacePublicAssets/main/Greystone8CorrectScale.voxel.json";
+var CDN = "https://images.squarespace-cdn.com/content/6628a44904df01353f73193c/";
+var IMG = {
+  overview:  CDN+"22bdf375-9854-4808-87be-5ff57dc85979/Overview.png?content-type=image%2Fpng",
+  garden:    CDN+"6e1be617-86d8-40be-bcb9-e676a38fc685/0T8A5041.png?content-type=image%2Fpng",
+  cypress:   CDN+"096ad070-36b7-45a2-845b-1b37ff7d4b72/0T8A5045-2.png?content-type=image%2Fpng",
+  courtyard: CDN+"d00502bb-3006-42b3-9549-b318590f5220/0T8A5062.png?content-type=image%2Fpng",
+  terrace:   CDN+"8d677ae2-25fc-4929-adfb-8757ea111be1/0T8A5071.png?content-type=image%2Fpng"
+};
 var SPACES = [
   {
     id:"overview", name:"Overview", meta:"Sixteen acres",
-    tag:"The Whitmore Estate", live:true,
+    tag:"The Doheny Estate", live:true, splat:"d95730eb", skybox:null, voxel:null,
     chips:[["acres","16 acres"],["est","Est. 1928"]],
-    kicker:"The Estate", title:"Sixteen acres of gardens, stone, and light.",
-    body:"Set in the hills above Beverly Hills, The Whitmore Estate has hosted the city's most significant private celebrations for nearly a century. Five distinct event spaces — from manicured formal gardens to a chandeliered ballroom — flow together across sixteen acres of grounds.",
-    specs:[["16","Acres"],["5","Event spaces"],["450","Max guests"]],
-    features:["Five distinct ceremony & reception spaces","Manicured English gardens & stone terraces","Full-estate buyout available for weddings","On-site events team led by Alexandra Chen"],
+    kicker:"The Estate", title:"An Aerial Overview",
+    body:"Completed in 1928 as a wedding gift from oil magnate Edward Doheny to his son, The Doheny Estate sits on 16 acres in the hills above Beverly Hills. This Tudor Revival mansion and its formal English gardens have hosted some of the city's most significant private events for nearly a century.",
+    specs:[["16","Acres"],["1928","Established"],["5","Event spaces"]],
+    features:["Tudor Revival mansion & formal English gardens","Sixteen acres in the hills above Beverly Hills","A century of significant private events","Five distinct ceremony & reception settings"],
     gallery:[
-      ["photo-1519225421980-715cb0215aed?w=600&q=80","The grounds at golden hour"],
-      ["photo-1464366400600-7168b8af9bc3?w=600&q=80","Formal garden axis"],
-      ["photo-1505373877841-8d25f7d46678?w=600&q=80","Terrace views"],
-      ["photo-1519167758481-83f550bb49b3?w=600&q=80","Ballroom interior"],
-      ["photo-1478146896981-b80fe463b330?w=600&q=80","Reception detail"],
-      ["photo-1525258946800-98c2cc0b1f78?w=600&q=80","Stone courtyard"]
+      [IMG.overview,"Aerial of the estate"],
+      [IMG.garden,"The Formal Garden"],
+      [IMG.cypress,"Cypress Lane"],
+      [IMG.courtyard,"Inner Courtyard"],
+      [IMG.terrace,"Front Terrace"]
     ],
-    staging:null, photo:null
+    staging:null
   },
   {
     id:"garden", name:"The Formal Garden", meta:"Outdoor · 250 seated",
-    tag:"Ceremony", live:false,
-    photo:"photo-1464366400600-7168b8af9bc3?w=1400&q=80",
+    tag:"Ceremony", live:true, splat:"cdcde98c", skybox:SKY, voxel:VOX,
     chips:[["cap","250 seated"],["loc","Outdoor"]],
-    kicker:"Ceremony Space", title:"The Formal Garden",
-    body:"A manicured lawn framed by boxwood hedges and white roses, anchored by an Italian Renaissance fountain. A natural processional axis draws the eye — and the aisle — toward the water and the hills beyond.",
-    specs:[["250","Seated","Ceremony"],["Outdoor","Setting"],["Spring–Fall","Season"]],
-    features:["Italian Renaissance fountain centerpiece","Boxwood hedges & heritage white roses","Natural processional axis for ceremonies","Adjacent staging lawn for cocktail transition"],
-    gallery:[
-      ["photo-1464366400600-7168b8af9bc3?w=600&q=80","The garden axis"],
-      ["photo-1519225421980-715cb0215aed?w=600&q=80","Ceremony setup"],
-      ["photo-1490750967868-88aa4486c946?w=600&q=80","Heritage roses"],
-      ["photo-1606800052052-a08af7148866?w=600&q=80","Aisle & fountain"],
-      ["photo-1511795409834-ef04bbd61622?w=600&q=80","Reception under the stars"]
-    ],
+    kicker:"Ceremony Lawn", title:"The Formal Garden",
+    body:"A manicured lawn framed by boxwood hedges and white roses, anchored at its far end by an Italian Renaissance fountain. This is where most ceremonies take place — up to 250 guests seated beneath open sky, with the mansion rising behind them. The garden's geometry gives it a natural processional axis, and the surrounding hedges create a sense of enclosure without walls.",
+    specs:[["250","Seated","Ceremony"],["Outdoor","Setting"],["Open sky","Character"]],
+    features:["Boxwood hedges & white roses","An Italian Renaissance fountain at the far axis","A natural processional axis for ceremonies","The mansion rising behind the altar"],
+    gallery:[ [IMG.garden,"The formal garden"], [IMG.overview,"Within the estate"] ],
     staging:["Empty","Ceremony","Reception"]
   },
   {
-    id:"ballroom", name:"The Grand Ballroom", meta:"Indoor · 300 seated",
-    tag:"Reception", live:false,
-    photo:"photo-1519167758481-83f550bb49b3?w=1400&q=80",
-    chips:[["cap","300 seated · 450 standing"],["loc","Indoor"]],
-    kicker:"Signature Reception", title:"The Grand Ballroom",
-    body:"Vaulted ceilings and crystal chandeliers crown the estate's signature reception space. French doors open onto the terrace, dissolving the line between the celebration inside and the gardens beyond.",
-    specs:[["300","Seated","Reception"],["450","Standing"],["Indoor","Setting"]],
-    features:["Vaulted ceilings with crystal chandeliers","French doors opening to the terrace","Dedicated band & dance-floor footprint","Climate controlled · year-round"],
-    gallery:[
-      ["photo-1519167758481-83f550bb49b3?w=600&q=80","Ballroom at dusk"],
-      ["photo-1478146896981-b80fe463b330?w=600&q=80","Tablescape"],
-      ["photo-1464366400600-7168b8af9bc3?w=600&q=80","Doors to terrace"],
-      ["photo-1535254973040-607b474cb50d?w=600&q=80","Chandelier detail"],
-      ["photo-1470229722913-7c0e2dbbafd3?w=600&q=80","Dance floor"]
-    ],
-    staging:["Empty","Reception","Dinner"]
+    id:"cypress", name:"Cypress Lane", meta:"Outdoor · processional",
+    tag:"Processional", live:false, splat:null, photo:IMG.cypress,
+    chips:[["loc","Outdoor"]],
+    kicker:"Processional Path", title:"Cypress Lane",
+    body:"A shaded corridor of Italian cypress trees connecting the estate's upper terrace to the formal garden below. Often used as a dramatic processional path, the lane offers a natural transition between the estate's public and private spaces.",
+    specs:[["Processional","Use"],["Outdoor","Setting"],["Cypress","Character"]],
+    features:["A shaded corridor of Italian cypress trees","Connects the upper terrace to the formal garden","A dramatic processional path","A transition between public and private spaces"],
+    gallery:[ [IMG.cypress,"Cypress Lane"], [IMG.overview,"Within the estate"] ],
+    staging:null
   },
   {
-    id:"courtyard", name:"The Inner Courtyard", meta:"Sheltered · 150 standing",
-    tag:"Cocktail", live:false,
-    photo:"photo-1525258946800-98c2cc0b1f78?w=1400&q=80",
-    chips:[["cap","150 standing"],["loc","Sheltered"]],
-    kicker:"Cocktail Hour", title:"The Inner Courtyard",
-    body:"Stone-paved and sheltered by the mansion's wings on three sides, the courtyard is an intimate, wind-protected setting — ideal for the cocktail hour that bridges ceremony and reception.",
-    specs:[["150","Standing","Cocktail"],["Sheltered","Setting"],["All-season","Use"]],
-    features:["Sheltered on three sides by the mansion","Original stone paving & central feature","Ideal cocktail-hour transition space","String-lighting & ambient sound ready"],
-    gallery:[
-      ["photo-1525258946800-98c2cc0b1f78?w=600&q=80","The courtyard"],
-      ["photo-1519225421980-715cb0215aed?w=600&q=80","Cocktail setup"],
-      ["photo-1530103862676-de8c9debad1d?w=600&q=80","Evening ambiance"],
-      ["photo-1464366400600-7168b8af9bc3?w=600&q=80","Stone detail"]
-    ],
-    staging:["Empty","Cocktail","Lounge"]
+    id:"courtyard", name:"Inner Courtyard", meta:"Sheltered · cocktail",
+    tag:"Cocktail", live:true, splat:"83352cba", skybox:SKY, voxel:null,
+    chips:[["loc","Sheltered"],["cap","Cocktail hour"]],
+    kicker:"Cocktail Hour", title:"Inner Courtyard",
+    body:"The estate's central courtyard offers an intimate stone-paved space sheltered by the mansion's wings on three sides. Ideal for cocktail hours and smaller gatherings, it provides a sense of enclosure and quiet grandeur.",
+    specs:[["Intimate","Scale"],["Sheltered","Setting"],["Cocktails","Best for"]],
+    features:["A stone-paved central courtyard","Sheltered by the mansion's wings on three sides","Ideal for cocktail hours & smaller gatherings","A sense of enclosure and quiet grandeur"],
+    gallery:[ [IMG.courtyard,"The inner courtyard"], [IMG.overview,"Within the estate"] ],
+    staging:["Empty","Ceremony","Reception"]
   },
   {
-    id:"terrace", name:"The Terrace", meta:"Outdoor · 180 seated",
-    tag:"Ceremony / Reception", live:false,
-    photo:"photo-1505373877841-8d25f7d46678?w=1400&q=80",
-    chips:[["cap","180 seated"],["loc","Outdoor"]],
-    kicker:"Ceremony / Reception", title:"The Terrace",
-    body:"Sweeping views across the grounds and toward the city define the Terrace, where golden-hour light turns every ceremony cinematic. Equally suited to an intimate dinner beneath the open sky.",
-    specs:[["180","Seated"],["Outdoor","Setting"],["Sunset","Best light"]],
-    features:["Panoramic views toward the city skyline","Exceptional golden-hour light","Flexible ceremony or al-fresco dining","Direct flow from the Grand Ballroom"],
-    gallery:[
-      ["photo-1505373877841-8d25f7d46678?w=600&q=80","City views"],
-      ["photo-1519225421980-715cb0215aed?w=600&q=80","Sunset ceremony"],
-      ["photo-1511795409834-ef04bbd61622?w=600&q=80","Al-fresco dinner"],
-      ["photo-1470229722913-7c0e2dbbafd3?w=600&q=80","Evening reception"]
-    ],
-    staging:["Empty","Ceremony","Dinner"]
-  },
-  {
-    id:"library", name:"The Library", meta:"Indoor · 40 seated",
-    tag:"Intimate", live:false,
-    photo:"photo-1507842217343-583bb7270b66?w=1400&q=80",
-    chips:[["cap","40 seated"],["loc","Indoor"]],
-    kicker:"Intimate Gatherings", title:"The Library",
-    body:"Wood-paneled and firelit, the Library is the estate's most intimate room — reserved for rehearsal dinners, welcome toasts, and small gatherings that call for warmth over grandeur.",
-    specs:[["40","Seated","Intimate"],["Indoor","Setting"],["Firelit","Ambiance"]],
-    features:["Original wood paneling & working fireplace","Ideal for rehearsal dinners","Private, salon-style seating","Quiet retreat from the main celebration"],
-    gallery:[
-      ["photo-1507842217343-583bb7270b66?w=600&q=80","The library"],
-      ["photo-1481277542470-605612bd2d61?w=600&q=80","Wood paneling"],
-      ["photo-1478146896981-b80fe463b330?w=600&q=80","Intimate dinner"],
-      ["photo-1530103862676-de8c9debad1d?w=600&q=80","Fireside toast"]
-    ],
-    staging:["Empty","Dinner","Reception"]
+    id:"terrace", name:"Front Terrace", meta:"Outdoor · reception",
+    tag:"Reception", live:false, splat:null, photo:IMG.terrace,
+    chips:[["loc","Outdoor"],["cap","Reception"]],
+    kicker:"Arrival & Reception", title:"Front Terrace",
+    body:"The estate's front terrace offers sweeping views across the manicured grounds toward the city below. A broad stone platform flanked by balustrades, it serves as both an arrival point and a reception space for events that want to capture the golden-hour light.",
+    specs:[["Reception","Use"],["Outdoor","Setting"],["Golden hour","Best light"]],
+    features:["Sweeping views toward the city below","A broad stone platform flanked by balustrades","Both an arrival point and a reception space","Captures the golden-hour light"],
+    gallery:[ [IMG.terrace,"The front terrace"], [IMG.overview,"Within the estate"] ],
+    staging:null
   }
 ];
 
 /* ============ STATE ============ */
 var current = SPACES[0];
 var mode = "3d"; // 3d | gallery | details
+var visited = {}; // spaces the couple has explored (personalization hook)
 
 /* ============ ICONS ============ */
 var IC = {
@@ -650,7 +740,7 @@ function sub(s,m,label,icon){
 
 /* ============ NAV ACTIONS ============ */
 function toggleSpace(id){
-  if(id===current.id){ // collapse/expand toggle when re-click
+  if(id===current.id){
     var node = [].slice.call(document.querySelectorAll(".space"))[idx(id)];
     node.classList.toggle("is-open");
     return;
@@ -660,6 +750,7 @@ function toggleSpace(id){
 function selectView(id,m,ev){
   if(ev) ev.stopPropagation();
   current = SPACES[idx(id)];
+  if(id!=="overview") visited[id]=true;
   mode = m;
   renderNav();
   renderStage();
@@ -668,16 +759,13 @@ function idx(id){ for(var i=0;i<SPACES.length;i++){ if(SPACES[i].id===id) return
 
 /* ============ RENDER STAGE ============ */
 function renderStage(){
-  // crumb
   document.getElementById("crumbName").textContent = current.name;
   document.getElementById("crumbTag").textContent = current.tag;
-  // chips
   var chips = document.getElementById("chips");
   chips.innerHTML = current.chips.map(function(c){
     return '<div class="chip">'+(chipIcon[c[0]]||"")+'<span><b>'+c[1].split(" ")[0]+'</b> '+c[1].split(" ").slice(1).join(" ")+'</span></div>';
   }).join("");
 
-  // views visibility
   setView(mode);
 
   if(mode==="3d") render3D();
@@ -690,21 +778,27 @@ function setView(m){
   document.getElementById("view-details").classList.toggle("is-active",m==="details");
 }
 
+function splatURL(s){
+  var u = SPLAT_BASE + s.splat;
+  if(s.skybox) u += "&skybox=" + encodeURI(s.skybox);
+  if(s.voxel)  u += "&voxel="  + encodeURI(s.voxel);
+  return u;
+}
 function render3D(){
   var host = document.getElementById("splatHost");
-  var hintTxt = "Drag to look around";
+  var inner;
   if(current.live){
-    host.innerHTML =
-      '<iframe class="splat-frame" src="'+SPLAT+'" allow="fullscreen" title="3D tour"></iframe>'+
+    inner =
+      '<iframe class="splat-frame" src="'+splatURL(current)+'" allow="fullscreen" title="3D tour"></iframe>'+
       '<div class="splat-3dbadge">'+IC.cube.replace("subicon","")+' Interactive 3D · drag to explore</div>';
   } else {
-    host.innerHTML =
-      '<div class="splat-photo-wrap"><img class="splat-photo" src="'+PH+current.photo+'" onerror="this.style.display=\'none\'" alt=""></div>'+
-      '<div class="splat-3dbadge">'+IC.cube.replace("subicon","")+' Interactive 3D capture</div>'+
-      '<div class="hint">'+hintTxt+'</div>'+
-      stagingHTML()+
+    inner =
+      '<div class="splat-photo-wrap"><img class="splat-photo" src="'+current.photo+'" onerror="this.style.display=\'none\'" alt=""></div>'+
+      '<div class="splat-3dbadge">'+IC.cube.replace("subicon","")+' 3D capture · coming soon</div>'+
+      '<div class="hint">Drag to explore</div>'+
       '<div class="annot">Gaussian splat · simplified controls: orbit + zoom</div>';
   }
+  host.innerHTML = inner + stagingHTML();
 }
 function stagingHTML(){
   if(!current.staging) return "";
@@ -722,7 +816,7 @@ function setStage(btn){
 function renderGallery(){
   var g = document.getElementById("galleryGrid");
   g.innerHTML = current.gallery.map(function(p){
-    return '<div class="photo"><img src="'+PH+p[0]+'" loading="lazy" onerror="this.style.display=\'none\'" alt="">'+
+    return '<div class="photo"><img src="'+p[0]+'" loading="lazy" onerror="this.style.display=\'none\'" alt="">'+
       '<div class="photo-cap">'+p[1]+'</div></div>';
   }).join("");
 }
@@ -741,48 +835,115 @@ function renderDetails(){
     '<ul class="feature-list">'+feats+'</ul>';
 }
 
-/* ============ MODAL ============ */
-var DOWS=["TUE","WED","THU","FRI","SAT","SUN"];
-var DNUMS=[9,10,11,12,13,14];
-var TIMES=["10:00 AM","11:00 AM","1:00 PM","2:00 PM","3:00 PM","4:00 PM","5:00 PM","6:00 PM"];
-var pickDate=null, pickTime=null;
-function buildModal(){
-  document.getElementById("dates").innerHTML = DOWS.map(function(dw,i){
-    return '<div class="date'+(i===2?" is-active":"")+'" onclick="pickD(this,\''+dw+" "+DNUMS[i]+'\')">'+
-      '<div class="date-dow">'+dw+'</div><div class="date-num">'+DNUMS[i]+'</div></div>';
-  }).join("");
-  pickDate="THU 11";
-  document.getElementById("slots").innerHTML = TIMES.map(function(t,i){
-    return '<div class="slot'+(i===3?" is-active":"")+'" onclick="pickT(this,\''+t+'\')">'+t+'</div>';
-  }).join("");
-  pickTime="2:00 PM";
+/* ============ SCHEDULING FLOW ============ */
+var TZS=["Pacific Time (PT)","Mountain Time (MT)","Central Time (CT)","Eastern Time (ET)"];
+var tzi=0;
+var calY=2026, calM=5;                 // June 2026 (0-indexed month)
+var TODAY=new Date(2026,5,3);          // demo "today" = June 3, 2026
+var selDate=null, selTime=null;
+var SLOT_TIMES=["10:00 AM","11:00 AM","12:00 PM","1:00 PM","2:00 PM","3:00 PM","4:00 PM","5:00 PM"];
+var MONTHS=["January","February","March","April","May","June","July","August","September","October","November","December"];
+var DOW=["S","M","T","W","T","F","S"];
+
+function openModal(){ resetFlow(); renderExplored(); document.getElementById("overlay").classList.add("is-open"); }
+function closeModal(){ document.getElementById("overlay").classList.remove("is-open"); }
+function resetFlow(){ selDate=null; selTime=null; calY=2026; calM=5; goStep(1); renderCal(); renderSlots(); }
+
+function renderExplored(){
+  var ids=Object.keys(visited);
+  var host=document.getElementById("msExplored");
+  if(!ids.length){ host.innerHTML=""; return; }
+  host.innerHTML='<div class="ms-explored-lbl">You\'ve explored</div>'+
+    ids.map(function(id){ return '<span class="ms-chip">'+SPACES[idx(id)].name+'</span>'; }).join("");
 }
-function pickD(el,v){ act(el,"date"); pickDate=v; }
-function pickT(el,v){ act(el,"slot"); pickTime=v; }
-function act(el,cls){
-  var sibs=el.parentNode.querySelectorAll("."+cls);
-  for(var i=0;i<sibs.length;i++) sibs[i].classList.remove("is-active");
-  el.classList.add("is-active");
+function cycleTz(){ tzi=(tzi+1)%TZS.length; document.getElementById("tzLabel").textContent=TZS[tzi]; updateSummary(); }
+
+function goStep(n){
+  for(var i=1;i<=3;i++){ document.getElementById("panel-"+i).classList.toggle("is-active",i===n); }
+  document.querySelectorAll(".step").forEach(function(el){
+    var s=+el.getAttribute("data-s");
+    el.classList.toggle("is-active",s===n);
+    el.classList.toggle("is-done",s<n);
+  });
+  document.querySelector(".modal-main").scrollTop=0;
 }
-function openModal(){ document.getElementById("overlay").classList.add("is-open"); }
-function closeModal(){
-  document.getElementById("overlay").classList.remove("is-open");
-  setTimeout(function(){
-    document.getElementById("modalForm").style.display="block";
-    document.getElementById("confirmState").classList.remove("show");
-  },250);
+
+function moveMonth(d){ calM+=d; if(calM<0){calM=11;calY--;} if(calM>11){calM=0;calY++;} renderCal(); }
+function dayOff(y,m,d){
+  var dt=new Date(y,m,d);
+  if(dt.getDay()===1) return true;   // Mondays — venue closed
+  if(dt<TODAY) return true;          // past dates
+  if((2*d)%5===0) return true;       // pseudo-random fully-booked days
+  return false;
+}
+function renderCal(){
+  document.getElementById("calTitle").textContent=MONTHS[calM]+" "+calY;
+  var first=new Date(calY,calM,1).getDay();
+  var days=new Date(calY,calM+1,0).getDate();
+  var h=DOW.map(function(d){ return '<div class="cal-dow">'+d+'</div>'; }).join("");
+  for(var i=0;i<first;i++) h+='<div class="cal-empty"></div>';
+  for(var d=1;d<=days;d++){
+    var off=dayOff(calY,calM,d);
+    var act=(selDate&&selDate.y===calY&&selDate.m===calM&&selDate.d===d);
+    h+='<button class="cal-day'+(off?" is-off":"")+(act?" is-active":"")+'" '+(off?'disabled':'onclick="pickDay('+d+')"')+'>'+d+(off?'':'<span class="dot"></span>')+'</button>';
+  }
+  document.getElementById("calGrid").innerHTML=h;
+}
+function pickDay(d){ selDate={y:calY,m:calM,d:d}; selTime=null; renderCal(); renderSlots(); checkContinue(); }
+function renderSlots(){
+  var host=document.getElementById("slotsHost");
+  if(!selDate){ host.innerHTML='<div class="slots-empty">Select a date to see available times.</div>'; return; }
+  var seed=(selDate.d*3+selDate.m)%SLOT_TIMES.length;
+  host.innerHTML='<div class="slots">'+SLOT_TIMES.map(function(t,i){
+    var taken=((i+seed)%3===0);
+    var act=(selTime===t);
+    return '<div class="slot'+(taken?" is-taken":"")+(act?" is-active":"")+'" '+(taken?'':'onclick="pickSlot(\''+t+'\')"')+'>'+t+'</div>';
+  }).join("")+'</div>';
+}
+function pickSlot(t){ selTime=t; renderSlots(); checkContinue(); }
+function checkContinue(){ document.getElementById("toStep2").disabled=!(selDate&&selTime); updateSummary(); }
+function fmtDate(){
+  if(!selDate) return "";
+  var dt=new Date(selDate.y,selDate.m,selDate.d);
+  var dn=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"][dt.getDay()];
+  return dn+", "+MONTHS[selDate.m]+" "+selDate.d;
+}
+function updateSummary(){
+  if(selDate&&selTime) document.getElementById("sumTxt").innerHTML='<b>'+fmtDate()+'</b> at <b>'+selTime+'</b> · '+TZS[tzi];
 }
 function confirmBooking(){
-  document.getElementById("cWhen").textContent = "Thu, June "+(pickDate?pickDate.split(" ")[1]:"11")+" · "+(pickTime||"2:00 PM");
-  document.getElementById("modalForm").style.display="none";
-  document.getElementById("confirmState").classList.add("show");
+  document.getElementById("cWhen").textContent=fmtDate()+" · "+selTime+" "+TZS[tzi].match(/\(([^)]+)\)/)[1];
+  buildCalLinks();
+  goStep(3);
+}
+
+/* add-to-calendar (functional) */
+function icsDates(){
+  var hr=parseInt(selTime); var pm=/PM/.test(selTime); if(pm&&hr!==12)hr+=12; if(!pm&&hr===12)hr=0;
+  var s=new Date(selDate.y,selDate.m,selDate.d,hr,0,0);
+  var e=new Date(s.getTime()+45*60000);
+  function z(n){ return (n<10?"0":"")+n; }
+  function f(x){ return x.getFullYear()+z(x.getMonth()+1)+z(x.getDate())+"T"+z(x.getHours())+z(x.getMinutes())+"00"; }
+  return {s:f(s),e:f(e)};
+}
+function buildCalLinks(){
+  var d=icsDates();
+  document.getElementById("gcal").href="https://calendar.google.com/calendar/render?action=TEMPLATE&text="+
+    encodeURIComponent("Virtual Tour — The Doheny Estate")+"&dates="+d.s+"/"+d.e+
+    "&details="+encodeURIComponent("A live guided virtual tour with Shirleen Finney, Director of Sales.")+
+    "&location="+encodeURIComponent("Online · join link");
+}
+function downloadICS(){
+  var d=icsDates();
+  var ics=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//Interlink//Tour//EN","BEGIN:VEVENT","UID:"+Date.now()+"@interlink","DTSTAMP:"+d.s,"DTSTART:"+d.s,"DTEND:"+d.e,"SUMMARY:Virtual Tour — The Doheny Estate","DESCRIPTION:A live guided virtual tour with Shirleen Finney.","LOCATION:Online · join link","END:VEVENT","END:VCALENDAR"].join("\r\n");
+  var b=new Blob([ics],{type:"text/calendar"});
+  var a=document.createElement("a"); a.href=URL.createObjectURL(b); a.download="doheny-virtual-tour.ics"; a.click();
 }
 document.getElementById("overlay").addEventListener("click",function(e){ if(e.target===this) closeModal(); });
 
 /* ============ INIT ============ */
 renderNav();
 renderStage();
-buildModal();
 </script>
 </body>
 </html>
