@@ -1,0 +1,14 @@
+# Second line of defence. The deploy script stages only named files,
+# but this stops an accidental "git add ." from publishing anything
+# confidential if someone works inside this clone by hand.
+*.docx
+*.pptx
+*.pdf
+*.bat
+*.sh
+outreach-emails.md
+Interlink-Master-Position-Outreach.md
+Tour-Mockup-Spec.md
+HANDOFF-Repo-and-Deploy.md
+Interlink-Design-Prompt.*
+*Notes by Gemini*
