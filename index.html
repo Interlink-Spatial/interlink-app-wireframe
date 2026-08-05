@@ -3,947 +3,863 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Doheny Estate — Interlink</title>
+<title>Interlink · Guided Tour Demo</title>
+<meta name="description" content="Step into a live guided venue tour — from the director's seat. An interactive demo by Interlink Spatial.">
+<meta property="og:title" content="A guided tour, from the director's seat — Interlink">
+<meta property="og:description" content="Step into a live guided venue tour as the director giving it. Interactive demo — click around.">
+<meta property="og:image" content="https://images.squarespace-cdn.com/content/6628a44904df01353f73193c/22bdf375-9854-4808-87be-5ff57dc85979/Overview.png?content-type=image%2Fpng">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMi4wMCwxMi4wMykgc2NhbGUoMC4wODY5MykiIGZpbGw9IiM5QTdCNEYiPjxwYXRoIGQ9Ik00NTMuOTYsMzExLjAxYzMuNDctNi4yMiw2LjQ2LTEyLjEsMTAuMDQtMTcuNi44NS0xLjMxLDMuNjgtMS44Niw1LjYxLTEuODcsMjEuMzMtLjEzLDQyLjY1LjA4LDYzLjk4LS4xMyw0Ny41Ni0uNDcsNzkuNDctNDYuMyw2My42Mi05MS4xNy04LjMtMjMuNDktMzQuNTctNDEuODgtNTkuOTctNDEuODQtMjEuOTkuMDMtNDMuOTkuMTktNjUuOTguMjktLjE3LDAtLjMzLDAtLjUsMC05LjY5LjItMTAuMDIuNi04LjQyLDkuOTQsMy44OSwyMi42OSw2LjE3LDQ1LjQ0LDIuNTUsNjguNC00LjExLDI2LjEtMTMuODUsNTAuMTEtMjcuODYsNzIuMzMtMzcuNTgsNTkuNTgtODguNjEsMTAzLjk0LTE1My4wMSwxMzIuNTQtMjYuMzcsMTEuNzEtNTQuMzEsMTguMjUtODMuMzIsMTcuMzctNTYuNjYtMS43MS0xMDUuMS0yMi43OS0xNDUuMTQtNjMuMTQtMTkuMDUtMTkuMTktMzMuNDEtNDEuMDgtNDEuMzctNjcuMDEtLjE4LS42LS4yNS0xLjIzLS41LTIuNTIsNS40OCw2LjQ2LDEwLjI2LDEyLjYxLDE1LjU3LDE4LjI3LDUyLjI1LDU1LjcxLDEzMi4yMSw3MC42MywyMDMuMTEsMzcuMzUsMzYuMTEtMTYuOTUsNjUuODEtNDIuMjgsOTMuNzEtNzAuMTcsMjguMzctMjguMzYsNTEuMzYtNjAuOTgsNzUuMjYtOTIuOTUsMjMuMjMtMzEuMDYsNTAuMTYtNTguNiw4NS43MS03NS40NywzNy45OC0xOC4wMiw3Ni4xOC0xNi44NCwxMTEuNzYsNi4yNSwyMy41OSwxNS4zMSwzNS4zMSwzOC43NiwzNy45Niw2Ni44NSwxLjc4LDE4LjktMS43OSwzNi43Ny0xMC42Nyw1My4xMy0xNi4yOCwyOS45OC00Mi4xMyw0Ni41NC03NS45OSw1MC42MS0yNi4xNiwzLjE1LTUxLjYxLTIuNTItNzcuMi02LjM3LTYuMTgtLjkzLTEyLjM0LTIuMDItMTguOTQtMy4xMVoiLz48cGF0aCBkPSJNNDI2Ljc2LDM1MC44OWM1Ljk4LTguMzcsMTAuODItMTUuMjksMTUuODgtMjIuMDUuNjUtLjg4LDIuNDgtMS40OSwzLjYxLTEuMzEsMjEuOTEsMy41NCw0My43NSw3LjU1LDY1LjcxLDEwLjc5LDQ1LjA2LDYuNjYsODQuNDktNC43MSwxMTYuMDctMzguNDQsMTYuNDUtMTcuNTcsMjUuNS0zOC44MSwyOC41My02Mi44MiwzLjA3LTI0LjM3LTEuMjItNDcuNDEtMTIuNDItNjguODUtMTguOS0zNi4xOS00OS4zNy01Ni42OC04OS43My02Mi4zLTM4LjI3LTUuMzMtNzIuODUsNC41NC0xMDUuMiwyNS4wNC0yNy43NCwxNy41OC00OC45NCw0MS41My02OC45Myw2Ni45LTI3Ljk4LDM1LjUxLTU0LjI5LDcyLjQ2LTg3LjU5LDEwMy40Ni0yMS43NywyMC4yNy00My43MSw0MC4yMi02OS41Miw1NS42NS02MS40OSwzNi43OC0xMzQuNDQsMjAuOTQtMTc1Ljg4LTE5LjFDMTkuNzIsMzExLjIzLDQuMTQsMjc5LjIzLjY0LDI0MS4wNi02LjM0LDE2NC45LDQ0LjQzLDk2LjYyLDExNy4zOSw3OC4xOGMzMi4zOC04LjE4LDY0LjYzLTYuNzQsOTYuNjYsMS40NiwxOS44OCw1LjA5LDM5LjUsMTEuMTksNjAuMjksMTcuMTQtNS40OSw3LjY0LTkuOTcsMTQuMTEtMTQuOCwyMC4zMS0uNjcuODYtMy4wOC43NC00LjU5LjUxLTIyLjE1LTMuNDItNDQuMjUtNy4yLTY2LjQzLTEwLjM2LTM1LjM4LTUuMDQtNjkuMTItMS4xMS05OC44OCwyMC42My0zMi45LDI0LjAzLTUwLjcsNTctNTIuNDksOTcuMjYtMS42OSwzOC4xOSwxNS4wNSw2OC45OSw0NC4wOCw5My40NiwzMy43MSwyOC40Miw3Mi43MywzMi44LDExNC4xNiwyNC44MSwzMS4xMy02LjAxLDU3LjA5LTIyLjc3LDgxLjkxLTQxLjU4LDM0LjE3LTI1LjksNTkuNy01OS41OSw4NC45NC05My41NCwyNy42Ni0zNy4yLDU5LjM2LTcwLjE1LDk4LjU3LTk1LjQ4LDIwLjU3LTEzLjI5LDQyLjQyLTIzLjI0LDY2LjU5LTI3LjYxLDI3LjUtNC45Nyw1My41OC4zNiw3OC44NywxMS4zMywxNC44LDYuNDIsMjguMDksMTUuMTUsMzkuMzUsMjYuNTQsMjMuMDEsMjMuMjYsMzguMTcsNTAuNTksNDIuOTEsODMuNDcsNC4zNywzMC4yOS40Myw1OS4yLTE0LjI4LDg1LjkxLTE4LjE5LDMzLjAyLTQ2LjE2LDU1LjEyLTgxLjU1LDY3Ljk0LTI4LjM5LDEwLjI4LTU3LjYxLDEyLjA2LTg3LjA2LDYuODYtMjYuMDQtNC42LTUxLjgyLTEwLjY2LTc4Ljg4LTE2LjMzWiIvPjxwYXRoIGQ9Ik02ODkuNzcsMTUxLjg2Yy0xMy4xOC0yNi4xMi0yOS43Mi00Ny44OC01My4yMy02Mi42My02Ni4wOS00MS40OS0xMzIuNjgtNDAuMDctMTk4LjU3Ljg4LTM2LjY1LDIyLjc4LTY2LjE0LDUzLjQ1LTkyLjc4LDg2Ljk4LTE4LjYyLDIzLjQzLTM1LjczLDQ4LjE4LTU1Ljc3LDcwLjMyLTE1LjUsMTcuMTItMzQuNDcsMzEuMS01MS45Myw0Ni40NS0uNy42MS0xLjcuODgtNC4zNCwyLjE5LTEuMDYtMjEuNDctMy43MS00Mi4wMy0yLjc0LTYyLjQyLDIuMTctNDUuNDIsMjEuNjItODQuMzcsNDkuOC0xMTkuMTcsMzUuNjMtNDQuMDEsNzkuNDctNzcuMjEsMTMyLjU0LTk3LjY3LDM2Ljc1LTE0LjE3LDc0LjY2LTIwLjU1LDExMy45My0xNC41NCw3NS45NCwxMS42MSwxNDAuNTcsNTkuOTgsMTYwLjA3LDEzNi42MS45NywzLjgyLDEuNzksNy42OCwzLjAyLDEzWiIvPjwvZz48L3N2Zz4=">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Baskervville:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://superspl.at">
+<link rel="preconnect" href="https://images.squarespace-cdn.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,500&family=Baskervville:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script data-goatcounter="https://interlinkspatial.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <style>
   :root{
-    --bg:#F4F1EC;
-    --stage-bg:#EDE9E2;
-    --rail:#FFFFFF;
-    --rail-tint:#FCFBF9;
-    --ink:#2A2724;
-    --ink-soft:#6E665C;
-    --ink-faint:#9A9189;
-    --line:rgba(42,39,36,0.09);
-    --line-strong:rgba(42,39,36,0.16);
-    --gold:#9A7B4F;
-    --gold-deep:#7E6240;
-    --gold-soft:rgba(154,123,79,0.12);
-    --cta:#2A2724;
-    --white-glass:rgba(255,255,255,0.72);
-    --shadow-sm:0 1px 2px rgba(42,39,36,0.05);
-    --shadow-md:0 6px 24px rgba(42,39,36,0.08);
-    --shadow-lg:0 18px 50px rgba(42,39,36,0.16);
+    --bg:#11100E;
+    --ink:#2A2724;--ink-soft:#6E665C;--ink-faint:#9A9189;
+    --line:rgba(42,39,36,0.09);--line-strong:rgba(42,39,36,0.16);
+    --gold:#9A7B4F;--gold-deep:#7E6240;--gold-soft:rgba(154,123,79,0.14);
+    --cta:#2A2724;--live:#C0492F;
+    --glass:rgba(255,255,255,0.78);
+    --glass-border:rgba(255,255,255,0.6);
+    --shadow-md:0 6px 24px rgba(0,0,0,0.18);
+    --shadow-lg:0 18px 50px rgba(0,0,0,0.32);
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html,body{height:100%}
-  body{
-    font-family:'Inter',system-ui,sans-serif;
-    background:var(--bg);
-    color:var(--ink);
-    -webkit-font-smoothing:antialiased;
-    overflow:hidden;
-  }
-  .serif{font-family:'Cormorant Garamond',serif}
-  .editorial{font-family:'Baskervville',serif}
+  body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--ink);overflow:hidden;-webkit-font-smoothing:antialiased}
 
-  /* ============ APP SHELL ============ */
-  .app{display:flex;height:100vh;width:100vw}
+  .tour{position:fixed;inset:0;overflow:hidden}
+  .splat{position:absolute;inset:0;width:100%;height:100%;border:none;display:block}
+  .splat-fallback{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none}
+  .scrim{position:absolute;inset:0;pointer-events:none;background:
+    radial-gradient(120% 80% at 50% 0%, rgba(0,0,0,0.28), transparent 38%),
+    radial-gradient(120% 60% at 50% 100%, rgba(0,0,0,0.34), transparent 42%)}
 
-  /* ============ LEFT RAIL ============ */
-  .rail{
-    width:344px;flex:0 0 344px;height:100%;
-    background:var(--rail);
-    border-right:1px solid var(--line);
-    display:flex;flex-direction:column;
-    box-shadow:var(--shadow-md);z-index:20;position:relative;
-  }
-  .brand{
-    padding:24px 26px 18px;border-bottom:1px solid var(--line);
-    text-align:center;
-  }
-  .brand-lockup{
-    display:flex;align-items:center;justify-content:center;gap:13px;
-  }
-  .bh-crest{height:54px;width:auto;flex:0 0 auto;display:block}
-  .brand-text{text-align:left}
-  .brand-mark{
-    font-family:'Cormorant Garamond',serif;font-weight:500;
-    font-size:23px;letter-spacing:.12em;color:var(--ink);
-    line-height:1.02;text-transform:uppercase;
-  }
-  .brand-mark--2{color:var(--gold-deep)}
-  .brand-sub{
-    font-family:'Cormorant Garamond',serif;font-style:italic;
-    font-size:13.5px;color:var(--gold);letter-spacing:.06em;margin-top:10px;
-  }
-  .brand-rule{
-    width:34px;height:1px;background:var(--line-strong);margin:12px auto 0;
-  }
-  .powered{
-    margin-top:11px;font-size:9.5px;letter-spacing:.22em;
-    text-transform:uppercase;color:var(--ink-faint);
-  }
-  .powered b{color:var(--gold);font-weight:600}
+  /* ===== splat loading veil ===== */
+  /* veil carries the space's own photo, so veil → poster → splat never flashes white */
+  .splatload{position:absolute;inset:0;z-index:6;background:#181613 center/cover no-repeat;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;
+    opacity:1;visibility:visible;transition:opacity .6s ease,visibility .6s ease}
+  .splatload.off{opacity:0;visibility:hidden}
+  .sl-veil{position:absolute;inset:0;background:rgba(17,16,14,.68);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+  .sl-ring{position:relative;z-index:2;width:38px;height:38px;border-radius:50%;border:2px solid rgba(154,123,79,.22);border-top-color:var(--gold);animation:spin 1s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .sl-label{position:relative;z-index:2;font-family:'Cormorant Garamond',serif;font-size:17px;color:rgba(255,255,255,.72);letter-spacing:.04em;font-style:italic}
+  .sl-bar{position:relative;z-index:2;width:196px;height:3px;border-radius:2px;background:rgba(255,255,255,.15);overflow:hidden;margin-top:-4px}
+  .sl-bar i{display:block;height:100%;width:0;background:var(--gold);border-radius:2px}
+  .sl-sub{position:relative;z-index:2;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.34);
+    opacity:0;transition:opacity .4s ease}
+  .sl-sub.on{opacity:1}
 
-  /* nav */
-  .nav{flex:1;overflow-y:auto;padding:10px 14px 6px}
-  .nav::-webkit-scrollbar{width:6px}
-  .nav::-webkit-scrollbar-thumb{background:rgba(42,39,36,0.14);border-radius:3px}
+  /* ===== LIVE status bar ===== */
+  .livebar{position:absolute;top:18px;left:18px;right:18px;z-index:30;display:flex;align-items:center;gap:12px;pointer-events:none}
+  .livebar .lb-pill{pointer-events:auto}
+  .lb-zone{flex:1 1 0;display:flex;min-width:0}
+  .lb-zone--r{justify-content:flex-end}
+  .lb-pill{background:var(--glass);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border:1px solid var(--glass-border);border-radius:13px;box-shadow:var(--shadow-md);display:flex;align-items:center}
+  .lb-left{padding:12px 18px;gap:10px}
+  .livedot{width:8px;height:8px;border-radius:50%;background:var(--live);box-shadow:0 0 0 0 rgba(192,73,47,.5);animation:pulse 2s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(192,73,47,.5)}70%{box-shadow:0 0 0 7px rgba(192,73,47,0)}100%{box-shadow:0 0 0 0 rgba(192,73,47,0)}}
+  .live-txt{font-size:11.5px;letter-spacing:.03em;font-weight:500;color:var(--ink)}
+  .timer{font-size:12px;color:var(--ink-soft);font-variant-numeric:tabular-nums;border-left:1px solid var(--line);padding-left:10px;margin-left:2px}
+  /* ===== space tabs (top centre) ===== */
+  .lb-center{padding:6px;gap:2px;max-width:100%;overflow-x:auto;scrollbar-width:none}
+  .lb-center::-webkit-scrollbar{display:none}
+  .tab{border:none;background:transparent;cursor:pointer;flex:0 0 auto;
+    font-family:'Cormorant Garamond',serif;font-size:17px;line-height:1;color:var(--ink-soft);
+    padding:10px 16px;border-radius:10px;white-space:nowrap;transition:all .16s ease;
+    display:flex;align-items:center;gap:7px}
+  .tab:hover{background:var(--gold-soft);color:var(--gold-deep)}
+  .tab.is-active{background:var(--cta);color:#fff}
+  .tab-ic{width:14px;height:14px;flex:0 0 14px;opacity:.75}
+  .tab.is-active .tab-ic{opacity:1}
+  /* the estate overview isn't an event space — set it apart */
+  .tab-div{width:1px;align-self:stretch;background:var(--line);margin:5px 5px}
+  .lb-right{padding:7px 8px 7px 16px;gap:14px}
+  .lb-party{font-size:12px;color:var(--ink-soft)}
+  .lb-party b{color:var(--ink);font-weight:600}
+  .end{border:none;cursor:pointer;background:var(--live);color:#fff;border-radius:9px;padding:9px 15px;font-family:'Inter';font-size:12px;font-weight:500;letter-spacing:.03em;transition:filter .15s}
+  .end:hover{filter:brightness(1.08)}
 
-  .space{border-radius:12px;margin-bottom:2px}
-  .space-head{
-    display:flex;align-items:center;gap:10px;
-    padding:12px 12px;cursor:pointer;border-radius:12px;
-    transition:background .18s ease;user-select:none;
-  }
-  .space-head:hover{background:var(--rail-tint)}
-  .space.is-open .space-head{background:var(--gold-soft)}
-  .space-dot{
-    width:7px;height:7px;border-radius:50%;flex:0 0 7px;
-    background:var(--line-strong);transition:background .18s,transform .18s;
-  }
-  .space.is-open .space-dot{background:var(--gold);transform:scale(1.25)}
-  .space-titles{flex:1;min-width:0}
-  .space-name{
-    font-size:14.5px;font-weight:500;color:var(--ink);letter-spacing:.01em;
-    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
-  }
-  .space.is-open .space-name{color:var(--gold-deep)}
-  .space-meta{
-    font-size:11px;color:var(--ink-faint);margin-top:1px;letter-spacing:.02em;
-  }
-  .chev{
-    width:14px;height:14px;flex:0 0 14px;color:var(--ink-faint);
-    transition:transform .22s ease;
-  }
-  .space.is-open .chev{transform:rotate(180deg);color:var(--gold)}
+  /* ===== private notes (left) ===== */
+  .notes{position:absolute;left:18px;top:110px;width:248px;z-index:25;background:var(--glass);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border:1px solid var(--glass-border);border-radius:15px;box-shadow:var(--shadow-md);overflow:hidden;transition:all .25s ease}
+  .notes-head{display:flex;align-items:center;gap:8px;padding:13px 15px;cursor:pointer;border-bottom:1px solid var(--line)}
+  .notes-title{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);font-weight:600;flex:1}
+  .private{font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-deep);background:var(--gold-soft);border:1px solid rgba(154,123,79,.3);border-radius:20px;padding:3px 8px}
+  .notes-chev{color:var(--ink-faint);font-size:12px;transition:transform .25s}
+  .notes.collapsed .notes-chev{transform:rotate(-90deg)}
+  .notes-body{max-height:420px;overflow-y:auto;transition:max-height .25s ease}
+  .notes.collapsed .notes-body{max-height:0;overflow:hidden}
+  .notes-body::-webkit-scrollbar{width:5px}
+  .notes-body::-webkit-scrollbar-thumb{background:rgba(42,39,36,.16);border-radius:3px}
 
-  .subnav{
-    max-height:0;overflow:hidden;transition:max-height .28s ease;
-  }
-  .space.is-open .subnav{max-height:160px}
-  .subnav-inner{padding:2px 0 10px 28px}
-  .subitem{
-    display:flex;align-items:center;gap:10px;
-    padding:8px 12px;border-radius:9px;cursor:pointer;
-    font-size:12.5px;color:var(--ink-soft);transition:background .15s,color .15s;
-  }
-  .subitem:hover{background:var(--rail-tint);color:var(--ink)}
-  .subitem.is-active{background:var(--cta);color:#fff}
-  .subitem.is-active .subicon{color:#fff}
-  .subicon{width:15px;height:15px;color:var(--ink-faint);flex:0 0 15px}
-  .subitem.is-active .subicon{color:#fff}
+  /* booking facts */
+  .bk{padding:12px 15px 4px}
+  .bk-row{display:flex;justify-content:space-between;gap:10px;padding:5px 0;font-size:11.5px}
+  .bk-row span{color:var(--ink-faint)}
+  .bk-row b{color:var(--ink);font-weight:600}
+  /* their own words — the highest-value line in the panel */
+  .bk-note{margin:10px 15px 14px;background:var(--gold-soft);border:1px solid rgba(154,123,79,.22);border-radius:10px;
+    padding:11px 13px;font-family:'Baskervville',serif;font-size:13px;color:var(--gold-deep);line-height:1.5}
 
-  /* contact card */
-  .contact{
-    border-top:1px solid var(--line);padding:18px 22px 20px;
-    background:var(--rail-tint);
-  }
-  .contact-row{display:flex;align-items:center;gap:13px;margin-bottom:15px}
-  .headshot{
-    width:50px;height:50px;border-radius:50%;flex:0 0 50px;
-    object-fit:cover;background:linear-gradient(135deg,#cdbfa8,#9a8a6f);
-    border:2px solid #fff;box-shadow:var(--shadow-sm);
-    display:flex;align-items:center;justify-content:center;
-    font-family:'Cormorant Garamond',serif;font-size:18px;color:#fff;font-weight:500;
-  }
-  .contact-name{font-size:14px;font-weight:600;color:var(--ink);letter-spacing:.01em}
-  .contact-role{font-size:11.5px;color:var(--ink-soft);margin-top:2px}
-  .contact-yrs{font-size:10.5px;color:var(--gold);margin-top:3px;letter-spacing:.02em}
-  .cta{
-    width:100%;border:none;cursor:pointer;
-    background:var(--cta);color:#fff;border-radius:11px;
-    padding:14px 16px;font-family:'Inter',sans-serif;
-    font-size:13px;font-weight:500;letter-spacing:.04em;
-    display:flex;align-items:center;justify-content:center;gap:9px;
-    transition:transform .15s ease,box-shadow .2s ease,background .2s;
-    box-shadow:var(--shadow-sm);
-  }
-  .cta:hover{transform:translateY(-1px);box-shadow:0 8px 22px rgba(42,39,36,0.22);background:#000}
-  .cta svg{width:16px;height:16px}
-  .cta-sub{
-    text-align:center;font-size:10.5px;color:var(--ink-faint);
-    margin-top:9px;letter-spacing:.03em;
-  }
+  /* live tour log */
+  .tl-head{font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);
+    padding:11px 15px 0;border-top:1px solid var(--line)}
+  .tl{list-style:none;padding:8px 15px 15px;margin:0}
+  .tl li{font-size:12px;color:var(--ink);line-height:1.35;padding:6px 0 6px 16px;position:relative}
+  .tl li:before{content:"";position:absolute;left:3px;top:12px;width:5px;height:5px;border-radius:50%;background:var(--gold)}
+  .tl li.tl-sub{color:var(--ink-soft);font-size:11px;padding-left:28px;padding-top:0}
+  .tl li.tl-sub:before{left:16px;top:7px;width:3px;height:3px;background:var(--ink-faint)}
+  .tl-now{color:var(--gold-deep);font-weight:600}
 
-  /* ============ STAGE ============ */
-  .stage{
-    flex:1;position:relative;height:100%;
-    background:var(--stage-bg);overflow:hidden;
-  }
-  .stage-top{
-    position:absolute;top:20px;left:24px;right:24px;z-index:12;
-    display:flex;align-items:center;justify-content:space-between;
-    pointer-events:none;
-  }
-  .crumb{
-    pointer-events:auto;
-    background:var(--white-glass);
-    -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
-    border:1px solid rgba(255,255,255,0.6);
-    border-radius:13px;padding:11px 18px;box-shadow:var(--shadow-md);
-  }
-  .crumb-name{font-family:'Cormorant Garamond',serif;font-size:21px;color:var(--ink);line-height:1;font-weight:500}
-  .crumb-tag{font-size:10.5px;color:var(--gold);letter-spacing:.16em;text-transform:uppercase;margin-top:4px}
-  .chips{display:flex;gap:8px;pointer-events:auto}
-  .chip{
-    background:var(--white-glass);
-    -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
-    border:1px solid rgba(255,255,255,0.6);
-    border-radius:11px;padding:9px 14px;box-shadow:var(--shadow-sm);
-    font-size:11.5px;color:var(--ink-soft);display:flex;align-items:center;gap:7px;
-  }
-  .chip svg{width:13px;height:13px;color:var(--gold)}
-  .chip b{color:var(--ink);font-weight:600}
+  /* ===== video tiles (top-right, below bar) ===== */
+  .videos{position:absolute;right:18px;top:110px;z-index:25;display:flex;flex-direction:column;gap:10px;width:200px}
+  .vtile{position:relative;border-radius:14px;overflow:hidden;box-shadow:var(--shadow-md);border:1px solid rgba(255,255,255,0.14);background:#1d1b18;aspect-ratio:4/3}
+  .vtile img{width:100%;height:100%;object-fit:cover;display:block}
+  .vtile--couple{display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#2a2622,#3a342c)}
+  .vavatar{width:54px;height:54px;border-radius:50%;background:var(--gold);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:500}
+  .vlabel{position:absolute;left:8px;bottom:8px;font-size:10.5px;color:#fff;background:rgba(0,0,0,0.42);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);border-radius:7px;padding:3px 8px;letter-spacing:.02em}
+  .vlabel .y{color:#E9D9B8}
+  .vstate{position:absolute;right:8px;top:8px;display:flex;gap:5px}
+  .vbtn{width:24px;height:24px;border-radius:50%;background:rgba(0,0,0,0.4);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;color:#fff}
+  .vbtn svg{width:12px;height:12px}
+  .vbtn.off{background:var(--live)}
+  /* ===== shared photo card ===== */
+  .photocard{position:absolute;left:18px;bottom:104px;z-index:22;width:280px;background:#fff;border-radius:14px;overflow:hidden;box-shadow:var(--shadow-lg);display:none;transform:translateY(8px);opacity:0;transition:all .3s ease}
+  .photocard.on{display:block;transform:none;opacity:1}
+  .photocard img{width:100%;height:172px;object-fit:cover;display:block}
+  .photocard-cap{padding:11px 14px;position:relative}
+  .photocard-cap .t{font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--ink);padding-right:20px}
+  .photocard-cap .s{font-size:11px;color:var(--ink-soft);margin-top:2px}
+  .pc-close{position:absolute;right:8px;top:9px;border:none;background:transparent;color:var(--ink-faint);cursor:pointer;font-size:15px;line-height:1;padding:4px}
+  .pc-close:hover{color:var(--ink)}
 
-  /* views */
-  .view{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .4s ease}
-  .view.is-active{opacity:1;visibility:visible}
+  /* ===== venue library drawer ===== */
+  .library{position:absolute;left:50%;bottom:104px;transform:translateX(-50%) translateY(8px);z-index:27;width:472px;max-width:calc(100vw - 32px);
+    background:var(--glass);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border:1px solid var(--glass-border);border-radius:16px;box-shadow:var(--shadow-lg);
+    padding:14px 16px 16px;opacity:0;visibility:hidden;transition:all .28s ease}
+  .library.on{opacity:1;visibility:visible;transform:translateX(-50%)}
+  .lib-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:11px}
+  .lib-title{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);font-weight:600}
+  .lib-sub{font-size:10.5px;color:var(--ink-faint)}
+  .lib-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+  .lib-item{border:none;background:transparent;padding:0;cursor:pointer;text-align:left;border-radius:10px}
+  .lib-thumb{width:100%;aspect-ratio:4/3;border-radius:10px;overflow:hidden;background:linear-gradient(135deg,#d8cfc0,#b3a489);border:2px solid transparent;transition:border .15s,transform .15s}
+  .lib-item:hover .lib-thumb{border-color:var(--gold);transform:translateY(-1px)}
+  .lib-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+  .lib-cap{font-size:10px;color:var(--ink-soft);margin-top:5px;line-height:1.35;padding:0 1px}
 
-  /* 3D view */
-  .splat-frame{position:absolute;inset:0;width:100%;height:100%;border:none;display:block}
-  .splat-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-  .splat-photo-wrap{position:absolute;inset:0;background:linear-gradient(135deg,#d8cfc0,#b3a489)}
-  .splat-3dbadge{
-    position:absolute;top:78px;left:24px;z-index:8;
-    background:rgba(42,39,36,0.72);color:#fff;
-    -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
-    border-radius:9px;padding:7px 13px;font-size:10.5px;letter-spacing:.08em;
-    display:flex;align-items:center;gap:7px;text-transform:uppercase;
-  }
-  .splat-3dbadge svg{width:13px;height:13px;color:var(--gold)}
-  .hint{
-    position:absolute;left:50%;bottom:96px;transform:translateX(-50%);z-index:8;
-    background:var(--white-glass);
-    -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
-    border:1px solid rgba(255,255,255,0.6);border-radius:30px;
-    padding:9px 20px;font-size:12px;color:var(--ink-soft);letter-spacing:.04em;
-    box-shadow:var(--shadow-sm);animation:breathe 3.4s ease-in-out infinite;
-  }
-  @keyframes breathe{0%,100%{opacity:.78}50%{opacity:1}}
+  /* ===== control dock (bottom-center) ===== */
+  .dock{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);z-index:28;display:flex;align-items:stretch;gap:4px;background:var(--glass);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border:1px solid var(--glass-border);border-radius:18px;box-shadow:var(--shadow-lg);padding:10px 12px;max-width:calc(100vw - 40px)}
+  .grp{display:flex;flex-direction:column;gap:6px;padding:0 12px;justify-content:center}
+  .grp-lbl{font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);text-align:center}
+  .grp-row{display:flex;gap:5px;justify-content:center}
+  .sep{width:1px;background:var(--line);margin:4px 2px}
+  .ctl{border:1px solid var(--line-strong);background:#fff;border-radius:9px;padding:8px 12px;font-family:'Inter';font-size:12px;color:var(--ink-soft);cursor:pointer;white-space:nowrap;transition:all .15s;display:flex;align-items:center;gap:6px}
+  .ctl:hover{border-color:var(--gold);color:var(--ink)}
+  .ctl.is-active{background:var(--gold);border-color:var(--gold);color:#fff}
+  .ctl svg{width:14px;height:14px}
 
-  /* staging pills */
-  .staging{
-    position:absolute;left:50%;bottom:26px;transform:translateX(-50%);z-index:10;
-    display:flex;align-items:center;gap:6px;
-    background:var(--white-glass);
-    -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
-    border:1px solid rgba(255,255,255,0.6);border-radius:40px;
-    padding:6px;box-shadow:var(--shadow-md);
-  }
-  .staging-label{
-    font-size:10px;color:var(--ink-faint);letter-spacing:.16em;
-    text-transform:uppercase;padding:0 12px 0 14px;
-  }
-  .pill{
-    border:none;background:transparent;cursor:pointer;
-    font-family:'Inter',sans-serif;font-size:12.5px;color:var(--ink-soft);
-    padding:9px 18px;border-radius:30px;transition:all .18s ease;letter-spacing:.02em;
-  }
-  .pill:hover{color:var(--ink)}
-  .pill.is-active{background:var(--cta);color:#fff;box-shadow:var(--shadow-sm)}
+  /* drag cue — the one genuinely non-obvious control */
+  .dragcue{position:absolute;left:50%;bottom:104px;transform:translateX(-50%) translateY(6px);z-index:20;
+    background:var(--glass);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+    border:1px solid var(--glass-border);border-radius:30px;padding:10px 22px;
+    font-size:12px;color:var(--ink-soft);letter-spacing:.04em;box-shadow:var(--shadow-md);
+    display:flex;align-items:center;gap:9px;pointer-events:none;
+    opacity:0;transition:all .25s ease}
+  /* breathe is delayed past the entry transition so it doesn't hijack the fade-in */
+  .dragcue.on{opacity:1;transform:translateX(-50%);animation:breathe 3.4s ease-in-out .25s infinite}
+  .dragcue svg{width:15px;height:15px;color:var(--gold)}
+  @keyframes breathe{0%,100%{opacity:.8}50%{opacity:1}}
 
-  /* GALLERY view */
-  .gallery{position:absolute;inset:0;overflow-y:auto;padding:92px 40px 48px;background:var(--bg)}
-  .gallery::-webkit-scrollbar{width:8px}
-  .gallery::-webkit-scrollbar-thumb{background:rgba(42,39,36,0.14);border-radius:4px}
-  .gallery-grid{
-    column-count:3;column-gap:16px;max-width:1080px;margin:0 auto;
-  }
-  .photo{
-    break-inside:avoid;margin-bottom:16px;border-radius:14px;overflow:hidden;
-    background:linear-gradient(135deg,#ddd4c5,#bcae93);box-shadow:var(--shadow-sm);
-    position:relative;
-  }
-  .photo img{width:100%;display:block}
-  .photo-cap{
-    position:absolute;left:0;right:0;bottom:0;
-    background:linear-gradient(transparent,rgba(42,39,36,0.6));
-    color:#fff;font-size:11.5px;padding:24px 14px 12px;letter-spacing:.03em;
-  }
+  /* ===== timing harness (?t=1 only — not part of the demo) ===== */
+  .hud{position:absolute;left:18px;top:110px;width:262px;z-index:60;background:rgba(20,18,16,.93);
+    -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.16);
+    border-radius:12px;padding:13px 14px;color:#fff;font-family:'Inter',monospace;font-size:12px}
+  .hud-t{font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:9px}
+  .hud-r{display:flex;justify-content:space-between;gap:10px;padding:3px 0;color:rgba(255,255,255,.55)}
+  .hud-r b{color:#fff;font-weight:600;font-variant-numeric:tabular-nums}
+  .hud-btn{width:100%;margin-top:10px;border:none;border-radius:8px;padding:11px;cursor:pointer;
+    background:var(--gold);color:#fff;font-family:'Inter';font-size:12.5px;font-weight:600}
+  .hud-btn:hover{filter:brightness(1.08)}
+  .hud-list{margin-top:10px;padding-top:9px;border-top:1px solid rgba(255,255,255,.14);
+    font-size:11px;line-height:1.6;color:rgba(255,255,255,.7)}
+  .hud-list b{color:#E9D9B8}
 
-  /* DETAILS view */
-  .details{position:absolute;inset:0;overflow-y:auto;padding:92px 40px 56px;background:var(--bg)}
-  .details::-webkit-scrollbar{width:8px}
-  .details::-webkit-scrollbar-thumb{background:rgba(42,39,36,0.14);border-radius:4px}
-  .details-inner{max-width:680px;margin:0 auto}
-  .details-kicker{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);text-align:center}
-  .details-title{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:500;text-align:center;margin:8px 0 6px;color:var(--ink)}
-  .details-body{
-    font-family:'Baskervville',serif;font-size:18px;line-height:1.72;
-    color:var(--ink-soft);text-align:center;margin:18px auto 0;max-width:600px;
-  }
-  .specs{
-    display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
-    background:var(--line);border:1px solid var(--line);border-radius:14px;
-    overflow:hidden;margin:38px auto 0;max-width:600px;
-  }
-  .spec{background:var(--bg);padding:22px 16px;text-align:center}
-  .spec-val{font-family:'Cormorant Garamond',serif;font-size:27px;color:var(--ink);font-weight:500;line-height:1}
-  .spec-key{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);margin-top:8px}
-  .feature-list{
-    list-style:none;max-width:560px;margin:34px auto 0;
-  }
-  .feature-list li{
-    font-family:'Baskervville',serif;font-size:16px;color:var(--ink-soft);
-    padding:13px 0 13px 26px;border-bottom:1px solid var(--line);position:relative;
-  }
-  .feature-list li:before{
-    content:"";position:absolute;left:4px;top:21px;width:6px;height:6px;
-    border-radius:50%;background:var(--gold);
-  }
+  /* toast */
+  .toast{position:absolute;left:50%;top:78px;transform:translateX(-50%) translateY(-6px);z-index:40;background:rgba(42,39,36,0.92);color:#fff;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-radius:10px;padding:9px 16px;font-size:12px;letter-spacing:.02em;opacity:0;transition:all .25s ease;pointer-events:none}
+  .toast.show{opacity:1;transform:translateX(-50%)}
+  .toast b{color:#E9D9B8;font-weight:500}
 
-  /* ============ SCHEDULING MODAL ============ */
-  .overlay{
-    position:fixed;inset:0;z-index:100;background:rgba(30,27,24,0.42);
-    -webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);
-    display:flex;align-items:center;justify-content:center;padding:24px;
-    opacity:0;visibility:hidden;transition:opacity .25s ease;
-  }
-  .overlay.is-open{opacity:1;visibility:visible}
-  .modal{
-    background:var(--bg);border-radius:20px;width:840px;max-width:100%;
-    max-height:92vh;overflow:hidden;box-shadow:var(--shadow-lg);
-    display:flex;transform:translateY(12px) scale(.99);transition:transform .28s ease;
-  }
-  .overlay.is-open .modal{transform:none}
+  /* brand lockup (bottom-right) — attribution only, not a control */
+  .demotag{position:absolute;right:18px;bottom:18px;z-index:26;border:1px solid var(--glass-border);background:var(--glass);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+    border-radius:14px;padding:9px 15px 9px 11px;box-shadow:var(--shadow-md);
+    display:flex;align-items:center;gap:10px;text-align:left;user-select:none}
+  .dt-mark{display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+  .dt-mark svg{width:27px;height:auto;display:block;fill:var(--gold)}
+  .dt-txt{display:flex;flex-direction:column;gap:1px}
+  .dt-name{font-family:'Cormorant Garamond',serif;font-size:14.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--ink);line-height:1.05}
+  .dt-sub{font-size:8.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-faint);line-height:1.05}
 
-  /* director trust aside */
-  .modal-aside{
-    width:280px;flex:0 0 280px;background:var(--cta);color:#fff;
-    padding:32px 28px;display:flex;flex-direction:column;
-  }
-  .modal-aside .ms-mark{font-family:'Cormorant Garamond',serif;font-size:20px;letter-spacing:.1em;text-transform:uppercase}
-  .modal-aside .ms-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;color:rgba(255,255,255,0.6);margin-top:3px}
-  .ms-head-shot{
-    width:60px;height:60px;border-radius:50%;object-fit:cover;margin:28px 0 14px;
-    background:linear-gradient(135deg,#cdbfa8,#9a8a6f);border:2px solid rgba(255,255,255,0.25);
-    display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:22px;
-  }
-  .ms-name{font-size:15px;font-weight:600}
-  .ms-role{font-size:11.5px;color:rgba(255,255,255,0.6);margin-top:3px}
-  .ms-note{
-    font-family:'Baskervville',serif;font-size:14px;line-height:1.6;
-    color:rgba(255,255,255,0.72);margin-top:20px;font-style:italic;
-    border-top:1px solid rgba(255,255,255,0.14);padding-top:18px;
-  }
-  .ms-explored{margin-top:auto;padding-top:18px}
-  .ms-explored-lbl{font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:8px}
-  .ms-chip{display:inline-block;font-size:11px;color:rgba(255,255,255,0.85);background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.14);border-radius:20px;padding:4px 11px;margin:0 5px 5px 0}
+  /* mobile send-to-laptop chip */
+  .sendchip{display:none;position:absolute;left:50%;top:76px;transform:translateX(-50%);z-index:26;border:1px solid var(--glass-border);background:var(--glass);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+    border-radius:20px;padding:8px 15px;font-family:'Inter';font-size:11px;color:var(--ink-soft);cursor:pointer;box-shadow:var(--shadow-md);white-space:nowrap}
+  .sendchip b{color:var(--gold-deep);font-weight:600}
 
-  /* main column */
-  .modal-main{flex:1;padding:26px 30px 28px;overflow-y:auto;position:relative;min-width:0}
-  .modal-main::-webkit-scrollbar{width:7px}
-  .modal-main::-webkit-scrollbar-thumb{background:rgba(42,39,36,.14);border-radius:4px}
-  .modal-close{
-    position:absolute;top:16px;right:18px;border:none;background:transparent;
-    cursor:pointer;color:var(--ink-faint);width:30px;height:30px;border-radius:50%;
-    display:flex;align-items:center;justify-content:center;transition:background .15s;z-index:3
-  }
-  .modal-close:hover{background:var(--line)}
-
-  /* progress steps */
-  .steps{display:flex;align-items:center;gap:8px;margin-bottom:22px}
-  .step{display:flex;align-items:center;gap:8px;font-size:11px;letter-spacing:.04em;color:var(--ink-faint)}
-  .step-num{width:22px;height:22px;border-radius:50%;border:1.5px solid var(--line-strong);display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--ink-faint);transition:all .2s}
-  .step.is-active .step-num{background:var(--cta);border-color:var(--cta);color:#fff}
-  .step.is-active{color:var(--ink);font-weight:500}
-  .step.is-done .step-num{background:var(--gold);border-color:var(--gold);color:#fff}
-  .step.is-done{color:var(--gold-deep)}
-  .step-bar{flex:1;height:1px;background:var(--line)}
-
-  .modal-h{font-family:'Cormorant Garamond',serif;font-size:27px;font-weight:500;color:var(--ink);line-height:1.1}
-  .modal-hsub{font-size:12px;color:var(--ink-soft);margin-top:5px;letter-spacing:.02em}
-
-  .panel{display:none}
-  .panel.is-active{display:block;animation:fadeUp .35s ease}
-  @keyframes fadeUp{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
-
-  /* timezone */
-  .tzrow{display:flex;align-items:center;justify-content:space-between;margin:18px 0 10px}
-  .sec-label{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
-  .tz{font-size:11.5px;color:var(--ink-soft);border:1px solid var(--line-strong);border-radius:8px;padding:6px 10px;background:#fff;cursor:pointer;font-family:'Inter',sans-serif}
-
-  /* calendar */
-  .cal{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px}
-  .cal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
-  .cal-title{font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--ink)}
-  .cal-nav{display:flex;gap:6px}
-  .cal-nav button{width:28px;height:28px;border:1px solid var(--line-strong);background:#fff;border-radius:8px;cursor:pointer;color:var(--ink-soft);display:flex;align-items:center;justify-content:center}
-  .cal-nav button:hover{border-color:var(--gold);color:var(--gold-deep)}
-  .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
-  .cal-dow{font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);text-align:center;padding-bottom:6px}
-  .cal-day{aspect-ratio:1;border:none;background:transparent;border-radius:9px;cursor:pointer;font-family:'Inter',sans-serif;font-size:13px;color:var(--ink);display:flex;align-items:center;justify-content:center;position:relative;transition:all .15s}
-  .cal-day:hover:not(.is-off){background:var(--gold-soft);color:var(--gold-deep)}
-  .cal-day.is-off{color:var(--ink-faint);opacity:.32;cursor:default}
-  .cal-day.is-active{background:var(--cta);color:#fff}
-  .cal-day .dot{position:absolute;bottom:6px;width:3px;height:3px;border-radius:50%;background:var(--gold)}
-  .cal-day.is-active .dot{background:#fff}
-  .cal-empty{aspect-ratio:1}
-
-  /* slots */
-  .slots-wrap{margin-top:16px}
-  .slots{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
-  .slot{border:1px solid var(--line-strong);background:#fff;border-radius:10px;padding:11px 6px;text-align:center;cursor:pointer;font-size:12.5px;color:var(--ink);transition:all .15s}
-  .slot:hover:not(.is-taken){border-color:var(--gold)}
-  .slot.is-active{background:var(--gold-soft);border-color:var(--gold);color:var(--gold-deep);font-weight:500}
-  .slot.is-taken{opacity:.34;text-decoration:line-through;cursor:default}
-  .slots-empty{font-family:'Baskervville',serif;font-style:italic;color:var(--ink-faint);font-size:14px;padding:18px 0;text-align:center}
-
-  /* selected summary */
-  .summary{display:flex;align-items:center;gap:12px;background:var(--gold-soft);border:1px solid rgba(154,123,79,.25);border-radius:12px;padding:13px 16px;margin-bottom:18px}
-  .summary svg{width:18px;height:18px;color:var(--gold-deep);flex:0 0 18px}
-  .summary-txt{flex:1;font-size:13px;color:var(--ink)}
-  .summary-txt b{font-weight:600}
-  .summary .change{font-size:11.5px;color:var(--gold-deep);cursor:pointer;text-decoration:underline;background:none;border:none;font-family:'Inter',sans-serif}
-
-  /* form */
-  .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-  .field{display:flex;flex-direction:column}
-  .field.full{grid-column:1/3}
-  .field label{font-size:11px;color:var(--ink-soft);margin-bottom:5px;letter-spacing:.02em}
-  .field input{border:1px solid var(--line-strong);border-radius:9px;padding:10px 12px;font-family:'Inter',sans-serif;font-size:13px;color:var(--ink);background:#fff;outline:none;transition:border .15s}
-  .field input:focus{border-color:var(--gold)}
-  .consent{font-size:10.5px;color:var(--ink-faint);margin-top:14px;line-height:1.5}
-
-  /* buttons */
-  .btn-row{display:flex;gap:10px;margin-top:22px}
-  .btn{border:none;cursor:pointer;border-radius:11px;padding:13px 20px;font-family:'Inter',sans-serif;font-size:13px;font-weight:500;letter-spacing:.03em;transition:all .18s}
-  .btn-primary{background:var(--cta);color:#fff;flex:1}
-  .btn-primary:hover{background:#000;transform:translateY(-1px)}
-  .btn-primary:disabled{opacity:.4;cursor:default;transform:none;background:var(--cta)}
-  .btn-ghost{background:transparent;color:var(--ink-soft);border:1px solid var(--line-strong)}
-  .btn-ghost:hover{border-color:var(--ink-soft);color:var(--ink)}
-
-  /* confirmation */
-  .confirm-ring{width:64px;height:64px;border-radius:50%;background:var(--gold-soft);display:flex;align-items:center;justify-content:center;margin:6px auto 18px}
-  .confirm-ring svg{width:30px;height:30px;color:var(--gold-deep)}
-  .confirm-h{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:500;color:var(--ink);text-align:center}
-  .confirm-p{font-family:'Baskervville',serif;font-size:15.5px;color:var(--ink-soft);line-height:1.6;margin:10px auto 0;max-width:400px;text-align:center}
-  .det{margin-top:22px;background:#fff;border:1px solid var(--line);border-radius:13px;padding:8px 18px}
-  .det div{display:flex;justify-content:space-between;padding:10px 0;font-size:13px;border-bottom:1px solid var(--line)}
-  .det div:last-child{border-bottom:none}
-  .det span:first-child{color:var(--ink-faint)}
-  .det span:last-child{color:var(--ink);font-weight:500;text-align:right}
-  .addcal{display:flex;gap:8px;margin-top:16px}
-  .addcal a{flex:1;text-decoration:none;border:1px solid var(--line-strong);border-radius:10px;padding:11px;text-align:center;font-size:12px;color:var(--ink);background:#fff;display:flex;align-items:center;justify-content:center;gap:7px;transition:all .15s;cursor:pointer}
-  .addcal a:hover{border-color:var(--gold)}
-  .addcal svg{width:14px;height:14px;color:var(--gold-deep)}
-  .expect{margin-top:18px}
-  .expect-lbl{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
-  .expect ul{list-style:none}
-  .expect li{font-family:'Baskervville',serif;font-size:14px;color:var(--ink-soft);padding:7px 0 7px 24px;position:relative}
-  .expect li:before{content:"";position:absolute;left:6px;top:15px;width:5px;height:5px;border-radius:50%;background:var(--gold)}
-  .confirm-foot{display:flex;justify-content:center;gap:18px;margin-top:20px}
-  .confirm-foot button{background:none;border:none;color:var(--ink-soft);font-size:12px;cursor:pointer;font-family:'Inter',sans-serif;text-decoration:underline}
-  .confirm-foot button:hover{color:var(--ink)}
-
-  @media (max-width:720px){
-    .modal{flex-direction:column;max-height:94vh}
-    .modal-aside{width:100%;flex:0 0 auto;padding:20px 22px;flex-direction:row;flex-wrap:wrap;align-items:center;gap:10px}
-    .ms-head-shot{margin:0 10px 0 0;width:42px;height:42px;font-size:16px}
-    .ms-note,.ms-explored{display:none}
-    .form-grid{grid-template-columns:1fr}.field.full{grid-column:1}
-    .slots{grid-template-columns:repeat(3,1fr)}
-  }
-
-  /* annotation badge */
-  .annot{
-    position:absolute;left:24px;bottom:26px;z-index:9;
-    font-size:10px;color:var(--ink-faint);letter-spacing:.04em;
-    background:var(--white-glass);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
-    border:1px solid rgba(255,255,255,0.5);border-radius:8px;padding:6px 11px;
+  /* ===== GATES (lobby + outro) ===== */
+  .gate{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;padding:22px;
+    opacity:1;visibility:visible;transition:opacity .5s ease,visibility .5s ease}
+  .gate.off{opacity:0;visibility:hidden}
+  .gate-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .gate-scrim{position:absolute;inset:0;background:rgba(17,16,14,0.55);-webkit-backdrop-filter:blur(7px);backdrop-filter:blur(7px)}
+  .gate-card{position:relative;z-index:2;width:432px;max-width:94vw;max-height:92vh;overflow-y:auto;background:var(--glass);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);
+    border:1px solid var(--glass-border);border-radius:20px;box-shadow:var(--shadow-lg);padding:30px 32px 24px;text-align:center}
+  .gate-eyebrow{font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-deep);font-weight:600;line-height:1.6}
+  .gate-title{font-family:'Cormorant Garamond',serif;font-size:29px;font-weight:500;color:var(--ink);margin:12px 0 4px;line-height:1.12}
+    .gate-rows{margin:20px 0 4px;text-align:left;border-top:1px solid var(--line)}
+  .gate-row{display:flex;justify-content:space-between;gap:14px;padding:9px 2px;border-bottom:1px solid var(--line);font-size:12px}
+  .gate-row span{color:var(--ink-faint);white-space:nowrap}
+  .gate-row b{color:var(--ink);font-weight:500;text-align:right}
+  .gate-row--note{flex-direction:column;align-items:flex-start;gap:5px}
+  .gate-row--note .note{font-size:12px;font-weight:500;color:var(--ink);line-height:1.55;text-align:left;white-space:normal}
+  .gate-join{display:block;width:100%;border:none;cursor:pointer;background:var(--cta);color:#fff;border-radius:12px;padding:15px 18px;margin-top:18px;
+    font-family:'Inter';font-size:13.5px;font-weight:500;letter-spacing:.04em;transition:all .18s;text-decoration:none;text-align:center}
+  .gate-join:hover{background:#000;transform:translateY(-1px);box-shadow:0 8px 22px rgba(0,0,0,.3)}
+  .gate-ghost{display:block;width:100%;border:1px solid var(--line-strong);cursor:pointer;background:transparent;color:var(--ink-soft);border-radius:12px;padding:13px 18px;margin-top:9px;font-family:'Inter';font-size:12.5px;transition:all .15s}
+  .gate-ghost:hover{border-color:var(--ink-soft);color:var(--ink)}
+  .gate-disc{font-family:'Baskervville',serif;font-style:italic;font-size:12.5px;color:var(--ink-soft);margin-top:16px;line-height:1.5}
+  .gate-foot{font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);margin-top:14px;padding-top:13px;border-top:1px solid var(--line)}
+  .gate-hr{height:1px;background:var(--line-strong);margin:20px auto;width:44px}
+  .gate-p{font-family:'Baskervville',serif;font-size:14.5px;color:var(--ink-soft);line-height:1.6;margin-top:10px}
+  .gate-p b{color:var(--ink);font-weight:600;font-family:'Inter';font-size:13px}
+    
+  @media (max-width:900px){
+    .notes,.demotag,.lb-party,.live-txt,.timer{display:none}
+    .lb-left{padding:12px 13px}
+    .sendchip{display:block}
+    .videos{width:132px;top:170px}
+    .toast{top:118px}
+    .lb-zone{flex:0 1 auto}
+    .lb-center{flex:1 1 auto;min-width:0;justify-content:flex-start}
+    .tab{font-size:15px;padding:9px 12px}
+    .lb-left{padding:9px 12px}
+    .lb-right{padding:6px 6px}
+    .dock{flex-wrap:wrap;justify-content:center;border-radius:16px}
+    .grp{padding:0 8px}
+    .library{bottom:auto;top:50%;transform:translateX(-50%) translateY(-50%);width:calc(100vw - 32px)}
+    .library.on{transform:translateX(-50%) translateY(-50%)}
+    .lib-grid{grid-template-columns:repeat(2,1fr)}
+    .photocard{left:16px;right:16px;width:auto;bottom:150px}
+    .gate-card{padding:24px 22px 20px}
   }
 </style>
 </head>
-<body>
-<div class="app">
+<body class="state-lobby">
 
-  <!-- ============ LEFT RAIL ============ -->
-  <aside class="rail">
-    <div class="brand">
-      <div class="brand-lockup">
-        <img class="bh-crest" alt="Beverly Hills" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFkAAABgCAMAAABBoC74AAABTGlDQ1BJQ0MgUHJvZmlsZQAAeJxjYGA8kZOcW8wkwMCQm1dSFOTupBARGaXA/oiBmUGEgZOBj0E2Mbm4wDfYLYQBCIoTy4uTS4pyGFDAt2sMjCD6sm5GYl7K3IkMtg4NG2wdSnQa5y1V6mPADzhTUouTgfQHII5PLigqYWBg5AGyecpLCkBsCSBbpAjoKCBbB8ROh7AdQOwkCDsErCYkyBnIzgCyE9KR2ElIbKhdIMBaCvQsskNKUitKQLSzswEDKAwgop9DwH5jFDuJEMtfwMBg8YmBgbkfIZY0jYFheycDg8QthJgKUB1/KwPDtiPJpUVlUGu0gLiG4QfjHKZS5maWk2x+HEJcEjxJfF8Ez4t8k8iS0VNwVlmjmaVXZ/zacrP9NbdwX7OQshjxFNmcttKwut4OnUlmc1Yv79l0e9/MU8evpz4p//jz/38AR4Nk5SKet7kAAABIUExURf///////v7//v7+/f39+vn37vXw4e7ly+TUq9rCiNCyaMmmT8SbOsOYNMKYMsKXMsOXMcKXMcKWMcKWL8GWL8GVLL+TKb2PIVx5RBQAAAqXSURBVHjapVqHopy6DjS4V64DNv//p28kA7snZ9vLkoSlmLGsMpIgQrzeJimxnxUdTvRXCDVjJ+UkvtgGrHYhpRQc4IQ4jvU34Bdsy8E5F/aglcaejnP7d3CGVS4sgFV8xZQgQjF8jBt5GTd44EvhfsFKG/LGomnnrFDCNtf4142LYcvBykfgx1Juu3MinMzWpxZ5xcJtKW1BSQFVCKkCnTrBmooteTsfz1wAx24CCt28l9/4CFhauFTC7U4rE72Y/O4n4aORGteE4pEAj978VDkD4szEFKMhfzpgXezpHDxNKnma3ibFyCpZesjjdDrFSP0Qg8CnyUQg4lzGqIXHMi9XwAJPpQDEbFbKebZRsTZUtPMspd0Mr3qMItWdzgKleaFjlHjSiFkHGqFsqDXYe4tPQlc7SR+hDZ1CghA4lJPd9Gmb4UXXo5MMemZUyCQCwmC+TaxYDWODCBGLb17IEHUMko9FxCJvY6S6LXdGMAX4EdQRsrUWZt4OV/h7MzVgVcLGDDFytDg2oZpHQw8U4OUA6XXoMSTEltbaPNi0LTmE2KPVOMZvCLnYx0M1BN8TBgc9kdfFva85ppRzerDh4tp7q3SE49p6X/nqg6G4GjNGJymIvlRseant6dbbttZ1w37FfuXj/nx4XXKLmllxjj3XWh9KcS/QstSlvBu1AKk0uCgHYSDkspEen25Q8Z5z7u8GNYLqkZ1WMnJuRbn4YvMIlB2h4l8NcnpbgdXjPDGy33Ptu5Nph3WeblY474R7MaLtESzTgRzEiVwSAh+il6dbXjcPYvJtfTWoe9BOLkBmdsU8JSs77LiQCR5tS9231Pb67D5vhby+lN0fyLbnZsJOwHCsmvnhhbYf0Lme9wCRH8+Q92B6BsceyA029/vhenVfS63b8M1S4cs4q/W/deMNs2Pf9pUF+bMRHl2t20D28KEDGXQGNOuAXLpDjLqEmTyC37qarKGzYByEwRUTG06ssR7OhFGG/GpzJuI2yQZQAMHaAxlBuDvLyHwJa9hHOkq4ACLAmYfD0RY6lEibTTyK4MCYEVcdI5OIyMOXQ9MiCiFPyEaCZpIgw4DFSYzMRkIopNwQsDwvLSUoRzPKgYzbPBAIEH1NB3mT22GJZV1IZr+7CTM5yNo6eabZegR9Qma7975llg7zmPxb5gWgofcwj6wAt+vgkNhK4cVbcSD3VtZsFD+F4Yy8MHKrmCyVX8jwOp3Ww+kI2Wy1kC0I2VpkMWgDEedDH2LRXCS99/6UGSGx/ZaZnG47XYNNmLad3I6QcW77YUFSJZ7YtCKXYJsyskV5hEyeLuQJyBMjkyccrnGakC4RsoFdPWkDpRBkBm3ZQLFEMjs3ZB7T10PmgsrJBbJQZteo6ZZ9hwm3mocF4XZDzx2M3KyyJN+hZ4oFoa0WKvRDZkxKGRauXtZq7gw44ptM2AdyIE/AMz3lWofSAstsG+h/6Bn1jB3a6JnsZhXiq/xlwBGFrVEM3SOTzJUZEbfX3O+9rpMPtnPUeioc90y/U/Op6BGWPrkJTzqETIjQBjyUbdPDZJG24WpkqxYnRqZRATdxcEbgnZqHR5Oi/wOyUmL4M3lCXpd8KfMW3aD3eOOAOa5jzLJljpObyOTRS6PoaRY1m/HkdZTXLCN7CiIgc6rDk15zZDEyZ7+4dqfH7JrDR97XzLHTSgols9RLXUcmHpybiCDXwldwiwqQWvhmOq5RMcLWtjc6utSxgxL7QolwMG/DH6ZcHB4/zNh8C/uGmwsSxbi28bUNy4U97lsAqKNCHZEz4UgpdLCM41KOK+N8jMAuw39zWY4UVFkZ9acyqJ4OfbD/uY08cUsZdWQXkrYdGWuHf/e23DIVKSMb8aPfYnUEXdcLmTSXWZkbaxInY9oNpRtL2YM11E0c0izrL8+4gqXocAoNLtBxJwcYh51chFMluEVRmj/4Q1yPUJggjuxfyMQdg5XO9E5MDRJmZMHInI74Dk6XjSIoBndDpiy9joruJ7JtKPRG0cHPT0CeBvLEyNOJTKcUOTr3vZ+WASuqtP5tv6GPexu+lRnkoyBHWtbLfnh4uY/sHxGOaVs5keMrZBgQdBcvkWkmpCIvHjTLVKFfQtPzDu3Xc2SsXoOTe753uWKmB8iDlg6hCY7bn6fIBG2EPqBZZFDKI5FHW3EKzRkIRe0LZEAndFt3IpflocgjWtg9yid6RjyzQtjrKF0+0zIT3lWGPfEN5C+udgKlrW3LyCXDFQ/H4O79sdAWmUeFo8J74HV93zKvZkeJlfZ+IKPMUL+56Cc0pQyNxgvIEshyIEtGRnngfVpxiiLHIwf56DUl32VdEPlbVM/f/VC1tHTjRuVxytzNIfPIVsNrNPIVl6SwCsz3V2J9BO1hRGoQG9XE0TjUZXRIVcGon/vmuLTe0L2D6iifocDgGkq+fN/FNZ3p60Kk/Gc7WPoP70fJX7kBa3UDZ/xBf7CsG3Txwnw3I2bWx4s2hzc4ROa+Zejilfl+6CO8gr7rt7jnkXHbwztg1se2e5X6J9CDPANV+dPbd4KsD1pgLR8Al7UZt7/xi/sgf6fqu/7PWvZI+dGLyzkgFEfWewvsNHr2IOVnr1onuB4o5r0VISwI7HxP8onQwiIJh7cOwmP6shihPnqnyyuDlsEy8SU0+Vtg6w1x3upCCKU1GJOXelUJuWRme/yWEzgqdBnNaXQ0VonpvSYiWuroIyr5C7o0MCYK5LLjd+TgA3iPRHw+pHcxSC4XaOQCBIJmXZeWnEWnVVBwWceZkpRFwF6P995uf+3Skl9mMktan9A8BYJeUL6i54aLOxNQzNGLM76TmFqllErJ5t8g+8D9BClN06OB/BoMCmXAxXXa96YDV3kDmJ1Cyg9k9l4qCCxpNEsVNfXvZveuuxn/wm7QTxF7n8CTImW8CUPMDdLCkoOh17gE3ZO1BQlUCxjJJTSyaAStzSOmJ0F1ANpLJ15HyyQMagiHTolEGNCNBfQubMaYHpynVIOWA2CSphfal2De+jPUEZX2VvMbN4hBfTWVztu+W8wKzVRHZfbW3HjNrn1Cz/1BoBC01doPtU1Ukq1wXautsUiM2Gv8ko6EmvhbA727/4iRJkEvdbyartcqqLJQpQZQT270S44eefnWB/p08CHT0RNK/XDxSE3k3pH70LMjrxb4In0H8p4+1KgPcQ9K+tErwoHBGuUgkNShYriId0Z8uWEWf3UNpUDZ9N6HPlpB+Vpp8a/f8yas28FqlbkOBecMXKIAOWkPyT/MVA+BCUf51unNdrRq4BKysCT8vyJLAibVQ2wkJmfHJ0ilZ0A7++/I8Dov+NMOxIaGI/kbkQB93ZH8YuJfdaHP/AnJZlChn+Fm1muwi//OL9xVV4HTXJw9fXxE3TwLFdGWTNP0r8jeX10NWiQ7ga4wA/ojQx/V5Bcyh3B7YWjQVZM9JwNnM5MPXyH7dBYThAxeZYspg2T9JfL1YZStaQYJ8gf177SBSix1x1mU2NjloKQiwgdp0XdN+Y1zWLRbB/dYep1/3rHLN8o4ShukWO+cjyg3wKDOaG3oO+CTXvj/gFbWx5wTf3029PUKTLof5P8ti1IyOL/GI5HEGOnT/7fA138PkATOHqi45HoD/D8WWgbGba12LwAAAABJRU5ErkJggg==">
-        <div class="brand-text">
-          <div class="brand-mark">The Doheny</div>
-          <div class="brand-mark brand-mark--2">Estate</div>
-        </div>
-      </div>
-      <div class="brand-sub">Beverly Hills · Est. 1928</div>
-      <div class="brand-rule"></div>
-      <div class="powered">Powered by <b>Interlink</b></div>
+<div class="tour" aria-hidden="false">
+  <iframe class="splat" id="splat" allow="fullscreen" aria-label="Live tour"></iframe>
+  <img class="splat-fallback" id="splatFallback" alt="">
+  <div class="splatload" id="splatLoad">
+    <div class="sl-veil"></div>
+    <div class="sl-ring"></div>
+    <div class="sl-label" id="slLabel">Preparing the estate…</div>
+    <div class="sl-bar"><i id="slBar"></i></div>
+    <div class="sl-sub" id="slSub">Larger space · this one takes a moment</div>
+  </div>
+  <div class="scrim"></div>
+
+  <!-- shared photo -->
+  <div class="photocard" id="photocard">
+    <img id="photocardImg" src="" alt="">
+    <div class="photocard-cap">
+      <button class="pc-close" onclick="closePhoto()" aria-label="Stop sharing">✕</button>
+      <div class="t" id="photocardTitle">A wedding here</div>
+      <div class="s">Sharing live with Sofia &amp; Daniel</div>
     </div>
+  </div>
 
-    <nav class="nav" id="nav"><!-- populated by JS --></nav>
-
-    <div class="contact">
-      <div class="contact-row">
-        <img class="headshot" id="railHead" alt="Shirleen Finney"
-             src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=160&h=160&fit=crop&crop=faces&q=80"
-             onerror="this.removeAttribute('src');this.textContent='SF'">
-        <div>
-          <div class="contact-name">Shirleen Finney</div>
-          <div class="contact-role">Director of Sales</div>
-          <div class="contact-yrs">Greystone Mansion &amp; Gardens</div>
-        </div>
+  <!-- LIVE bar -->
+  <header class="livebar">
+    <div class="lb-zone">
+      <div class="lb-pill lb-left">
+        <span class="livedot"></span><span class="live-txt">In call</span>
+        <span class="timer" id="timer">00:00</span>
       </div>
-      <button class="cta" onclick="openModal()">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4.5" width="18" height="16" rx="2"/><path d="M3 9h18M8 2.5v4M16 2.5v4"/><circle cx="12" cy="14.5" r="2.1" fill="currentColor" stroke="none"/></svg>
-        Schedule a Virtual Tour
-      </button>
-      <div class="cta-sub">Live, guided · 45 min · with Shirleen</div>
+    </div>
+    <div class="lb-pill lb-center" id="tabs"><!-- rendered from TOUR --></div>
+    <div class="lb-zone lb-zone--r">
+      <div class="lb-pill lb-right">
+        <span class="lb-party">Guided tour · <b>Sofia &amp; Daniel</b></span>
+        <button class="end" onclick="endTour()">End tour</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- mobile: send to laptop -->
+  <button class="sendchip" onclick="sendLink()">Best on a laptop · <b>Send yourself the link</b></button>
+
+  <!-- couple brief + live tour log (director only) -->
+  <aside class="notes" id="notes">
+    <div class="notes-head" onclick="toggleNotes()">
+      <span class="notes-title">Couple brief</span>
+      <span class="private">Private</span>
+      <span class="notes-chev">▾</span>
+    </div>
+    <div class="notes-body">
+      <div class="bk">
+        <div class="bk-row"><span>Wedding date</span><b>October 2027</b></div>
+        <div class="bk-row"><span>Guest count</span><b>~180</b></div>
+      </div>
+      <div class="bk-note">“Hoping for an outdoor ceremony for around 180 guests. Excited to see the gardens!”</div>
+      <div class="tl-head">This tour</div>
+      <ul class="tl" id="tourLog"></ul>
     </div>
   </aside>
 
-  <!-- ============ STAGE ============ -->
-  <main class="stage">
-    <div class="stage-top">
-      <div class="crumb">
-        <div class="crumb-name" id="crumbName">Overview</div>
-        <div class="crumb-tag" id="crumbTag">The Doheny Estate</div>
-      </div>
-      <div class="chips" id="chips"></div>
+  <!-- video tiles -->
+  <div class="videos">
+    <div class="vtile vtile--you">
+      <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=320&h=240&fit=crop&crop=faces&q=80" alt="Sarah Bennett" onerror="this.style.display='none'">
+      <span class="vlabel"><span class="y">You</span> · Sarah</span>
     </div>
+    <div class="vtile vtile--couple">
+      <div class="vavatar">S&amp;D</div>
+      <span class="vlabel">Sofia &amp; Daniel</span>
+      <div class="vstate"><span class="vbtn off" role="img" aria-label="Camera off"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 2l20 20M9 5h7a2 2 0 012 2v3l4-3v10M14 14a2 2 0 01-3 1.7"/></svg></span></div>
+    </div>
+  </div>
 
-    <!-- 3D VIEW -->
-    <section class="view is-active" id="view-3d">
-      <div id="splatHost"></div>
-    </section>
+  <!-- venue library drawer -->
+  <div class="library" id="library">
+    <div class="lib-head">
+      <span class="lib-title">Venue library</span>
+      <span class="lib-sub" id="libScope">Shared instantly</span>
+    </div>
+    <div class="lib-grid" id="libGrid"></div>
+  </div>
 
-    <!-- GALLERY VIEW -->
-    <section class="view" id="view-gallery">
-      <div class="gallery"><div class="gallery-grid" id="galleryGrid"></div></div>
-    </section>
+  <!-- control dock -->
+  <div class="dock">
+    <div class="grp">
+      <span class="grp-lbl">View</span>
+      <div class="grp-row">
+        <button class="ctl" id="flyBtn" onclick="toggleFlythrough()"><span id="flyIcon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5l11 7-11 7z"/></svg></span>Flythrough</button>
+        <button class="ctl" onclick="resetView()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="2.4" fill="currentColor" stroke="none"/><path d="M12 3.5V1.5M12 22.5v-2M3.5 12h-2M22.5 12h-2"/></svg>Reset view</button>
+      </div>
+    </div>
+    <div class="sep"></div>
+    <div class="grp">
+      <span class="grp-lbl">Share</span>
+      <div class="grp-row">
+        <button class="ctl" id="libBtn" onclick="toggleLibrary()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="11" r="1.8"/><path d="M21 17l-5-5-9 8"/></svg>Venue library</button>
+      </div>
+    </div>
+  </div>
 
-    <!-- DETAILS VIEW -->
-    <section class="view" id="view-details">
-      <div class="details"><div class="details-inner" id="detailsInner"></div></div>
-    </section>
-  </main>
+  <div class="dragcue" id="dragcue">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v18M3 12h18" opacity=".35"/><path d="M8.5 8.5L12 5l3.5 3.5M8.5 15.5L12 19l3.5-3.5"/></svg>
+    Click to move · drag to look around
+  </div>
+
+  <div class="demotag">
+    <span class="dt-mark"><svg viewBox="0 0 690.2 459.35" aria-hidden="true"><path d="M453.96,311.01c3.47-6.22,6.46-12.1,10.04-17.6.85-1.31,3.68-1.86,5.61-1.87,21.33-.13,42.65.08,63.98-.13,47.56-.47,79.47-46.3,63.62-91.17-8.3-23.49-34.57-41.88-59.97-41.84-21.99.03-43.99.19-65.98.29-.17,0-.33,0-.5,0-9.69.2-10.02.6-8.42,9.94,3.89,22.69,6.17,45.44,2.55,68.4-4.11,26.1-13.85,50.11-27.86,72.33-37.58,59.58-88.61,103.94-153.01,132.54-26.37,11.71-54.31,18.25-83.32,17.37-56.66-1.71-105.1-22.79-145.14-63.14-19.05-19.19-33.41-41.08-41.37-67.01-.18-.6-.25-1.23-.5-2.52,5.48,6.46,10.26,12.61,15.57,18.27,52.25,55.71,132.21,70.63,203.11,37.35,36.11-16.95,65.81-42.28,93.71-70.17,28.37-28.36,51.36-60.98,75.26-92.95,23.23-31.06,50.16-58.6,85.71-75.47,37.98-18.02,76.18-16.84,111.76,6.25,23.59,15.31,35.31,38.76,37.96,66.85,1.78,18.9-1.79,36.77-10.67,53.13-16.28,29.98-42.13,46.54-75.99,50.61-26.16,3.15-51.61-2.52-77.2-6.37-6.18-.93-12.34-2.02-18.94-3.11Z"/><path d="M426.76,350.89c5.98-8.37,10.82-15.29,15.88-22.05.65-.88,2.48-1.49,3.61-1.31,21.91,3.54,43.75,7.55,65.71,10.79,45.06,6.66,84.49-4.71,116.07-38.44,16.45-17.57,25.5-38.81,28.53-62.82,3.07-24.37-1.22-47.41-12.42-68.85-18.9-36.19-49.37-56.68-89.73-62.3-38.27-5.33-72.85,4.54-105.2,25.04-27.74,17.58-48.94,41.53-68.93,66.9-27.98,35.51-54.29,72.46-87.59,103.46-21.77,20.27-43.71,40.22-69.52,55.65-61.49,36.78-134.44,20.94-175.88-19.1C19.72,311.23,4.14,279.23.64,241.06-6.34,164.9,44.43,96.62,117.39,78.18c32.38-8.18,64.63-6.74,96.66,1.46,19.88,5.09,39.5,11.19,60.29,17.14-5.49,7.64-9.97,14.11-14.8,20.31-.67.86-3.08.74-4.59.51-22.15-3.42-44.25-7.2-66.43-10.36-35.38-5.04-69.12-1.11-98.88,20.63-32.9,24.03-50.7,57-52.49,97.26-1.69,38.19,15.05,68.99,44.08,93.46,33.71,28.42,72.73,32.8,114.16,24.81,31.13-6.01,57.09-22.77,81.91-41.58,34.17-25.9,59.7-59.59,84.94-93.54,27.66-37.2,59.36-70.15,98.57-95.48,20.57-13.29,42.42-23.24,66.59-27.61,27.5-4.97,53.58.36,78.87,11.33,14.8,6.42,28.09,15.15,39.35,26.54,23.01,23.26,38.17,50.59,42.91,83.47,4.37,30.29.43,59.2-14.28,85.91-18.19,33.02-46.16,55.12-81.55,67.94-28.39,10.28-57.61,12.06-87.06,6.86-26.04-4.6-51.82-10.66-78.88-16.33Z"/><path d="M689.77,151.86c-13.18-26.12-29.72-47.88-53.23-62.63-66.09-41.49-132.68-40.07-198.57.88-36.65,22.78-66.14,53.45-92.78,86.98-18.62,23.43-35.73,48.18-55.77,70.32-15.5,17.12-34.47,31.1-51.93,46.45-.7.61-1.7.88-4.34,2.19-1.06-21.47-3.71-42.03-2.74-62.42,2.17-45.42,21.62-84.37,49.8-119.17,35.63-44.01,79.47-77.21,132.54-97.67,36.75-14.17,74.66-20.55,113.93-14.54,75.94,11.61,140.57,59.98,160.07,136.61.97,3.82,1.79,7.68,3.02,13Z"/></svg></span>
+    <span class="dt-txt"><span class="dt-name">Interlink</span><span class="dt-sub">Interactive demo</span></span>
+  </div>
+  <div class="toast" id="toast"></div>
 </div>
 
-<!-- ============ SCHEDULING MODAL ============ -->
-<div class="overlay" id="overlay">
-  <div class="modal">
-    <aside class="modal-aside">
-      <div class="ms-mark">The Doheny Estate</div>
-      <div class="ms-sub">Beverly Hills · Est. 1928</div>
-      <div class="ms-head-shot" id="msHead">SF</div>
-      <div class="ms-name">Shirleen Finney</div>
-      <div class="ms-role">Director of Sales</div>
-      <div class="ms-note">"I'll walk you through every space live — and tailor the tour to what you've already explored."</div>
-      <div class="ms-explored" id="msExplored"></div>
-    </aside>
-
-    <div class="modal-main">
-      <button class="modal-close" onclick="closeModal()" aria-label="Close">
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 6l12 12M18 6L6 18"/></svg>
-      </button>
-
-      <!-- progress -->
-      <div class="steps" id="steps">
-        <div class="step" data-s="1"><span class="step-num">1</span><span>Date &amp; Time</span></div>
-        <div class="step-bar"></div>
-        <div class="step" data-s="2"><span class="step-num">2</span><span>Your Details</span></div>
-        <div class="step-bar"></div>
-        <div class="step" data-s="3"><span class="step-num">3</span><span>Confirmed</span></div>
-      </div>
-
-      <!-- STEP 1 — date & time -->
-      <section class="panel" id="panel-1">
-        <div class="modal-h">Schedule a Virtual Tour</div>
-        <div class="modal-hsub">A live, guided 45-minute walkthrough with Shirleen.</div>
-        <div class="tzrow">
-          <span class="sec-label">Select a date</span>
-          <button class="tz" onclick="cycleTz()">🌐 <span id="tzLabel">Pacific Time (PT)</span></button>
-        </div>
-        <div class="cal">
-          <div class="cal-head">
-            <div class="cal-title" id="calTitle">June 2026</div>
-            <div class="cal-nav"><button onclick="moveMonth(-1)" aria-label="Previous month">‹</button><button onclick="moveMonth(1)" aria-label="Next month">›</button></div>
-          </div>
-          <div class="cal-grid" id="calGrid"></div>
-        </div>
-        <div class="slots-wrap">
-          <div class="sec-label" style="margin-bottom:10px">Available times</div>
-          <div id="slotsHost"><div class="slots-empty">Select a date to see available times.</div></div>
-        </div>
-        <div class="btn-row"><button class="btn btn-primary" id="toStep2" onclick="goStep(2)" disabled>Continue</button></div>
-      </section>
-
-      <!-- STEP 2 — details -->
-      <section class="panel" id="panel-2">
-        <div class="modal-h">Your details</div>
-        <div class="modal-hsub">So we can send your confirmation and join link.</div>
-        <div class="summary" style="margin-top:18px">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4.5" width="18" height="16" rx="2"/><path d="M3 9h18M8 2.5v4M16 2.5v4"/></svg>
-          <div class="summary-txt" id="sumTxt">—</div>
-          <button class="change" onclick="goStep(1)">Change</button>
-        </div>
-        <div class="form-grid">
-          <div class="field"><label>Partner 1</label><input type="text" placeholder="First name"></div>
-          <div class="field"><label>Partner 2</label><input type="text" placeholder="First name"></div>
-          <div class="field full"><label>Email</label><input type="email" placeholder="you@email.com"></div>
-          <div class="field"><label>Wedding date (est.)</label><input type="text" placeholder="Spring 2027"></div>
-          <div class="field"><label>Guest count (est.)</label><input type="text" placeholder="150"></div>
-        </div>
-        <div class="consent">By confirming, you agree to receive tour details from The Doheny Estate. No account needed.</div>
-        <div class="btn-row">
-          <button class="btn btn-ghost" onclick="goStep(1)">Back</button>
-          <button class="btn btn-primary" onclick="confirmBooking()">Confirm Virtual Tour</button>
-        </div>
-      </section>
-
-      <!-- STEP 3 — confirmation -->
-      <section class="panel" id="panel-3">
-        <div class="confirm-ring"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12.5l5 5L20 6.5"/></svg></div>
-        <div class="confirm-h">You're all set</div>
-        <div class="confirm-p">A confirmation and join link are on their way to your inbox. Shirleen will guide you through The Doheny Estate live.</div>
-        <div class="det">
-          <div><span>Guide</span><span>Shirleen Finney · Director of Sales</span></div>
-          <div><span>When</span><span id="cWhen">—</span></div>
-          <div><span>Format</span><span>Live guided tour · 45 min</span></div>
-          <div><span>Where</span><span>Join link (emailed) · opens in browser</span></div>
-        </div>
-        <div class="addcal">
-          <a id="gcal" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4.5" width="18" height="16" rx="2"/><path d="M3 9h18M8 2.5v4M16 2.5v4"/></svg> Google Calendar</a>
-          <a id="ical" onclick="downloadICS()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg> Apple / Outlook</a>
-        </div>
-        <div class="expect">
-          <div class="expect-lbl">What to expect</div>
-          <ul>
-            <li>Shirleen joins by video and guides you through each space live.</li>
-            <li>She'll tailor the tour to the spaces you've already explored.</li>
-            <li>Bring questions — and anyone else, via the same link.</li>
-          </ul>
-        </div>
-        <div class="confirm-foot"><button onclick="resetFlow()">Reschedule</button><button onclick="closeModal()">Done</button></div>
-      </section>
+<!-- ===== LOBBY ===== -->
+<div class="gate" id="lobby">
+  <img class="gate-bg" src="https://images.squarespace-cdn.com/content/6628a44904df01353f73193c/6e1be617-86d8-40be-bcb9-e676a38fc685/0T8A5041.png?content-type=image%2Fpng" alt="" onerror="this.style.display='none'">
+  <div class="gate-scrim"></div>
+  <div class="gate-card">
+    <div class="gate-eyebrow" id="lobbyEyebrow">Interlink · Interactive Demo · Best on a laptop</div>
+    <div class="gate-title" id="lobbyTitle">Your 2:00 tour is ready</div>
+    <div class="gate-rows">
+      <div class="gate-row"><span>Couple</span><b>Sofia Reyes &amp; Daniel Carter</b></div>
+      <div class="gate-row"><span>Preferred date</span><b>October 2027</b></div>
+      <div class="gate-row gate-row--note"><span>Additional notes</span><span class="note">“Hoping for an outdoor ceremony for around 180 guests. Excited to see the gardens!”</span></div>
     </div>
+    <button class="gate-join" onclick="joinTour()">Join the tour</button>
+    <div class="gate-disc" id="lobbyDisc">The property shown is a demo estate — yours would be captured the same way.</div>
+  </div>
+</div>
+
+<!-- ===== OUTRO ===== -->
+<div class="gate off" id="outro">
+  <img class="gate-bg" src="https://images.squarespace-cdn.com/content/6628a44904df01353f73193c/8d677ae2-25fc-4929-adfb-8757ea111be1/0T8A5071.png?content-type=image%2Fpng" alt="" onerror="this.style.display='none'">
+  <div class="gate-scrim"></div>
+  <div class="gate-card">
+    <div class="gate-eyebrow">Tour ended · <span id="outroTime">00:00</span></div>
+    <div class="gate-title">Provide tours without leaving your desk</div>
+    <div class="gate-hr"></div>
+    <div class="gate-p">That took <b id="outroMins">a few minutes</b>. No drive out, no no-show, no afternoon spent on a couple who was never going to book.<br><br>Imagine it prepared for <b id="outroVenue">your venue</b>.</div>
+    <a class="gate-join" href="https://calendly.com/ryanpeng/interview" target="_blank" rel="noopener" onclick="track('cta_schedule')">Schedule a chat with Ryan</a>
+    <button class="gate-ghost" id="shareBtn" onclick="shareTour()">Share tour</button>
+    <button class="gate-ghost" onclick="track('replay');location.reload()">Replay the demo</button>
+    <div class="gate-foot">Ryan Peng · Interlink Spatial · ryanpeng@interlinkspatial.com</div>
   </div>
 </div>
 
 <script>
-/* ============ DATA — The Doheny Estate (ported from production tour) ============ */
-var SPLAT_BASE = "https://superspl.at/s?id=";
-var SKY = "https://raw.githubusercontent.com/ryanpeng-Interlink/InterlinkSquarespacePublicAssets/main/Greystone.skybox/Background.webp";
-var VOX = "https://raw.githubusercontent.com/ryanpeng-Interlink/InterlinkSquarespacePublicAssets/main/Greystone8CorrectScale.voxel.json";
-var CDN = "https://images.squarespace-cdn.com/content/6628a44904df01353f73193c/";
-var IMG = {
-  overview:  CDN+"22bdf375-9854-4808-87be-5ff57dc85979/Overview.png?content-type=image%2Fpng",
-  garden:    CDN+"6e1be617-86d8-40be-bcb9-e676a38fc685/0T8A5041.png?content-type=image%2Fpng",
-  cypress:   CDN+"096ad070-36b7-45a2-845b-1b37ff7d4b72/0T8A5045-2.png?content-type=image%2Fpng",
-  courtyard: CDN+"d00502bb-3006-42b3-9549-b318590f5220/0T8A5062.png?content-type=image%2Fpng",
-  terrace:   CDN+"8d677ae2-25fc-4929-adfb-8757ea111be1/0T8A5071.png?content-type=image%2Fpng"
+/* ============ CONFIG ============ */
+var SKY="https://raw.githubusercontent.com/ryanpeng-Interlink/InterlinkSquarespacePublicAssets/main/Greystone.skybox/Background.webp";
+var VOX="https://raw.githubusercontent.com/ryanpeng-Interlink/InterlinkSquarespacePublicAssets/main/Greystone8CorrectScale.voxel.json";
+var CDN="https://images.squarespace-cdn.com/content/6628a44904df01353f73193c/";
+var IMG={
+  overview:CDN+"22bdf375-9854-4808-87be-5ff57dc85979/Overview.png?content-type=image%2Fpng",
+  garden:CDN+"6e1be617-86d8-40be-bcb9-e676a38fc685/0T8A5041.png?content-type=image%2Fpng",
+  cypress:CDN+"096ad070-36b7-45a2-845b-1b37ff7d4b72/0T8A5045-2.png?content-type=image%2Fpng",
+  courtyard:CDN+"d00502bb-3006-42b3-9549-b318590f5220/0T8A5062.png?content-type=image%2Fpng",
+  terrace:CDN+"8d677ae2-25fc-4929-adfb-8757ea111be1/0T8A5071.png?content-type=image%2Fpng"
 };
-var SPACES = [
-  {
-    id:"overview", name:"Overview", meta:"Sixteen acres",
-    tag:"The Doheny Estate", live:true, splat:"d95730eb", skybox:null, voxel:null,
-    chips:[["acres","16 acres"],["est","Est. 1928"]],
-    kicker:"The Estate", title:"An Aerial Overview",
-    body:"Completed in 1928 as a wedding gift from oil magnate Edward Doheny to his son, The Doheny Estate sits on 16 acres in the hills above Beverly Hills. This Tudor Revival mansion and its formal English gardens have hosted some of the city's most significant private events for nearly a century.",
-    specs:[["16","Acres"],["1928","Established"],["5","Event spaces"]],
-    features:["Tudor Revival mansion & formal English gardens","Sixteen acres in the hills above Beverly Hills","A century of significant private events","Five distinct ceremony & reception settings"],
-    gallery:[
-      [IMG.overview,"Aerial of the estate"],
-      [IMG.garden,"The Formal Garden"],
-      [IMG.cypress,"Cypress Lane"],
-      [IMG.courtyard,"Inner Courtyard"],
-      [IMG.terrace,"Front Terrace"]
-    ],
-    staging:null
-  },
-  {
-    id:"garden", name:"The Formal Garden", meta:"Outdoor · 250 seated",
-    tag:"Ceremony", live:true, splat:"cdcde98c", skybox:SKY, voxel:VOX,
-    chips:[["cap","250 seated"],["loc","Outdoor"]],
-    kicker:"Ceremony Lawn", title:"The Formal Garden",
-    body:"A manicured lawn framed by boxwood hedges and white roses, anchored at its far end by an Italian Renaissance fountain. This is where most ceremonies take place — up to 250 guests seated beneath open sky, with the mansion rising behind them. The garden's geometry gives it a natural processional axis, and the surrounding hedges create a sense of enclosure without walls.",
-    specs:[["250","Seated","Ceremony"],["Outdoor","Setting"],["Open sky","Character"]],
-    features:["Boxwood hedges & white roses","An Italian Renaissance fountain at the far axis","A natural processional axis for ceremonies","The mansion rising behind the altar"],
-    gallery:[ [IMG.garden,"The formal garden"], [IMG.overview,"Within the estate"] ],
-    staging:["Empty","Ceremony","Reception"]
-  },
-  {
-    id:"cypress", name:"Cypress Lane", meta:"Outdoor · processional",
-    tag:"Processional", live:false, splat:null, photo:IMG.cypress,
-    chips:[["loc","Outdoor"]],
-    kicker:"Processional Path", title:"Cypress Lane",
-    body:"A shaded corridor of Italian cypress trees connecting the estate's upper terrace to the formal garden below. Often used as a dramatic processional path, the lane offers a natural transition between the estate's public and private spaces.",
-    specs:[["Processional","Use"],["Outdoor","Setting"],["Cypress","Character"]],
-    features:["A shaded corridor of Italian cypress trees","Connects the upper terrace to the formal garden","A dramatic processional path","A transition between public and private spaces"],
-    gallery:[ [IMG.cypress,"Cypress Lane"], [IMG.overview,"Within the estate"] ],
-    staging:null
-  },
-  {
-    id:"courtyard", name:"Inner Courtyard", meta:"Sheltered · cocktail",
-    tag:"Cocktail", live:true, splat:"83352cba", skybox:SKY, voxel:null,
-    chips:[["loc","Sheltered"],["cap","Cocktail hour"]],
-    kicker:"Cocktail Hour", title:"Inner Courtyard",
-    body:"The estate's central courtyard offers an intimate stone-paved space sheltered by the mansion's wings on three sides. Ideal for cocktail hours and smaller gatherings, it provides a sense of enclosure and quiet grandeur.",
-    specs:[["Intimate","Scale"],["Sheltered","Setting"],["Cocktails","Best for"]],
-    features:["A stone-paved central courtyard","Sheltered by the mansion's wings on three sides","Ideal for cocktail hours & smaller gatherings","A sense of enclosure and quiet grandeur"],
-    gallery:[ [IMG.courtyard,"The inner courtyard"], [IMG.overview,"Within the estate"] ],
-    staging:["Empty","Ceremony","Reception"]
-  },
-  {
-    id:"terrace", name:"Front Terrace", meta:"Outdoor · reception",
-    tag:"Reception", live:false, splat:null, photo:IMG.terrace,
-    chips:[["loc","Outdoor"],["cap","Reception"]],
-    kicker:"Arrival & Reception", title:"Front Terrace",
-    body:"The estate's front terrace offers sweeping views across the manicured grounds toward the city below. A broad stone platform flanked by balustrades, it serves as both an arrival point and a reception space for events that want to capture the golden-hour light.",
-    specs:[["Reception","Use"],["Outdoor","Setting"],["Golden hour","Best light"]],
-    features:["Sweeping views toward the city below","A broad stone platform flanked by balustrades","Both an arrival point and a reception space","Captures the golden-hour light"],
-    gallery:[ [IMG.terrace,"The front terrace"], [IMG.overview,"Within the estate"] ],
-    staging:null
-  }
+
+/* Outreach personalization — ?v=slug (names only ever come from this map) */
+var VENUES={
+  "stonehurst":"The Stonehurst","grand-tradition":"Grand Tradition Estate","circle-oak":"Circle Oak Ranch",
+  "las-cumbres":"Las Cumbres Ranch","whispering-rose":"Whispering Rose Ranch","sunstone":"Sunstone Villa & Winery",
+  "cielo-farms":"Cielo Farms","quail-ranch":"Quail Ranch","gerry-ranch":"Gerry Ranch",
+  "lake-oak-meadows":"Lake Oak Meadows","old-polo":"Old Polo Estate","la-lomita":"La Lomita Ranch",
+  "bella-terra":"Bella Terra","annadel":"Annadel Estate Winery","mountain-house":"Mountain House Estate",
+  "holly-farm":"The Holly Farm","black-oak":"Black Oak Mountain Vineyards","nella-terra":"Nella Terra Cellars",
+  "lake-and-wood":"Lake and Wood","sacred-mountain":"Sacred Mountain"
+};
+var VSLUG=null, VNAME=null;
+try{
+  var q=new URLSearchParams(location.search).get("v");
+  if(q && VENUES[q]){ VSLUG=q; VNAME=VENUES[q]; }
+}catch(e){}
+
+/* ============ TOUR DATA ============
+   sizeMB = the splat download size. This drives the loading estimate, so put
+   the REAL figures here (SuperSplat shows them per scene) — the closer they
+   are, the tighter the veil timing on every connection speed.
+   Each space carries its OWN venue library (`lib`) — the photos the director
+   can share mid-tour while in that space.
+
+   ►► EVERY `lib` URL BELOW IS A PLACEHOLDER. To use real venue photos:
+      1. put the files in an `images/` folder next to this file
+      2. replace the URL with a relative path, keeping the caption:
+         ["images/garden-ceremony-october.jpg", "Ceremony in the garden · last October"]
+      4–6 photos per space fills the 3-column grid cleanly.
+*/
+var TOUR=[
+  {id:"overview", name:"Overview", tab:"Estate", sizeMB:6, splat:"d95730eb", skybox:null, voxel:null, photo:IMG.overview,
+   lib:[
+     [IMG.overview,"The estate from above"],
+     [IMG.garden,"The Formal Garden"],
+     [IMG.courtyard,"The Inner Courtyard"],
+     [IMG.terrace,"The Front Terrace"],
+     [IMG.cypress,"Cypress Lane"]
+   ]},
+  {id:"garden", name:"The Formal Garden", tab:"Formal Garden", sizeMB:35, splat:"cdcde98c", skybox:SKY, voxel:VOX, photo:IMG.garden,
+   lib:[
+     [IMG.garden,"Ceremony in the garden · last October"],
+     [IMG.garden,"The aisle from the fountain · June"],
+     [IMG.garden,"Reception under string lights · August"],
+     [IMG.cypress,"The processional down Cypress Lane"],
+     [IMG.terrace,"Cocktails after the ceremony"],
+     [IMG.overview,"The garden within the estate"]
+   ]},
+  {id:"courtyard", name:"Inner Courtyard", tab:"Inner Courtyard", sizeMB:35, splat:"83352cba", skybox:SKY, voxel:null, photo:IMG.courtyard,
+   lib:[
+     [IMG.courtyard,"Cocktail hour · June"],
+     [IMG.courtyard,"Dinner under the loggia · September"],
+     [IMG.courtyard,"The rain plan in action · February"],
+     [IMG.terrace,"Guests moving out to the terrace"]
+   ]}
 ];
 
 /* ============ STATE ============ */
-var current = SPACES[0];
-var mode = "3d"; // 3d | gallery | details
-var visited = {}; // spaces the couple has explored (personalization hook)
+var ti=0;                      // start on the estate Overview
+var flying=false;              // camera flythrough playing?
+var photoOn=false, libOpen=false;
+var secs=0, timerInt=null, joined=false;
+var webgl=(function(){
+  try{ var c=document.createElement("canvas");
+    return !!(window.WebGLRenderingContext && (c.getContext("webgl2")||c.getContext("webgl")||c.getContext("experimental-webgl")));
+  }catch(e){ return false; }
+})();
 
-/* ============ ICONS ============ */
-var IC = {
-  cube:'<svg class="subicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2.5l8 4.5v9l-8 4.5-8-4.5v-9z"/><path d="M12 11.5l8-4.5M12 11.5v9M12 11.5L4 7"/></svg>',
-  photo:'<svg class="subicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4.5" width="18" height="15" rx="2"/><circle cx="8.5" cy="10" r="1.8"/><path d="M21 16l-5-5-9 8.5"/></svg>',
-  doc:'<svg class="subicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2.5h8l4 4v15H6z"/><path d="M14 2.5v4h4M9 12h6M9 16h6"/></svg>'
-};
-var chipIcon = {
-  acres:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 20h18M5 20V9l7-5 7 5v11"/></svg>',
-  est:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>',
-  cap:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M16 5a3 3 0 010 6M21 20c0-2.5-1.5-4.6-3.6-5.5"/></svg>',
-  loc:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s7-6.3 7-11a7 7 0 10-14 0c0 4.7 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>'
-};
-
-/* ============ RENDER NAV ============ */
-function renderNav(){
-  var nav = document.getElementById("nav");
-  nav.innerHTML = "";
-  SPACES.forEach(function(s){
-    var el = document.createElement("div");
-    el.className = "space" + (s.id===current.id ? " is-open":"");
-    el.innerHTML =
-      '<div class="space-head" onclick="toggleSpace(\''+s.id+'\')">'+
-        '<span class="space-dot"></span>'+
-        '<div class="space-titles"><div class="space-name">'+s.name+'</div>'+
-        '<div class="space-meta">'+s.meta+'</div></div>'+
-        '<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 9l6 6 6-6"/></svg>'+
-      '</div>'+
-      '<div class="subnav"><div class="subnav-inner">'+
-        sub(s,"3d","Explore 3D",IC.cube)+
-        sub(s,"gallery","Gallery",IC.photo)+
-        sub(s,"details","Details",IC.doc)+
-      '</div></div>';
-    nav.appendChild(el);
-  });
-}
-function sub(s,m,label,icon){
-  var active = (s.id===current.id && m===mode) ? " is-active":"";
-  return '<div class="subitem'+active+'" onclick="selectView(\''+s.id+'\',\''+m+'\',event)">'+icon+'<span>'+label+'</span></div>';
-}
-
-/* ============ NAV ACTIONS ============ */
-function toggleSpace(id){
-  if(id===current.id){
-    var node = [].slice.call(document.querySelectorAll(".space"))[idx(id)];
-    node.classList.toggle("is-open");
-    return;
-  }
-  selectView(id,"3d");
-}
-function selectView(id,m,ev){
-  if(ev) ev.stopPropagation();
-  current = SPACES[idx(id)];
-  if(id!=="overview") visited[id]=true;
-  mode = m;
-  renderNav();
-  renderStage();
-}
-function idx(id){ for(var i=0;i<SPACES.length;i++){ if(SPACES[i].id===id) return i; } return 0; }
-
-/* ============ RENDER STAGE ============ */
-function renderStage(){
-  document.getElementById("crumbName").textContent = current.name;
-  document.getElementById("crumbTag").textContent = current.tag;
-  var chips = document.getElementById("chips");
-  chips.innerHTML = current.chips.map(function(c){
-    return '<div class="chip">'+(chipIcon[c[0]]||"")+'<span><b>'+c[1].split(" ")[0]+'</b> '+c[1].split(" ").slice(1).join(" ")+'</span></div>';
-  }).join("");
-
-  setView(mode);
-
-  if(mode==="3d") render3D();
-  if(mode==="gallery") renderGallery();
-  if(mode==="details") renderDetails();
-}
-function setView(m){
-  document.getElementById("view-3d").classList.toggle("is-active",m==="3d");
-  document.getElementById("view-gallery").classList.toggle("is-active",m==="gallery");
-  document.getElementById("view-details").classList.toggle("is-active",m==="details");
-}
-
+function cur(){ return TOUR[ti]; }
+/* noui  = hide SuperSplat's own overlay UI (nav bar, timeline, controls)
+   noanim = start paused on the composed opening pose — no camera drift while the lobby is up.
+   The parent page cannot send a spacebar into a cross-origin iframe, so the Flythrough
+   button toggles playback by reloading the viewer with/without noanim. Splat data is
+   already cached at that point, so the swap is quick. */
+var VIEWER_UI="&noui";
+var reloadN=0;
 function splatURL(s){
-  var u = SPLAT_BASE + s.splat;
-  if(s.skybox) u += "&skybox=" + encodeURI(s.skybox);
-  if(s.voxel)  u += "&voxel="  + encodeURI(s.voxel);
+  var u="https://superspl.at/s?id="+s.splat+VIEWER_UI;
+  if(!flying) u+="&noanim";
+  /* poster = what the viewer shows while it streams the splat itself. Without it
+     the iframe sits blank after its `load` event fires — see showLoader(). */
+  if(s.photo) u+="&poster="+encodeURIComponent(s.photo);
+  if(s.skybox)u+="&skybox="+encodeURI(s.skybox);
+  if(s.voxel)u+="&voxel="+encodeURI(s.voxel);
+  if(reloadN)u+="&r="+reloadN;
   return u;
 }
-function render3D(){
-  var host = document.getElementById("splatHost");
-  var inner;
-  if(current.live){
-    inner =
-      '<iframe class="splat-frame" src="'+splatURL(current)+'" allow="fullscreen" title="3D tour"></iframe>'+
-      '<div class="splat-3dbadge">'+IC.cube.replace("subicon","")+' Interactive 3D · drag to explore</div>';
-  } else {
-    inner =
-      '<div class="splat-photo-wrap"><img class="splat-photo" src="'+current.photo+'" onerror="this.style.display=\'none\'" alt=""></div>'+
-      '<div class="splat-3dbadge">'+IC.cube.replace("subicon","")+' 3D capture · coming soon</div>'+
-      '<div class="hint">Drag to explore</div>'+
-      '<div class="annot">Gaussian splat · simplified controls: orbit + zoom</div>';
+
+/* ============ ANALYTICS (no-op until GoatCounter code is added) ============ */
+function track(n){
+  try{ if(window.goatcounter && window.goatcounter.count)
+    window.goatcounter.count({path:"e/"+n+(VSLUG?"/"+VSLUG:""), event:true});
+  }catch(e){}
+}
+
+/* ============ SPLAT LOADING ============ */
+/* The iframe's `load` event fires when the viewer's HTML is ready — NOT when the
+   splat itself has streamed in. On the bigger captures that's several seconds of
+   difference, which is why the veil used to vanish onto a blank frame. We can't
+   observe progress inside a cross-origin iframe, so we do two things instead:
+   pass a `poster` (above) so the viewer shows the space photo during its own
+   load, and hold this veil for a per-space minimum on top of the load event. */
+var splatEl=document.getElementById("splat");
+var loadEl=document.getElementById("splatLoad");
+var barEl=document.getElementById("slBar"), subEl=document.getElementById("slSub");
+var loadT=null, minHoldT=null, loadFired=false, holdDone=false, loadedOnce={};
+
+/* ---- bandwidth-aware hold ----
+   `noui` suppresses SuperSplat's own poster and progress bar, and progress inside
+   a cross-origin iframe is unobservable to us, so the hold is estimated instead:
+   measure real throughput once while the lobby is up, then hold for
+   (splat size ÷ measured throughput). Wrong in either direction is survivable —
+   the bar stalls at 92% rather than lying, and the hard cap always releases. */
+/* Calibrated against measured loads (6MB→2.0s, 35MB→8.0s, 35MB→7.0s on a
+   ~39 Mbps line): time ≈ 0.8s fixed overhead + size ÷ sustained rate.
+   The overhead is viewer boot, decode and GPU upload — it does NOT scale with
+   file size, so it must sit outside the transfer term. */
+var OVERHEAD_MS=850, SAFETY=1.12, SETUP_S=0.25;
+var mbps=null;
+function probeBandwidth(){
+  try{
+    var t0=performance.now();
+    fetch(IMG.overview+"&_p="+Date.now(),{cache:"no-store"})
+      .then(function(r){ return r.blob(); })
+      .then(function(b){
+        var secs=(performance.now()-t0)/1000;
+        if(secs<=0.05 || b.size<20000) return;
+        /* The probe file is small, so request setup is a big share of its total
+           time. Left uncorrected this under-reads throughput by ~45% and the
+           estimate balloons. Subtract setup to recover the sustained rate. */
+        var xfer=Math.max(secs-SETUP_S, secs*0.35);
+        mbps=(b.size*8/1e6)/xfer;
+      }).catch(function(){});
+  }catch(e){}
+}
+function estimateMs(s){
+  var size=s.sizeMB||25;                 /* MB — see TOUR data */
+  var rate=mbps||10;                     /* assume a modest line when unknown */
+  var ms=OVERHEAD_MS + (size*8/rate)*1000*SAFETY;
+  return Math.max(1500, Math.min(ms, 18000));
+}
+
+function showLoader(s){
+  loadFired=false; holdDone=false;
+  if(TEST){                              /* raw behaviour — no veil, no hold */
+    tStart=performance.now(); tLoad=0;
+    loadEl.classList.add("off"); hudUpdate();
+    return;
   }
-  host.innerHTML = inner + stagingHTML();
+  var first=!loadedOnce[s.id]; loadedOnce[s.id]=true;
+  var est=first ? estimateMs(s) : 700;   /* cached reloads need almost none */
+  document.getElementById("slLabel").textContent="Loading "+s.name+"…";
+  loadEl.style.backgroundImage="url('"+s.photo+"')";
+  loadEl.classList.remove("off");
+  /* only the heavy captures apologise for load time — the overview is
+     deliberately lightweight and should never suggest otherwise */
+  subEl.classList.toggle("on", est>4500 && (s.sizeMB||0)>=20);
+  /* determinate bar: runs to 92% over the estimate, never claims done early */
+  barEl.style.transition="none"; barEl.style.width="0%";
+  void barEl.offsetWidth;
+  barEl.style.transition="width "+est+"ms cubic-bezier(.15,.7,.35,1)";
+  barEl.style.width="92%";
+  clearTimeout(minHoldT); clearTimeout(loadT);
+  minHoldT=setTimeout(function(){ holdDone=true; tryHide(); },est);
+  loadT=setTimeout(function(){ loadFired=true; holdDone=true; tryHide(); },24000); /* never trap */
 }
-function stagingHTML(){
-  if(!current.staging) return "";
-  var pills = current.staging.map(function(opt,i){
-    return '<button class="pill'+(i===1?" is-active":"")+'" onclick="setStage(this)">'+opt+'</button>';
-  }).join("");
-  return '<div class="staging"><span class="staging-label">Staging</span>'+pills+'</div>';
+function tryHide(){
+  if(!(loadFired&&holdDone)) return;
+  barEl.style.transition="width .28s ease"; barEl.style.width="100%";
+  loadEl.classList.add("off"); subEl.classList.remove("on");
 }
-function setStage(btn){
-  var sib = btn.parentNode.querySelectorAll(".pill");
-  for(var i=0;i<sib.length;i++) sib[i].classList.remove("is-active");
-  btn.classList.add("is-active");
-}
+function hideLoader(){ clearTimeout(minHoldT); clearTimeout(loadT); loadEl.classList.add("off"); }
+splatEl.addEventListener("load",function(){
+  loadFired=true;
+  if(TEST){ tLoad=performance.now()-tStart; hudUpdate(); return; }
+  tryHide();
+});
 
-function renderGallery(){
-  var g = document.getElementById("galleryGrid");
-  g.innerHTML = current.gallery.map(function(p){
-    return '<div class="photo"><img src="'+p[0]+'" loading="lazy" onerror="this.style.display=\'none\'" alt="">'+
-      '<div class="photo-cap">'+p[1]+'</div></div>';
-  }).join("");
-}
-
-function renderDetails(){
-  var d = document.getElementById("detailsInner");
-  var specs = current.specs.map(function(s){
-    return '<div class="spec"><div class="spec-val">'+s[0]+'</div><div class="spec-key">'+(s[2]?s[1]+" · "+s[2]:s[1])+'</div></div>';
-  }).join("");
-  var feats = current.features.map(function(f){ return '<li>'+f+'</li>'; }).join("");
-  d.innerHTML =
-    '<div class="details-kicker">'+current.kicker+'</div>'+
-    '<div class="details-title">'+current.title+'</div>'+
-    '<div class="details-body">'+current.body+'</div>'+
-    '<div class="specs">'+specs+'</div>'+
-    '<ul class="feature-list">'+feats+'</ul>';
-}
-
-/* ============ SCHEDULING FLOW ============ */
-var TZS=["Pacific Time (PT)","Mountain Time (MT)","Central Time (CT)","Eastern Time (ET)"];
-var tzi=0;
-var calY=2026, calM=5;                 // June 2026 (0-indexed month)
-var TODAY=new Date(2026,5,3);          // demo "today" = June 3, 2026
-var selDate=null, selTime=null;
-var SLOT_TIMES=["10:00 AM","11:00 AM","12:00 PM","1:00 PM","2:00 PM","3:00 PM","4:00 PM","5:00 PM"];
-var MONTHS=["January","February","March","April","May","June","July","August","September","October","November","December"];
-var DOW=["S","M","T","W","T","F","S"];
-
-function openModal(){ resetFlow(); renderExplored(); document.getElementById("overlay").classList.add("is-open"); }
-function closeModal(){ document.getElementById("overlay").classList.remove("is-open"); }
-function resetFlow(){ selDate=null; selTime=null; calY=2026; calM=5; goStep(1); renderCal(); renderSlots(); }
-
-function renderExplored(){
-  var ids=Object.keys(visited);
-  var host=document.getElementById("msExplored");
-  if(!ids.length){ host.innerHTML=""; return; }
-  host.innerHTML='<div class="ms-explored-lbl">You\'ve explored</div>'+
-    ids.map(function(id){ return '<span class="ms-chip">'+SPACES[idx(id)].name+'</span>'; }).join("");
-}
-function cycleTz(){ tzi=(tzi+1)%TZS.length; document.getElementById("tzLabel").textContent=TZS[tzi]; updateSummary(); }
-
-function goStep(n){
-  for(var i=1;i<=3;i++){ document.getElementById("panel-"+i).classList.toggle("is-active",i===n); }
-  document.querySelectorAll(".step").forEach(function(el){
-    var s=+el.getAttribute("data-s");
-    el.classList.toggle("is-active",s===n);
-    el.classList.toggle("is-done",s<n);
+/* ===== timing harness — ?t=1 only =====
+   Measures what we cannot otherwise see: the gap between the iframe's load
+   event and the splat actually appearing. Click "Mark rendered" the instant
+   the space is visible. */
+var TEST=false;
+try{ TEST=new URLSearchParams(location.search).get("t")==="1"; }catch(e){}
+var tStart=0, tLoad=0, tMarks=[];
+function markRendered(){
+  if(!tStart) return;
+  var c=navigator.connection||{};
+  tMarks.unshift({
+    space:cur().name,
+    seen:((performance.now()-tStart)/1000).toFixed(2),
+    load:tLoad?(tLoad/1000).toFixed(2):"—",
+    probe:mbps?mbps.toFixed(1):"—",
+    nav:c.downlink||"—"
   });
-  document.querySelector(".modal-main").scrollTop=0;
+  hudUpdate();
+}
+function hudUpdate(){
+  var h=document.getElementById("hud"); if(!h) return;
+  var c=navigator.connection||{};
+  var el=tStart?((performance.now()-tStart)/1000).toFixed(2):"0.00";
+  h.innerHTML=
+    '<div class="hud-t">Timing · '+cur().name+' · '+(cur().sizeMB||"?")+'MB</div>'+
+    '<div class="hud-r"><span>elapsed</span><b>'+el+'s</b></div>'+
+    '<div class="hud-r"><span>iframe load</span><b>'+(tLoad?(tLoad/1000).toFixed(2)+"s":"waiting")+'</b></div>'+
+    '<div class="hud-r"><span>probe</span><b>'+(mbps?mbps.toFixed(1)+" Mbps":"measuring")+'</b></div>'+
+    '<div class="hud-r"><span>navigator</span><b>'+(c.downlink?c.downlink+" Mbps":"n/a")+'</b></div>'+
+    '<button class="hud-btn" onclick="markRendered()">Mark rendered</button>'+
+    (tMarks.length?'<div class="hud-list">'+tMarks.map(function(m){
+      return '<div>'+m.space+' · <b>'+m.seen+'s</b> (load '+m.load+'s · probe '+m.probe+' · nav '+m.nav+')</div>';
+    }).join("")+'</div>':"");
 }
 
-function moveMonth(d){ calM+=d; if(calM<0){calM=11;calY--;} if(calM>11){calM=0;calY++;} renderCal(); }
-function dayOff(y,m,d){
-  var dt=new Date(y,m,d);
-  if(dt.getDay()===1) return true;   // Mondays — venue closed
-  if(dt<TODAY) return true;          // past dates
-  if((2*d)%5===0) return true;       // pseudo-random fully-booked days
-  return false;
-}
-function renderCal(){
-  document.getElementById("calTitle").textContent=MONTHS[calM]+" "+calY;
-  var first=new Date(calY,calM,1).getDay();
-  var days=new Date(calY,calM+1,0).getDate();
-  var h=DOW.map(function(d){ return '<div class="cal-dow">'+d+'</div>'; }).join("");
-  for(var i=0;i<first;i++) h+='<div class="cal-empty"></div>';
-  for(var d=1;d<=days;d++){
-    var off=dayOff(calY,calM,d);
-    var act=(selDate&&selDate.y===calY&&selDate.m===calM&&selDate.d===d);
-    h+='<button class="cal-day'+(off?" is-off":"")+(act?" is-active":"")+'" '+(off?'disabled':'onclick="pickDay('+d+')"')+'>'+d+(off?'':'<span class="dot"></span>')+'</button>';
+/* ============ RENDER ============ */
+/* ---- space tabs: every space one click away, whole set always visible ---- */
+var IC_ESTATE='<svg class="tab-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 10.5L12 3l9 7.5"/><path d="M5.5 9.5V21h13V9.5"/></svg>';
+function renderTabs(){
+  var html="";
+  TOUR.forEach(function(s,i){
+    if(i===1) html+='<span class="tab-div"></span>';   /* estate overview stands apart */
+    html+='<button class="tab'+(i===ti?" is-active":"")+'" onclick="goToSpace('+i+')">'+
+          (i===0?IC_ESTATE:"")+(s.tab||s.name)+'</button>';
+  });
+  var host=document.getElementById("tabs");
+  host.innerHTML=html;
+  var act=host.querySelector(".tab.is-active");     /* keep active tab in view when scrollable */
+  if(act && host.scrollWidth>host.clientWidth){
+    host.scrollLeft = act.offsetLeft - (host.clientWidth-act.offsetWidth)/2;
   }
-  document.getElementById("calGrid").innerHTML=h;
 }
-function pickDay(d){ selDate={y:calY,m:calM,d:d}; selTime=null; renderCal(); renderSlots(); checkContinue(); }
-function renderSlots(){
-  var host=document.getElementById("slotsHost");
-  if(!selDate){ host.innerHTML='<div class="slots-empty">Select a date to see available times.</div>'; return; }
-  var seed=(selDate.d*3+selDate.m)%SLOT_TIMES.length;
-  host.innerHTML='<div class="slots">'+SLOT_TIMES.map(function(t,i){
-    var taken=((i+seed)%3===0);
-    var act=(selTime===t);
-    return '<div class="slot'+(taken?" is-taken":"")+(act?" is-active":"")+'" '+(taken?'':'onclick="pickSlot(\''+t+'\')"')+'>'+t+'</div>';
-  }).join("")+'</div>';
-}
-function pickSlot(t){ selTime=t; renderSlots(); checkContinue(); }
-function checkContinue(){ document.getElementById("toStep2").disabled=!(selDate&&selTime); updateSummary(); }
-function fmtDate(){
-  if(!selDate) return "";
-  var dt=new Date(selDate.y,selDate.m,selDate.d);
-  var dn=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"][dt.getDay()];
-  return dn+", "+MONTHS[selDate.m]+" "+selDate.d;
-}
-function updateSummary(){
-  if(selDate&&selTime) document.getElementById("sumTxt").innerHTML='<b>'+fmtDate()+'</b> at <b>'+selTime+'</b> · '+TZS[tzi];
-}
-function confirmBooking(){
-  document.getElementById("cWhen").textContent=fmtDate()+" · "+selTime+" "+TZS[tzi].match(/\(([^)]+)\)/)[1];
-  buildCalLinks();
-  goStep(3);
+/* ---- live tour log ----
+   Fills as the director works, so the recap promised on the outro is something
+   the demo visibly produces rather than merely claims. */
+var log=[];
+function logEntry(t,v){ log.push({t:t,v:v}); renderLog(); }
+function renderLog(){
+  var host=document.getElementById("tourLog");
+  var last=-1;
+  log.forEach(function(e,i){ if(e.t==="space") last=i; });
+  host.innerHTML=log.map(function(e,i){
+    return e.t==="photo"
+      ? '<li class="tl-sub">shared “'+e.v+'”</li>'
+      : '<li'+(i===last?' class="tl-now"':'')+'>'+e.v+'</li>';
+  }).join("");
+  var body=host.parentNode;
+  if(body) body.scrollTop=body.scrollHeight;
 }
 
-/* add-to-calendar (functional) */
-function icsDates(){
-  var hr=parseInt(selTime); var pm=/PM/.test(selTime); if(pm&&hr!==12)hr+=12; if(!pm&&hr===12)hr=0;
-  var s=new Date(selDate.y,selDate.m,selDate.d,hr,0,0);
-  var e=new Date(s.getTime()+45*60000);
-  function z(n){ return (n<10?"0":"")+n; }
-  function f(x){ return x.getFullYear()+z(x.getMonth()+1)+z(x.getDate())+"T"+z(x.getHours())+z(x.getMinutes())+"00"; }
-  return {s:f(s),e:f(e)};
+function goToSpace(i){
+  if(i===ti) return;
+  ti=i;
+  hideCue();                      /* switching spaces isn't "interacting with the splat" */
+  closeLibrary();
+  if(photoOn) closePhoto(true);   /* stop sharing when leaving the space */
+  render();
+  logEntry("space",cur().name);
+  toast("Moving to <b>"+cur().name+"</b>");
+  maybeCue(2200);                 /* after the move toast clears */
+  track("space_change");
 }
-function buildCalLinks(){
-  var d=icsDates();
-  document.getElementById("gcal").href="https://calendar.google.com/calendar/render?action=TEMPLATE&text="+
-    encodeURIComponent("Virtual Tour — The Doheny Estate")+"&dates="+d.s+"/"+d.e+
-    "&details="+encodeURIComponent("A live guided virtual tour with Shirleen Finney, Director of Sales.")+
-    "&location="+encodeURIComponent("Online · join link");
+
+function render(){
+  var s=cur();
+  renderTabs();
+  renderLibrary();              /* each space has its own library */
+  if(webgl){
+    showLoader(s);
+    splatEl.src=splatURL(s);
+  } else {
+    var f=document.getElementById("splatFallback");
+    f.src=s.photo; f.style.display="block"; splatEl.style.display="none";
+    document.getElementById("slLabel").textContent="3D isn't available on this device — photos shown instead.";
+    setTimeout(hideLoader,900);
+  }
 }
-function downloadICS(){
-  var d=icsDates();
-  var ics=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//Interlink//Tour//EN","BEGIN:VEVENT","UID:"+Date.now()+"@interlink","DTSTAMP:"+d.s,"DTSTART:"+d.s,"DTEND:"+d.e,"SUMMARY:Virtual Tour — The Doheny Estate","DESCRIPTION:A live guided virtual tour with Shirleen Finney.","LOCATION:Online · join link","END:VEVENT","END:VCALENDAR"].join("\r\n");
-  var b=new Blob([ics],{type:"text/calendar"});
-  var a=document.createElement("a"); a.href=URL.createObjectURL(b); a.download="doheny-virtual-tour.ics"; a.click();
+/* ---- navigation cue ----
+   Shown once per space, then never again for that space. On the opening space it
+   is applied synchronously so it fades in *underneath* the closing lobby and is
+   simply present when the lobby clears — never arriving after the dock. */
+var cueSeen={};
+function maybeCue(delay){
+  if(!joined) return;
+  var id=cur().id;
+  if(cueSeen[id]) return;
+  cueSeen[id]=true;
+  var show=function(){ document.getElementById("dragcue").classList.add("on"); };
+  if(delay) setTimeout(show,delay); else show();
 }
-document.getElementById("overlay").addEventListener("click",function(e){ if(e.target===this) closeModal(); });
+function hideCue(){
+  var d=document.getElementById("dragcue");
+  if(d) d.classList.remove("on");
+}
+function toggleFlythrough(){
+  if(!webgl){ toast("Photos shown on this device"); return; }
+  flying=!flying; reloadN++;
+  showLoader(cur());
+  splatEl.src=splatURL(cur());
+  document.getElementById("flyBtn").classList.toggle("is-active",flying);
+  document.getElementById("flyIcon").innerHTML = flying
+    ? '<svg viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>'
+    : '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5l11 7-11 7z"/></svg>';
+  toast(flying?"Flythrough <b>playing</b>":"Flythrough <b>paused</b>");
+  track(flying?"fly_play":"fly_pause");
+}
+function resetView(){
+  if(!webgl){ toast("Photos shown on this device"); return; }
+  reloadN++;                      /* changing param guarantees a reload in every browser */
+  showLoader(cur());
+  splatEl.src=splatURL(cur());    /* back to the composed opening pose */
+  toast("View <b>reset</b>");
+  track("reset_view");
+}
+
+/* ============ VENUE LIBRARY (per space) ============ */
+function renderLibrary(){
+  document.getElementById("libScope").textContent=cur().name+" · shared instantly";
+  document.getElementById("libGrid").innerHTML=cur().lib.map(function(p,i){
+    return '<button class="lib-item" onclick="shareFromLibrary('+i+')">'+
+      '<span class="lib-thumb"><img src="'+p[0]+'" loading="lazy" onerror="this.style.display=\'none\'" alt=""></span>'+
+      '<span class="lib-cap">'+p[1]+'</span></button>';
+  }).join("");
+}
+function toggleLibrary(){
+  libOpen=!libOpen;
+  document.getElementById("library").classList.toggle("on",libOpen);
+  document.getElementById("libBtn").classList.toggle("is-active",libOpen);
+  if(libOpen) track("library_open");
+}
+function closeLibrary(){
+  libOpen=false;
+  document.getElementById("library").classList.remove("on");
+  document.getElementById("libBtn").classList.remove("is-active");
+}
+function shareFromLibrary(i){
+  var p=cur().lib[i];
+  document.getElementById("photocardImg").src=p[0];
+  document.getElementById("photocardTitle").textContent=p[1];
+  document.getElementById("photocard").classList.add("on");
+  photoOn=true;
+  closeLibrary();
+  logEntry("photo",p[1]);
+  toast("Shared with <b>Sofia &amp; Daniel</b>");
+  track("library_share");
+}
+function closePhoto(quiet){
+  photoOn=false;
+  document.getElementById("photocard").classList.remove("on");
+  if(!quiet) toast("Stopped sharing");
+}
+
+function toggleNotes(){ document.getElementById("notes").classList.toggle("collapsed"); }
+
+/* ============ TOAST ============ */
+var tEl=document.getElementById("toast"), tTo;
+function toast(html){ tEl.innerHTML=html; tEl.classList.add("show"); clearTimeout(tTo); tTo=setTimeout(function(){tEl.classList.remove("show");},1900); }
+
+/* ============ LOBBY → LIVE → OUTRO ============ */
+function joinTour(){
+  if(joined) return; joined=true;
+  document.getElementById("lobby").classList.add("off");
+  document.body.className="state-live";
+  secs=0;
+  timerInt=setInterval(function(){ secs++; var m=Math.floor(secs/60), s=secs%60;
+    document.getElementById("timer").textContent=(m<10?"0":"")+m+":"+(s<10?"0":"")+s; },1000);
+  track("join");
+  logEntry("space",cur().name);   /* the tour log starts when the tour does */
+  maybeCue(0);   /* present from the first frame, not an arriving event */
+}
+function fmtElapsed(){
+  var m=Math.floor(secs/60), s=secs%60;
+  return (m<10?"0":"")+m+":"+(s<10?"0":"")+s;
+}
+function endTour(){
+  clearInterval(timerInt);
+  document.getElementById("outroTime").textContent=fmtElapsed();
+  var m=Math.round(secs/60);
+  document.getElementById("outroMins").textContent = secs<60 ? "under a minute" : (m<=1?"about a minute":"about "+m+" minutes");
+  document.getElementById("outro").classList.remove("off");
+  document.body.className="state-outro";
+  track("outro_reach");
+}
+
+/* The scheduled time reads as now, rounded down to a plausible slot, so the
+   lobby never claims a tour that already passed or hasn't started. */
+function tourTime(){
+  var d=new Date();
+  d.setMinutes(Math.floor(d.getMinutes()/15)*15,0,0);
+  var h=d.getHours()%12; if(h===0) h=12;
+  var m=d.getMinutes();
+  return h+":"+(m<10?"0":"")+m;
+}
+
+function shareTour(){
+  track("share");
+  var url=location.href, btn=document.getElementById("shareBtn");
+  if(navigator.share){ navigator.share({title:"Interlink · Guided Tour Demo",url:url}).catch(function(){}); return; }
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(url).then(function(){
+      btn.textContent="Link copied";
+      setTimeout(function(){ btn.textContent="Share tour"; },1800);
+    }).catch(mailShare);
+    return;
+  }
+  mailShare();
+  function mailShare(){
+    location.href="mailto:?subject="+encodeURIComponent("An Interlink tour demo")+"&body="+encodeURIComponent(url);
+  }
+}
+
+/* ============ MOBILE: SEND TO LAPTOP ============ */
+function sendLink(){
+  track("mobile_sendlink");
+  var url=location.href;
+  if(navigator.share){ navigator.share({title:"Interlink · Guided Tour Demo",url:url}).catch(function(){}); }
+  else{ location.href="mailto:?subject="+encodeURIComponent("Interlink tour demo — open on a laptop")+"&body="+encodeURIComponent(url); }
+}
 
 /* ============ INIT ============ */
-renderNav();
-renderStage();
+(function init(){
+  /* personalization */
+  document.getElementById("lobbyTitle").textContent="Your "+tourTime()+" tour is ready";
+  if(VNAME){
+    document.getElementById("lobbyEyebrow").textContent="Interlink · Prepared for "+VNAME+" · Best on a laptop";
+    document.getElementById("outroVenue").textContent=VNAME;
+  }
+  probeBandwidth();         /* measure the line while the lobby is up */
+  if(TEST){                 /* ?t=1 — skip the lobby so loads are timed from zero */
+    var n=document.getElementById("notes"); if(n) n.style.display="none";
+    var h=document.createElement("div"); h.className="hud"; h.id="hud";
+    document.querySelector(".tour").appendChild(h);
+    setInterval(hudUpdate,100);
+    document.getElementById("lobby").classList.add("off");
+    joined=true; document.body.className="state-live";
+  }
+  render();                 /* renders the library + preloads the splat behind the lobby */
+  /* The splat is cross-origin, so mouse events inside it are invisible to us.
+     Clicking into an iframe blurs the parent window and moves activeElement —
+     that's our proxy for "they've started exploring". */
+  window.addEventListener("blur",function(){
+    if(document.activeElement===splatEl) hideCue();
+  });
+  track("lobby_view");
+})();
 </script>
 </body>
 </html>
