@@ -383,7 +383,7 @@
   <img class="gate-bg" src="https://images.squarespace-cdn.com/content/6628a44904df01353f73193c/6e1be617-86d8-40be-bcb9-e676a38fc685/0T8A5041.png?content-type=image%2Fpng" alt="" onerror="this.style.display='none'">
   <div class="gate-scrim"></div>
   <div class="gate-card">
-    <div class="gate-eyebrow" id="lobbyEyebrow">Interlink · Interactive Demo · Best on a laptop</div>
+    <div class="gate-eyebrow">Interlink · Interactive Demo · Best on a laptop</div>
     <div class="gate-title" id="lobbyTitle">Your 2:00 tour is ready</div>
     <div class="gate-rows">
       <div class="gate-row"><span>Couple</span><b>Sofia Reyes &amp; Daniel Carter</b></div>
@@ -424,20 +424,15 @@ var IMG={
   terrace:CDN+"8d677ae2-25fc-4929-adfb-8757ea111be1/0T8A5071.png?content-type=image%2Fpng"
 };
 
-/* Outreach personalization — ?v=slug (names only ever come from this map) */
-var VENUES={
-  "stonehurst":"The Stonehurst","grand-tradition":"Grand Tradition Estate","circle-oak":"Circle Oak Ranch",
-  "las-cumbres":"Las Cumbres Ranch","whispering-rose":"Whispering Rose Ranch","sunstone":"Sunstone Villa & Winery",
-  "cielo-farms":"Cielo Farms","quail-ranch":"Quail Ranch","gerry-ranch":"Gerry Ranch",
-  "lake-oak-meadows":"Lake Oak Meadows","old-polo":"Old Polo Estate","la-lomita":"La Lomita Ranch",
-  "bella-terra":"Bella Terra","annadel":"Annadel Estate Winery","mountain-house":"Mountain House Estate",
-  "holly-farm":"The Holly Farm","black-oak":"Black Oak Mountain Vineyards","nella-terra":"Nella Terra Cellars",
-  "lake-and-wood":"Lake and Wood","sacred-mountain":"Sacred Mountain"
-};
-var VSLUG=null, VNAME=null;
+/* ?v= is an attribution tag ONLY. Every link renders identically — nothing the
+   visitor sees changes. The slug is used solely to label analytics events so we
+   can tell which outreach a session came from. Deliberately no venue list here:
+   the prospect list is confidential and this file is public source.
+   Sanitised so a malformed or injected value can't write junk event paths. */
+var VSLUG=null;
 try{
-  var q=new URLSearchParams(location.search).get("v");
-  if(q && VENUES[q]){ VSLUG=q; VNAME=VENUES[q]; }
+  var q=(new URLSearchParams(location.search).get("v")||"").toLowerCase();
+  if(/^[a-z0-9-]{1,40}$/.test(q)) VSLUG=q;
 }catch(e){}
 
 /* ============ TOUR DATA ============
@@ -835,10 +830,6 @@ function sendLink(){
 (function init(){
   /* personalization */
   document.getElementById("lobbyTitle").textContent="Your "+tourTime()+" tour is ready";
-  if(VNAME){
-    document.getElementById("lobbyEyebrow").textContent="Interlink · Prepared for "+VNAME+" · Best on a laptop";
-    document.getElementById("outroVenue").textContent=VNAME;
-  }
   probeBandwidth();         /* measure the line while the lobby is up */
   if(TEST){                 /* ?t=1 — skip the lobby so loads are timed from zero */
     var n=document.getElementById("notes"); if(n) n.style.display="none";
