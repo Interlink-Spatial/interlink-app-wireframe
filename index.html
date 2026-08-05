@@ -139,19 +139,25 @@
   .pc-close:hover{color:var(--ink)}
 
   /* ===== venue library drawer ===== */
-  .library{position:absolute;left:50%;bottom:104px;transform:translateX(-50%) translateY(8px);z-index:27;width:472px;max-width:calc(100vw - 32px);
+  .library{position:absolute;left:50%;bottom:104px;transform:translateX(-50%) translateY(8px);z-index:27;
+    width:max-content;min-width:300px;max-width:min(480px, calc(100vw - 32px));
     background:var(--glass);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border:1px solid var(--glass-border);border-radius:16px;box-shadow:var(--shadow-lg);
     padding:14px 16px 16px;opacity:0;visibility:hidden;transition:all .28s ease}
   .library.on{opacity:1;visibility:visible;transform:translateX(-50%)}
-  .lib-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:11px}
+  .lib-head{display:flex;align-items:baseline;justify-content:space-between;gap:6px 16px;flex-wrap:wrap;margin-bottom:11px}
   .lib-title{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);font-weight:600}
   .lib-sub{font-size:10.5px;color:var(--ink-faint)}
-  .lib-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
-  .lib-item{border:none;background:transparent;padding:0;cursor:pointer;text-align:left;border-radius:10px}
-  .lib-thumb{width:100%;aspect-ratio:4/3;border-radius:10px;overflow:hidden;background:linear-gradient(135deg,#d8cfc0,#b3a489);border:2px solid transparent;transition:border .15s,transform .15s}
+  /* thumb and caption must be block-level: as inline spans their width,
+     aspect-ratio and overflow were ignored, leaving a sliver of background
+     showing beside each photo and captions colliding with the images. */
+  .lib-grid{display:flex;flex-wrap:wrap;gap:10px}
+  .lib-item{display:flex;flex-direction:column;width:140px;flex:0 0 140px;
+    border:none;background:transparent;padding:0;cursor:pointer;text-align:left;font-family:inherit}
+  .lib-thumb{display:block;width:100%;aspect-ratio:4/3;border-radius:10px;overflow:hidden;
+    background:#e6e0d6;border:2px solid transparent;transition:border .15s,transform .15s}
   .lib-item:hover .lib-thumb{border-color:var(--gold);transform:translateY(-1px)}
   .lib-thumb img{width:100%;height:100%;object-fit:cover;display:block}
-  .lib-cap{font-size:10px;color:var(--ink-soft);margin-top:5px;line-height:1.35;padding:0 1px}
+  .lib-cap{display:block;font-size:10.5px;color:var(--ink-soft);margin-top:6px;line-height:1.35}
 
   /* ===== control dock (bottom-center) ===== */
   .dock{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);z-index:28;display:flex;align-items:stretch;gap:4px;background:var(--glass);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border:1px solid var(--glass-border);border-radius:18px;box-shadow:var(--shadow-lg);padding:10px 12px;max-width:calc(100vw - 40px)}
@@ -252,7 +258,7 @@
     .grp{padding:0 8px}
     .library{bottom:auto;top:50%;transform:translateX(-50%) translateY(-50%);width:calc(100vw - 32px)}
     .library.on{transform:translateX(-50%) translateY(-50%)}
-    .lib-grid{grid-template-columns:repeat(2,1fr)}
+    .lib-grid{justify-content:center}
     .photocard{left:16px;right:16px;width:auto;bottom:150px}
     .gate-card{padding:24px 22px 20px}
   }
@@ -351,8 +357,8 @@
         <button class="ctl" onclick="resetView()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="2.4" fill="currentColor" stroke="none"/><path d="M12 3.5V1.5M12 22.5v-2M3.5 12h-2M22.5 12h-2"/></svg>Reset view</button>
       </div>
     </div>
-    <div class="sep"></div>
-    <div class="grp">
+    <div class="sep" id="shareSep"></div>
+    <div class="grp" id="shareGrp">
       <span class="grp-lbl">Share</span>
       <div class="grp-row">
         <button class="ctl" id="libBtn" onclick="toggleLibrary()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="11" r="1.8"/><path d="M21 17l-5-5-9 8"/></svg>Venue library</button>
@@ -439,38 +445,24 @@ try{
    the REAL figures here (SuperSplat shows them per scene) — the closer they
    are, the tighter the veil timing on every connection speed.
    Each space carries its OWN venue library (`lib`) — the photos the director
-   can share mid-tour while in that space.
-
-   ►► EVERY `lib` URL BELOW IS A PLACEHOLDER. To use real venue photos:
-      1. put the files in an `images/` folder next to this file
-      2. replace the URL with a relative path, keeping the caption:
-         ["images/garden-ceremony-october.jpg", "Ceremony in the garden · last October"]
-      4–6 photos per space fills the 3-column grid cleanly.
+   can share mid-tour while in that space. Files live in images/ next to this
+   file and are referenced by relative path. Filenames are CASE-SENSITIVE once
+   published to GitHub Pages, even though macOS won't complain locally.
+   An empty lib:[] hides the Share group entirely for that space.
 */
 var TOUR=[
   {id:"overview", name:"Overview", tab:"Estate", sizeMB:6, splat:"d95730eb", skybox:null, voxel:null, photo:IMG.overview,
-   lib:[
-     [IMG.overview,"The estate from above"],
-     [IMG.garden,"The Formal Garden"],
-     [IMG.courtyard,"The Inner Courtyard"],
-     [IMG.terrace,"The Front Terrace"],
-     [IMG.cypress,"Cypress Lane"]
-   ]},
+   lib:[]},   /* no library on the aerial — nothing worth sharing at this scale */
   {id:"garden", name:"The Formal Garden", tab:"Formal Garden", sizeMB:35, splat:"cdcde98c", skybox:SKY, voxel:VOX, photo:IMG.garden,
    lib:[
-     [IMG.garden,"Ceremony in the garden · last October"],
-     [IMG.garden,"The aisle from the fountain · June"],
-     [IMG.garden,"Reception under string lights · August"],
-     [IMG.cypress,"The processional down Cypress Lane"],
-     [IMG.terrace,"Cocktails after the ceremony"],
-     [IMG.overview,"The garden within the estate"]
+     ["images/formalgarden2.jpg","Ceremony set for 200, fountain behind"],
+     ["images/formalgarden1.jpg","The terrace above the ceremony lawn"]
    ]},
   {id:"courtyard", name:"Inner Courtyard", tab:"Inner Courtyard", sizeMB:35, splat:"83352cba", skybox:SKY, voxel:null, photo:IMG.courtyard,
    lib:[
-     [IMG.courtyard,"Cocktail hour · June"],
-     [IMG.courtyard,"Dinner under the loggia · September"],
-     [IMG.courtyard,"The rain plan in action · February"],
-     [IMG.terrace,"Guests moving out to the terrace"]
+     ["images/courtyard1.jpg","Reception dinner at golden hour"],
+     ["images/courtyard2.jpg","Candlelit tables after dark"],
+     ["images/courtyard3.jpg","The full courtyard, evening"]
    ]}
 ];
 
@@ -732,8 +724,13 @@ function resetView(){
 
 /* ============ VENUE LIBRARY (per space) ============ */
 function renderLibrary(){
+  var lib=cur().lib||[], has=lib.length>0;
+  /* a space with no photos shouldn't advertise an empty drawer */
+  document.getElementById("shareGrp").style.display=has?"":"none";
+  document.getElementById("shareSep").style.display=has?"":"none";
+  if(!has){ closeLibrary(); return; }
   document.getElementById("libScope").textContent=cur().name+" · shared instantly";
-  document.getElementById("libGrid").innerHTML=cur().lib.map(function(p,i){
+  document.getElementById("libGrid").innerHTML=lib.map(function(p,i){
     return '<button class="lib-item" onclick="shareFromLibrary('+i+')">'+
       '<span class="lib-thumb"><img src="'+p[0]+'" loading="lazy" onerror="this.style.display=\'none\'" alt=""></span>'+
       '<span class="lib-cap">'+p[1]+'</span></button>';
