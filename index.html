@@ -43,7 +43,7 @@
   /* veil carries the space's own photo, so veil → poster → splat never flashes white */
   .splatload{position:absolute;inset:0;z-index:6;background:#181613 center/cover no-repeat;
     display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;
-    opacity:1;visibility:visible;transition:opacity .6s ease,visibility .6s ease}
+    opacity:1;visibility:visible;transition:opacity 1.1s ease,visibility 1.1s ease}
   .splatload.off{opacity:0;visibility:hidden}
   .sl-veil{position:absolute;inset:0;background:rgba(17,16,14,.68);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
   .sl-ring{position:relative;z-index:2;width:38px;height:38px;border-radius:50%;border:2px solid rgba(154,123,79,.22);border-top-color:var(--gold);animation:spin 1s linear infinite}
@@ -171,14 +171,18 @@
   .ctl svg{width:14px;height:14px}
 
   /* drag cue — the one genuinely non-obvious control */
-  .dragcue{position:absolute;left:50%;bottom:104px;transform:translateX(-50%) translateY(6px);z-index:20;
-    background:var(--glass);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
-    border:1px solid var(--glass-border);border-radius:30px;padding:10px 22px;
-    font-size:12px;color:var(--ink-soft);letter-spacing:.04em;box-shadow:var(--shadow-md);
-    display:flex;align-items:center;gap:9px;pointer-events:none;
+  /* centred, not tucked above the dock — a first-time visitor's eye goes to the
+     middle of the frame, and this is the one instruction they must not miss */
+  .dragcue{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) translateY(8px);z-index:20;
+    background:var(--glass);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+    border:1px solid var(--glass-border);border-radius:30px;padding:13px 26px;
+    font-size:14px;font-weight:500;color:var(--ink);letter-spacing:.03em;box-shadow:var(--shadow-lg);
+    display:flex;align-items:center;gap:10px;pointer-events:none;white-space:nowrap;
     opacity:0;transition:all .25s ease}
+  .dragcue svg{width:17px;height:17px}
   /* breathe is delayed past the entry transition so it doesn't hijack the fade-in */
-  .dragcue.on{opacity:1;transform:translateX(-50%);animation:breathe 3.4s ease-in-out .25s infinite}
+  .dragcue.on{opacity:1;transform:translate(-50%,-50%);animation:breathe 3.4s ease-in-out .25s infinite}
+  @media (max-width:520px){ .dragcue{font-size:12.5px;padding:11px 18px;white-space:normal;text-align:center} }
   .dragcue svg{width:15px;height:15px;color:var(--gold)}
   @keyframes breathe{0%,100%{opacity:.8}50%{opacity:1}}
 
@@ -521,7 +525,12 @@ var loadT=null, minHoldT=null, loadFired=false, holdDone=false, loadedOnce={};
    ~39 Mbps line): time ≈ 0.8s fixed overhead + size ÷ sustained rate.
    The overhead is viewer boot, decode and GPU upload — it does NOT scale with
    file size, so it must sit outside the transfer term. */
-var OVERHEAD_MS=850, SAFETY=1.12, SETUP_S=0.25;
+/* SAFETY is deliberately generous. The probe measures the Squarespace CDN, but the
+   splat streams from superspl.at — a different network we can't measure directly.
+   Under-estimating shows a white iframe (looks broken); over-estimating shows a
+   progress bar for a few extra seconds (looks intentional). Err long. */
+var OVERHEAD_MS=1000, SAFETY=1.15, SETUP_S=0.25;
+var HEAVY_FLOOR_MS=3000;   /* a big capture never claims to be ready sooner than this */
 var mbps=null;
 function probeBandwidth(){
   try{
@@ -543,7 +552,8 @@ function estimateMs(s){
   var size=s.sizeMB||25;                 /* MB — see TOUR data */
   var rate=mbps||10;                     /* assume a modest line when unknown */
   var ms=OVERHEAD_MS + (size*8/rate)*1000*SAFETY;
-  return Math.max(1500, Math.min(ms, 18000));
+  var floor=(size>=20)?HEAVY_FLOOR_MS:1500;
+  return Math.max(floor, Math.min(ms, 20000));
 }
 
 function showLoader(s){
@@ -570,9 +580,15 @@ function showLoader(s){
   minHoldT=setTimeout(function(){ holdDone=true; tryHide(); },est);
   loadT=setTimeout(function(){ loadFired=true; holdDone=true; tryHide(); },24000); /* never trap */
 }
+/* Two-stage exit. Stage 1: the estimate expires, but instead of vanishing onto a
+   possibly-blank iframe, the veil HOLDS — bar at 97%, spinner still turning, same
+   blurred backdrop. Visually indistinguishable from stage 0, so the extra seconds
+   read as "nearly there" rather than as a stall. Stage 2 fades it for real.
+   Net effect: the window in which a white frame could appear roughly doubles,
+   with no visible discontinuity if the splat lands inside it. */
 function tryHide(){
   if(!(loadFired&&holdDone)) return;
-  barEl.style.transition="width .28s ease"; barEl.style.width="100%";
+  barEl.style.transition="width .25s ease"; barEl.style.width="100%";
   loadEl.classList.add("off"); subEl.classList.remove("on");
 }
 function hideLoader(){ clearTimeout(minHoldT); clearTimeout(loadT); loadEl.classList.add("off"); }
