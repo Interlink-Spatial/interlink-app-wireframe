@@ -173,7 +173,7 @@
   /* drag cue — the one genuinely non-obvious control */
   /* centred, not tucked above the dock — a first-time visitor's eye goes to the
      middle of the frame, and this is the one instruction they must not miss */
-  .dragcue{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) translateY(8px);z-index:20;
+  .dragcue{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) translateY(8px);z-index:5;
     background:var(--glass);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
     border:1px solid var(--glass-border);border-radius:30px;padding:13px 26px;
     font-size:14px;font-weight:500;color:var(--ink);letter-spacing:.03em;box-shadow:var(--shadow-lg);
@@ -557,7 +557,7 @@ function estimateMs(s){
 }
 
 function showLoader(s){
-  loadFired=false; holdDone=false;
+  loadFired=false; holdDone=false; veilGone=false;
   if(TEST){                              /* raw behaviour — no veil, no hold */
     tStart=performance.now(); tLoad=0;
     loadEl.classList.add("off"); hudUpdate();
@@ -590,8 +590,10 @@ function tryHide(){
   if(!(loadFired&&holdDone)) return;
   barEl.style.transition="width .25s ease"; barEl.style.width="100%";
   loadEl.classList.add("off"); subEl.classList.remove("on");
+  veilGone=true;
+  maybeCue(600);          /* arrives just as the splat resolves into view */
 }
-function hideLoader(){ clearTimeout(minHoldT); clearTimeout(loadT); loadEl.classList.add("off"); }
+function hideLoader(){ clearTimeout(minHoldT); clearTimeout(loadT); loadEl.classList.add("off"); veilGone=true; maybeCue(600); }
 splatEl.addEventListener("load",function(){
   loadFired=true;
   if(TEST){ tLoad=performance.now()-tStart; hudUpdate(); return; }
@@ -677,7 +679,7 @@ function goToSpace(i){
   render();
   logEntry("space",cur().name);
   toast("Moving to <b>"+cur().name+"</b>");
-  maybeCue(2200);                 /* after the move toast clears */
+  /* no cue call here — showLoader/tryHide drive it once the new space is visible */
   track("space_change");
 }
 
@@ -699,9 +701,11 @@ function render(){
    Shown once per space, then never again for that space. On the opening space it
    is applied synchronously so it fades in *underneath* the closing lobby and is
    simply present when the lobby clears — never arriving after the dock. */
-var cueSeen={};
+var cueSeen={}, veilGone=false;
 function maybeCue(delay){
-  if(!joined) return;
+  /* both must be true: the tour has started AND the loading veil has cleared.
+     Either one alone would put the cue on screen with nothing to interact with. */
+  if(!joined || !veilGone) return;
   var id=cur().id;
   if(cueSeen[id]) return;
   cueSeen[id]=true;
@@ -791,7 +795,7 @@ function joinTour(){
     document.getElementById("timer").textContent=(m<10?"0":"")+m+":"+(s<10?"0":"")+s; },1000);
   track("join");
   logEntry("space",cur().name);   /* the tour log starts when the tour does */
-  maybeCue(0);   /* present from the first frame, not an arriving event */
+  maybeCue(600);  /* fires now if the veil already cleared behind the lobby */
 }
 function fmtElapsed(){
   var m=Math.floor(secs/60), s=secs%60;
