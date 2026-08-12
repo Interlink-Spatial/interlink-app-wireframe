@@ -246,25 +246,82 @@
   .gate-hr{height:1px;background:var(--line-strong);margin:20px auto;width:44px}
   .gate-p{font-family:'Baskervville',serif;font-size:14.5px;color:var(--ink-soft);line-height:1.6;margin-top:10px}
   .gate-p b{color:var(--ink);font-weight:600;font-family:'Inter';font-size:13px}
+  /* the closer: after a wordless demo, this is where the name lands.
+     Short enough that it needs typographic weight to read as deliberate. */
+  .gate-close{font-family:'Cormorant Garamond',serif;font-size:25px;font-weight:500;
+    color:var(--ink);line-height:1.3;margin-top:20px;letter-spacing:.01em}
     
+  /* ===================== MOBILE =====================
+     Phones get a deliberately different arrangement, not a squeezed desktop:
+     the top bar splits into two rows (status, then a full-width tab strip),
+     the dock collapses to one row of three buttons, and everything else is
+     sized so nothing can overlap the centred cue. */
   @media (max-width:900px){
-    .notes,.demotag,.lb-party,.live-txt,.timer{display:none}
-    .lb-left{padding:12px 13px}
-    .sendchip{display:block}
-    .videos{width:132px;top:170px}
-    .toast{top:118px}
-    .lb-zone{flex:0 1 auto}
-    .lb-center{flex:1 1 auto;min-width:0;justify-content:flex-start}
-    .tab{font-size:15px;padding:9px 12px}
-    .lb-left{padding:9px 12px}
-    .lb-right{padding:6px 6px}
-    .dock{flex-wrap:wrap;justify-content:center;border-radius:16px}
-    .grp{padding:0 8px}
-    .library{bottom:auto;top:50%;transform:translateX(-50%) translateY(-50%);width:calc(100vw - 32px)}
+    .notes,.demotag,.lb-party,.live-txt{display:none}
+
+    /* --- top bar: row 1 = status + End tour, row 2 = tabs --- */
+    .livebar{top:12px;left:12px;right:12px;flex-wrap:wrap;gap:8px}
+    .lb-zone{flex:0 0 auto;order:1}
+    .lb-zone--r{order:2;margin-left:auto;justify-content:flex-end}
+    .lb-center{order:3;flex:1 0 100%;max-width:100%;justify-content:flex-start;padding:5px}
+    .lb-left{padding:10px 14px;gap:8px}
+    .timer{border-left:none;padding-left:0;margin-left:0;font-size:12.5px}
+    .lb-right{padding:5px 5px 5px 5px}
+    .end{padding:9px 14px;white-space:nowrap;font-size:12px}
+    /* a serif display face reads as an accident at chip size — use the UI font */
+    .tab{font-family:'Inter',system-ui,sans-serif;font-size:13.5px;font-weight:500;
+         letter-spacing:.01em;padding:8px 12px;border-radius:9px}
+    .tab-ic{width:13px;height:13px;flex:0 0 13px}
+    .tab-div{margin:4px 3px}
+
+    /* --- send-to-laptop chip sits under the bar, clear of both rows --- */
+    .sendchip{display:block;top:112px;font-size:11px;padding:7px 14px;max-width:calc(100vw - 24px)}
+
+    /* --- smaller call tiles, moved down so they can never reach the cue --- */
+    .videos{width:96px;top:154px;right:12px;gap:8px}
+    .vlabel{font-size:9px;padding:2px 6px;left:6px;bottom:6px}
+    .vavatar{width:38px;height:38px;font-size:15px}
+    .vbtn{width:20px;height:20px}
+    .vbtn svg{width:10px;height:10px}
+    .vstate{right:6px;top:6px}
+
+    /* --- cue: below the tiles, wraps cleanly, never clipped --- */
+    .dragcue{top:54%;font-size:13px;padding:11px 18px;white-space:normal;text-align:center;
+             max-width:calc(100vw - 40px);line-height:1.4}
+    .dragcue svg{width:15px;height:15px;flex:0 0 15px}
+
+    .toast{top:112px;font-size:11.5px}
+
+    /* --- dock: one row, three buttons, no orphaned group labels or divider --- */
+    .dock{bottom:12px;padding:8px;gap:0;border-radius:16px;flex-wrap:nowrap;
+          max-width:calc(100vw - 24px)}
+    .grp{padding:0 3px;gap:0}
+    .grp-lbl,.sep{display:none}
+    .grp-row{gap:5px}
+    .ctl{font-size:11.5px;padding:9px 10px;gap:5px}
+    .ctl svg{width:13px;height:13px;flex:0 0 13px}
+
+    .library{bottom:auto;top:50%;transform:translateX(-50%) translateY(-50%);width:calc(100vw - 24px);min-width:0}
     .library.on{transform:translateX(-50%) translateY(-50%)}
     .lib-grid{justify-content:center}
-    .photocard{left:16px;right:16px;width:auto;bottom:150px}
-    .gate-card{padding:24px 22px 20px}
+    .lib-item{width:128px;flex:0 0 128px}
+    .photocard{left:12px;right:12px;width:auto;bottom:96px}
+
+    /* --- outro/lobby cards --- */
+    .gate-card{padding:24px 20px 20px}
+    .gate-title{font-size:26px}
+    .gate-close{font-size:22px;margin-top:17px}
+    .gate-foot{font-size:9px;letter-spacing:.09em;line-height:1.75;word-break:break-word}
+  }
+
+  /* very narrow phones */
+  @media (max-width:400px){
+    .tab{font-size:12.5px;padding:7px 9px}
+    .ctl{font-size:11px;padding:8px 8px;gap:4px}
+    .videos{width:84px;top:150px}
+    .dragcue{font-size:12.5px;padding:10px 15px}
+    .gate-title{font-size:23px}
+    .gate-close{font-size:20px}
   }
 </style>
 </head>
@@ -407,7 +464,8 @@
     <div class="gate-eyebrow">Tour ended · <span id="outroTime">00:00</span></div>
     <div class="gate-title">Provide tours without leaving your desk</div>
     <div class="gate-hr"></div>
-    <div class="gate-p">That took <b id="outroMins">a few minutes</b>. No drive out, no no-show, no afternoon spent on a couple who was never going to book.<br><br>Imagine it prepared for <b id="outroVenue">your venue</b>.</div>
+    <div class="gate-p">That took <b id="outroMins">a few minutes</b>. Now picture your own property — your route, your stops, the details you always point out, the questions answered as they come, and a couple hearing all of it from you rather than a website.</div>
+    <div class="gate-close">That's Interlink.</div>
     <a class="gate-join" href="https://calendly.com/ryanpeng/interview" target="_blank" rel="noopener" onclick="track('cta_schedule')">Schedule a meeting</a>
     <button class="gate-ghost" id="shareBtn" onclick="shareTour()">Share tour</button>
     <button class="gate-ghost" onclick="track('replay');location.reload()">Replay the demo</button>
